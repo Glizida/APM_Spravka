@@ -2,4 +2,4 @@
 
 http://www.nalog.gov.by/ru/arm-spravka-o-dohodah/view/arm-spravka-o-doxodax-ischislennyx-i-uderzhannyx-summax-podoxodnogo-naloga-s-fizicheskix-lits-9010/
 
-ДЛЯ ОЗНОКОМИТЕЛЬНЫХ ЦЕЛЕЙ
+ДЛЯ ОЗНОКОМИТЕЛЬНЫХ ЦЕЛЕЙ, ИНОЕ ИСПОЛЬЗОВАНИЕ ДАННОГО ПО ЗАПРЕЩАЕТСЯ
