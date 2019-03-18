@@ -7,6 +7,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Настройка" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Сохранить всё"></MenuItem>
+                <Separator />
+                <MenuItem Header="Печать справки" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Файл для МНС" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Выход" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Редактирование" >
+                <MenuItem Header="Новая запись"></MenuItem>
+                <MenuItem Header="Корректировка"></MenuItem>
+                <MenuItem Header="Удаление"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справочники" >
+                <MenuItem Header="Документы, удостоверяющие личность"></MenuItem>
+                <MenuItem Header="Класификаторы СОАТО"></MenuItem>
+                <MenuItem Header="Налоговые инспекции"></MenuItem>
+                <MenuItem Header="Статусы плательщика"></MenuItem>
+                <MenuItem Header="Страны мира"></MenuItem>
+                <MenuItem Header="Типы улиц"></MenuItem>
+                <Separator />
+                <MenuItem Header="Авторские вознагрождения"></MenuItem>
+                <MenuItem Header="Доходы по операциям с ценными бумагами"></MenuItem>
+                <MenuItem Header="Доходы, не облагаемые в устан. пределах"></MenuItem>
+                <MenuItem Header="Доходы от резидентов(не резидентов) ПВТ"></MenuItem>
+                <MenuItem Header="Стандартные вычеты"></MenuItem>
+                <MenuItem Header="Социальные вычеты"></MenuItem>
+                <MenuItem Header="Имущественные вычеты"></MenuItem>
+                <MenuItem Header="Доходы, полученные гражданами ЕАЭС"></MenuItem>
+                <MenuItem Header="Доходы, полученные в Могилевской области"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Помощь"></MenuItem>
+        </Menu>
     </Grid>
 </Window>
