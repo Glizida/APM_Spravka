@@ -24,5 +24,15 @@ namespace APM_Spravka
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

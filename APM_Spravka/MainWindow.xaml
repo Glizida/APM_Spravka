@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" Height="450" Width="800" Title="АРМ Справка">
     <Grid>
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Файл">
@@ -17,7 +16,7 @@
                 <Separator />
                 <MenuItem Header="Файл для МНС" ></MenuItem>
                 <Separator />
-                <MenuItem Header="Выход" ></MenuItem>
+                <MenuItem Header="Выход" Click="MenuItem_Click_1" ></MenuItem>
             </MenuItem>
             <MenuItem Header="Редактирование" >
                 <MenuItem Header="Новая запись"></MenuItem>
@@ -44,5 +43,65 @@
             </MenuItem>
             <MenuItem Header="Помощь"></MenuItem>
         </Menu>
+        <Menu Height="25" VerticalAlignment ="Top" Margin="0,20,0,0">
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Settings.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem IsEnabled ="false" Width="20"></MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/File.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Pen.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Delete.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem IsEnabled ="false" Width="20"></MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Save.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Print.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem IsEnabled ="false" Width="20"></MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Mail.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem IsEnabled ="false" Width="20"></MenuItem>
+            <MenuItem Width="24">
+                <MenuItem.Icon>
+                    <Image Source="Images/Help.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem IsEnabled ="false" Width="20"></MenuItem>
+            <MenuItem Width="24" Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <Image Source="Images/Exit.png"></Image>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Grid Margin="0,50,0,25">
+            <Grid.ColumnDefinitions>
+               
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">
+            <TextBlock TextAlignment="Center" FontSize="20">Итого</TextBlock>
+        </StackPanel>
     </Grid>
 </Window>
