@@ -34,5 +34,13 @@ namespace APM_Spravka
         {
             Environment.Exit(0);
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Setting setting = new Setting();
+            setting.Owner = this;
+            setting.Show();
+            this.IsEnabled = false;
+        }
     }
 }

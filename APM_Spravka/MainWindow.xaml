@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
-        mc:Ignorable="d" Height="450" Width="800" Title="АРМ Справка">
+        mc:Ignorable="d" Height="450" Width="800" Title="АРМ Справка" MinWidth="800" MinHeight="450">
     <Grid>
         <Menu Height="25" VerticalAlignment="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Настройка" ></MenuItem>
+                <MenuItem Header="Настройка" Click="MenuItem_Click_2" ></MenuItem>
                 <Separator />
                 <MenuItem Header="Сохранить всё"></MenuItem>
                 <Separator />
@@ -101,7 +101,9 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">
-            <TextBlock TextAlignment="Center" FontSize="20">Итого</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Итого</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Доход</TextBlock>
+            <TextBlock TextAlignment="Center" FontSize="20">Налог</TextBlock>
         </StackPanel>
     </Grid>
 </Window>
