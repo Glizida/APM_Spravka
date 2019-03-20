@@ -29,5 +29,10 @@ namespace APM_Spravka
             Owner.Show();
             Owner.IsEnabled = true;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
         mc:Ignorable="d"
-        Title="Record" Height="450" Width="800" Closing="Window_Closing">
+        Title="Новая запись" Height="600" Width="800" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <TabControl>
             <TabItem x:Name="Razdel2">
@@ -22,7 +22,7 @@
                                     <TextBlock Margin="25,0,0,0">Статус</TextBlock>
                                     <TextBox Margin="10,0,10,0" Width="75" MaxLength="9" Height="18"></TextBox>
                                     <Button Width="20" Content="..."></Button>
-                                    </StackPanel>
+                                </StackPanel>
                                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                                     <TextBlock Margin="100,0,0,0">Код места работы:</TextBlock>
                                     <RadioButton Margin="10,0,0,0" GroupName="KeyWork" Content="Основное"></RadioButton>
@@ -38,7 +38,7 @@
                             <TextBlock Margin="10,0,10,0">Отчество</TextBlock>
                             <TextBox Margin="10,0,10,0" Width="150"></TextBox>
                         </StackPanel>
-                        <Separator Margin="0,10,0,10"></Separator>
+                        <Separator Margin="0,10,0,10"/>
                         <TextBlock Margin="0,0,0,10">Документ</TextBlock>
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock Margin="10,0,10,0">Код</TextBlock>
@@ -51,16 +51,174 @@
                             <TextBlock Margin="30,0,10,0">Дата выдачи</TextBlock>
                             <DatePicker/>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <TextBlock Margin="10,0,10,0">Кем выдан</TextBlock>
+                            <TextBox Width="300"  Margin="10,0,10,0"></TextBox>
+                            <TextBlock Margin="10,0,10,0">Идентификационный номер</TextBlock>
+                            <TextBox Width="150"  Margin="10,0,10,0"></TextBox>
+                        </StackPanel>
+                        <Separator Margin="0,10,0,10" />
+                        <TextBlock>Место жительство в РБ</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                    <TextBlock Margin="10,0,0,0">Индекс</TextBlock>
+                                    <TextBox Margin="28,0,10,0" Width="50" MaxLength="5"/>
+                                    <TextBlock Margin="30,0,10,0">СОАТО</TextBlock>
+                                    <TextBox Margin="10,0,10,0" Width="100"></TextBox>
+                                    <Button Width="20" Content="..."></Button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                    <TextBlock Margin="10,0,0,0">Тип улицы</TextBlock>
+                                    <TextBox Margin="10,0,10,0" Width="50" MaxLength="5" Height="18"></TextBox>
+                                    <Button Width="20" Content="..."></Button>
+                                    <TextBlock Margin="10,0,7,0">Название</TextBlock>
+                                    <TextBox Margin="0,0,10,0" Width="100"></TextBox>
+                                    <Button Width="20" Content="..."></Button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                    <TextBlock Margin="10,0,10,0">Дом</TextBlock>
+                                    <TextBox Width="50"  Margin="34,0,10,0"></TextBox>
+                                    <TextBlock Margin="30,0,10,0">Корпус</TextBlock>
+                                    <TextBox Width="25"  Margin="10,0,10,0"></TextBox>
+                                    <TextBlock Margin="10,0,10,0">Квартира</TextBlock>
+                                    <TextBox Width="50"  Margin="10,0,10,0"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                                <TextBlock Margin="0,0,0,0">Область:</TextBlock>
+                                <TextBlock Margin="0,10,0,0">Район:</TextBlock>
+                                <TextBlock Margin="0,10,0,0">Сельсовет:</TextBlock>
+                                <TextBlock Margin="0,10,0,0">Нас. Пункт:</TextBlock>
+                            </StackPanel>
+                            <StackPanel Margin="10,0,0,0" Orientation="Vertical" HorizontalAlignment="Right">
+                                <TextBlock Margin="0,0,0,0">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</TextBlock>
+                                <TextBlock Margin="0,10,0,0">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</TextBlock>
+                                <TextBlock Margin="0,10,0,0">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</TextBlock>
+                                <TextBlock Margin="0,10,0,0">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                        <Separator Margin="0,10,0,10" />
+                        <TextBlock>Место жительства в иностарном государстве</TextBlock>
+                        <StackPanel Margin="10,0,0,0" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal"  Margin="0,10,0,0">
+                                <TextBlock>Код страны</TextBlock>
+                                <TextBox Margin="10,0,10,0" Width="45"></TextBox>
+                                <Button Width="20" Content="..." ></Button>
+                                <TextBlock Margin="10,0,10,0">Область</TextBlock>
+                                <TextBox Margin="0,0,10,0" Width="100"></TextBox>
+                                <TextBlock Margin="10,0,10,0">Район</TextBlock>
+                                <TextBox Margin="0,0,10,0" Width="100"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"  Margin="0,10,0,0">
+                                <TextBlock Margin="0,0,10,0">Населенный пункт</TextBlock>
+                                <TextBox Margin="0,0,10,0" Width="150"></TextBox>
+                                <TextBlock>Тип улицы</TextBlock>
+                                <TextBox Margin="10,0,10,0" Width="45"></TextBox>
+                                <Button Width="20" Content="..." ></Button>
+                                <TextBlock Margin="10,0,10,0">Улица</TextBlock>
+                                <TextBox Margin="0,0,10,0" Width="150"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"  Margin="0,10,0,0">
+                                <TextBlock Margin="0,0,10,0"><Run Text="Дом"/></TextBlock>
+                                <TextBox Width="50"  Margin="34,0,10,0"/>
+                                <TextBlock Margin="30,0,10,0"><Run Text="Корпус"/></TextBlock>
+                                <TextBox Width="25"  Margin="10,0,10,0"/>
+                                <TextBlock Margin="0,0,10,0"><Run Text="Квартира"/></TextBlock>
+                                <TextBox Width="50"  Margin="10,0,10,0"/>
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
-            <TabItem></TabItem>
-            <TabItem></TabItem>
-            <TabItem></TabItem>
-            <TabItem></TabItem>
-            <TabItem></TabItem>
-            <TabItem></TabItem>
-            <TabItem></TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>Доходы</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>Взносы</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>п. 3.1.7</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>Льготы и вычеты</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>Вычеты (авт. и ЦБ</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>Раздел 5</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>Разделы 6-7</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel>
+
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
         </TabControl>
+        <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Bottom">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,10,10,10" Width="75" Height="25">
+                <Button.Content>
+                    <TextBlock Foreground="Red">Ошибки</TextBlock>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="80">
+        <ListBox Name="ErrorList">
+                <ListBoxItem>Привет мир!</ListBoxItem>
+                <ListBoxItem>Пример 2</ListBoxItem>
+                <ListBoxItem>Пример 4</ListBoxItem>
+        </ListBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+        <Button  Margin="10,10,10,10" Width="75" Height="25" Content="Отмена" Click="Button_Click"></Button>
+        <Button  Margin="10,10,10,10"  Width="75" Height="25" Content="Сохранить"></Button>
+        </StackPanel>
     </Grid>
 </Window>
