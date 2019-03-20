@@ -25,17 +25,12 @@ namespace APM_Spravka
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Exit_Application(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void Open_Setting_Click(object sender, RoutedEventArgs e)
         {
             Setting setting = new Setting();
             setting.Owner = this;
@@ -43,15 +38,21 @@ namespace APM_Spravka
             this.IsEnabled = false;
         }
 
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        private void Open_Spravka_Click(object sender, RoutedEventArgs e)
         {
-            SpavkaRazmetka spavkaRazmetka = new SpavkaRazmetka();
+            MenuItem menu;
+            if (sender as MenuItem != null)
+            {
+                menu = (MenuItem) sender;
+            }
+            else return; 
+            SpavkaRazmetka spavkaRazmetka = new SpavkaRazmetka(menu.Header.ToString());
             spavkaRazmetka.Owner = this;
             spavkaRazmetka.Show();
             this.IsEnabled = false;
         }
 
-        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        private void Open_Record_Click(object sender, RoutedEventArgs e)
         {
             Record record = new Record();
             record.Owner = this;

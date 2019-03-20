@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
-        mc:Ignorable="d" Height="319" Width="749" Icon="Images/Settings.png" Title="Настройки - Реквизиты заголовка файла">
+        mc:Ignorable="d" Height="319" MinHeight="319" MinWidth="749" Width="749" Icon="Images/Settings.png" Title="Настройки - Реквизиты заголовка файла">
     <Grid>
         <TextBlock  VerticalAlignment="Top" FontSize="20"  Margin="10,20,0,0">Введите начальные значения:</TextBlock>
         <StackPanel VerticalAlignment="Top" Margin="10,50,10,0">

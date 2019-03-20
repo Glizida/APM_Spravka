@@ -16,14 +16,20 @@ namespace APM_Spravka
 {
     public partial class SpavkaRazmetka : Window
     {
-        public SpavkaRazmetka()
+        public SpavkaRazmetka(string NamWindows)
         {
             InitializeComponent();
+            Title = NamWindows;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Owner.Show();
             Owner.IsEnabled = true;
         }
     }
