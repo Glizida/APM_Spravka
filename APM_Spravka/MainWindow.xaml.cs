@@ -42,5 +42,21 @@ namespace APM_Spravka
             setting.Show();
             this.IsEnabled = false;
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            SpavkaRazmetka spavkaRazmetka = new SpavkaRazmetka();
+            spavkaRazmetka.Owner = this;
+            spavkaRazmetka.Show();
+            this.IsEnabled = false;
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            Record record = new Record();
+            record.Owner = this;
+            record.Show();;
+            this.IsEnabled = false;
+        }
     }
 }

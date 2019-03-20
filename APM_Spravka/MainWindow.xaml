@@ -19,7 +19,7 @@
                 <MenuItem Header="Выход" Click="MenuItem_Click_1" ></MenuItem>
             </MenuItem>
             <MenuItem Header="Редактирование" >
-                <MenuItem Header="Новая запись"></MenuItem>
+                <MenuItem Header="Новая запись" Click="MenuItem_Click_4"></MenuItem>
                 <MenuItem Header="Корректировка"></MenuItem>
                 <MenuItem Header="Удаление"></MenuItem>
             </MenuItem>
@@ -41,7 +41,7 @@
                 <MenuItem Header="Доходы, полученные гражданами ЕАЭС"></MenuItem>
                 <MenuItem Header="Доходы, полученные в Могилевской области"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Помощь"></MenuItem>
+            <MenuItem Header="Помощь" Click="MenuItem_Click_3"></MenuItem>
         </Menu>
         <Menu Height="25" VerticalAlignment ="Top" Margin="0,20,0,0">
             <MenuItem Width="24">
