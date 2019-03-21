@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APM_Spravka", "APM_Spravka\APM_Spravka.csproj", "{BA1D1466-AA4B-400D-AF15-07C331112074}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APM_Spravka_Admin", "..\APM_Spravka_Admin\APM_Spravka_Admin\APM_Spravka_Admin.csproj", "{E843E113-B51D-4185-8F93-7CBF22A9AB8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BA1D1466-AA4B-400D-AF15-07C331112074}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1D1466-AA4B-400D-AF15-07C331112074}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1D1466-AA4B-400D-AF15-07C331112074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E843E113-B51D-4185-8F93-7CBF22A9AB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E843E113-B51D-4185-8F93-7CBF22A9AB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E843E113-B51D-4185-8F93-7CBF22A9AB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E843E113-B51D-4185-8F93-7CBF22A9AB8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

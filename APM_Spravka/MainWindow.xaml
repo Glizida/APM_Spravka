@@ -24,22 +24,22 @@
                 <MenuItem Header="Удаление"></MenuItem>
             </MenuItem>
             <MenuItem Header="Справочники" >
-                <MenuItem Header="Документы, удостоверяющие личность" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Класификаторы СОАТО" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Налоговые инспекции" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Статусы плательщика" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Страны мира" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Типы улиц" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Документы, удостоверяющие личность" Name="MenuItem_Udostaverenie" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Класификаторы СОАТО"  Name="MenuItem_COATO" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Налоговые инспекции"  Name="MenuItem_NalogInspekt" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Статусы плательщика"  Name="MenuItem_Status" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Страны мира"  Name="MenuItem_World" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Типы улиц"  Name="MenuItem_TypeYlic" Click="Open_Spravka_Click"></MenuItem>
                 <Separator />
-                <MenuItem Header="Авторские вознагрождения" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Доходы по операциям с ценными бумагами" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Доходы, не облагаемые в устан. пределах" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Доходы от резидентов(не резидентов) ПВТ" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Стандартные вычеты" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Социальные вычеты" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Имущественные вычеты" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Доходы, полученные гражданами ЕАЭС" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Доходы, полученные в Могилевской области" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Авторские вознагрождения"  Name="MenuItem_AvtorVoznagr" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Доходы по операциям с ценными бумагами"  Name="MenuItem_DoxodsBymagami" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Доходы, не облагаемые в устан. пределах"  Name="MenuItem_DoxodNeOblagaemie" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Доходы от резидентов(не резидентов) ПВТ"  Name="MenuItem_PVT" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Стандартные вычеты"  Name="MenuItem_StandartVichet" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Социальные вычеты" Name="MenuItem_SocialnieVicheti" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Имущественные вычеты" Name="MenuItem_Imychestmennie" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Доходы, полученные гражданами ЕАЭС"  Name="MenuItem_EAEC" Click="Open_Spravka_Click"></MenuItem>
+                <MenuItem Header="Доходы, полученные в Могилевской области" Name="MenuItem_MogilevObl" Click="Open_Spravka_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Помощь"></MenuItem>
         </Menu>
@@ -96,9 +96,22 @@
             </MenuItem>
         </Menu>
         <Grid Margin="0,50,0,25">
-            <Grid.ColumnDefinitions>
-               
-            </Grid.ColumnDefinitions>
+            <ListView x:Name="listUser" ItemsSource="{DynamicResource ResourceKey=UserList}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Key}" Header="№"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding UNP}" Header="УНП"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Familia}" Header="Фамилия"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Imia}" Header="Имя"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Otchestvo}" Header="Отчетсво"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Nalog}" Header="Налог"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.Resources>
+
+                </ListView.Resources>
+            </ListView>
         </Grid>
         <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">
             <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Итого</TextBlock>

@@ -27,6 +27,11 @@ namespace APM_Spravka
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
             Owner.IsEnabled = true;
             Owner.Show();
         }

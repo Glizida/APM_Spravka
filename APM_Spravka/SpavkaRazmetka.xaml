@@ -7,35 +7,27 @@
         xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:generic="clr-namespace:System.Collections.Generic;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="SpavkaRazmetka" Height="450" Width="800" Closing="Window_Closing">
+        Title="SpavkaRazmetka" Height="587" Width="629" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,55">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Top">
                 <TextBlock Margin="10,10,0,10">Поиск:</TextBlock>
                 <TextBox Margin="10,10,0,10" Width="250" Height="20"/>
-                <Button Margin="10,0,0,0" Width="75" Height="25" Content="Найти"/>
+                <Button Margin="130,0,0,0" Width="75" Height="25" Content="Найти"/>
+                <Button Margin="10,0,0,0" Width="75" Height="25" Content="Отмена"/>
             </StackPanel>
-                <ListView Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=spravka}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Width="100" DisplayMemberBinding="{Binding Path=Key}">Код</GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Path=Name}">Наименование</GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                    <ListView.Resources>
-                        <collections:ArrayList x:Key="spravka">
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р2938ра9ц"></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р2938ра9ц21у"></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р"></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р"></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р"></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р"></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р2938ра9цфывфыв "></local:Spravka>
-                            <local:Spravka Key="1" Name="тафыафыафыафаыпфы48925729837983479238748923на9цр8а92р39р"></local:Spravka>
-                        </collections:ArrayList>
-                    </ListView.Resources>
-                </ListView>
-            </StackPanel>
+            <ListView x:Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=spravka}" Width="590">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="100" DisplayMemberBinding="{Binding Key}" Header="Код"/>
+                        <GridViewColumn Width="490" DisplayMemberBinding="{Binding Name}" Header="Наименование"/>
+                    </GridView>
+                </ListView.View>
+                <ListView.Resources>
+
+                </ListView.Resources>
+            </ListView>
+        </StackPanel>
         <Button Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Click="Button_Click">Закрыть</Button>
     </Grid>
 </Window>

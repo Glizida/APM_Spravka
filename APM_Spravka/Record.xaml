@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
+        xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Новая запись" Height="600" Width="800" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
@@ -136,8 +137,23 @@
                     <TextBlock>Доходы</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel>
-
+                    <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+                        <TextBlock>Сведенья о дохдах, включаемых в начисляемый налог</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <ListView x:Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=RecordCSs}" Width="590">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Width="100" DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
+                                            <GridViewColumn Width="490" DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                                        </GridView>
+                                    </ListView.View>
+                                    <ListView.Resources>
+                                    
+                                    </ListView.Resources>
+                                </ListView>
+                            </StackPanel>
+                        </StackPanel>        
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
@@ -210,11 +226,8 @@
             </Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="80">
-        <ListBox Name="ErrorList">
-                <ListBoxItem>Привет мир!</ListBoxItem>
-                <ListBoxItem>Пример 2</ListBoxItem>
-                <ListBoxItem>Пример 4</ListBoxItem>
-        </ListBox>
+            <ListBox Name="ErrorList">
+            </ListBox>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
         <Button  Margin="10,10,10,10" Width="75" Height="25" Content="Отмена" Click="Button_Click"></Button>
