@@ -141,19 +141,62 @@
                         <TextBlock>Сведенья о дохдах, включаемых в начисляемый налог</TextBlock>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical">
-                                <ListView x:Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=RecordCSs}" Width="590">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Width="100" DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
-                                            <GridViewColumn Width="490" DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
-                                        </GridView>
-                                    </ListView.View>
-                                    <ListView.Resources>
-                                    
-                                    </ListView.Resources>
-                                </ListView>
+                                <StackPanel Orientation="Horizontal">
+                                    <ListView x:Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=RecordCSs}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
+                                                <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                                            </GridView>
+                                        </ListView.View>
+                                        <ListView.Resources>
+
+                                        </ListView.Resources>
+                                    </ListView>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>        
+                            <StackPanel Margin="10,10,10,10" Orientation="Vertical">
+                                <TextBlock>В том числе авторские вознаграждения - 3.1.1</TextBlock>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                        <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                        <TextBox Width="90"></TextBox>
+                                        <Button Margin="0,0,10,0" Content="..."></Button>
+                                        <Button>
+                                            <Button.Content>
+                                                <TextBlock Foreground="Red"> > </TextBlock>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                        <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
+                                        <ComboBox Name="ComboBoxMonth" Width="100">
+                                            <TextBlock>Январь</TextBlock>
+                                            <TextBlock>Февраль</TextBlock>
+                                            <TextBlock>Март</TextBlock>
+                                            <TextBlock>Апрель</TextBlock>
+                                            <TextBlock>Май</TextBlock>
+                                            <TextBlock>Июнь</TextBlock>
+                                            <TextBlock>Июль</TextBlock>
+                                            <TextBlock>Август</TextBlock>
+                                            <TextBlock>Сентябрь</TextBlock>
+                                            <TextBlock>Октябрь</TextBlock>
+                                            <TextBlock>Ноябрь</TextBlock>
+                                            <TextBlock>Декабрь</TextBlock>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                        <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                        <TextBox Width="100"></TextBox>
+                                        <Button>
+                                            <Button.Content>
+                                                <TextBlock Foreground="Green" Text=""></TextBlock>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
