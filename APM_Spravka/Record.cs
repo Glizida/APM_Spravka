@@ -11,20 +11,20 @@ namespace APM_Spravka
         private string mounth;
         private decimal doxod;
 
-        public RecordCS(string mounth, decimal doxod)
-        {
-            Mounth = mounth;
-            this.doxod = doxod;
-        }
-
         public RecordCS()
         {
         }
 
+        public RecordCS(string mounth, decimal doxod)
+        {
+            this.mounth = mounth;
+            this.doxod = doxod;
+        }
+
         public string Mounth
         {
-            get => Mounth;
-            set => Mounth = value;
+            get => mounth;
+            set => mounth = value;
         }
 
         public decimal Doxod

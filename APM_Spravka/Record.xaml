@@ -141,24 +141,38 @@
                         <TextBlock>Сведенья о дохдах, включаемых в начисляемый налог</TextBlock>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal">
-                                    <ListView x:Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=RecordCSs}">
-                                        <ListView.View>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="0,10,0,0">Доходы в месяц - 3.1</TextBlock>
+                                    <ListView Margin="10,10,10,10" Width="200" Height="350" x:Name="listSpravka31" ItemsSource="{DynamicResource ResourceKey=ListDpxod}">
+                                       <ListView.View>
                                             <GridView>
                                                 <GridViewColumn DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
                                                 <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
                                             </GridView>
                                         </ListView.View>
                                         <ListView.Resources>
-
+                                            <collections:ArrayList x:Key="ListDpxod">
+                                                <local:RecordCS Mounth="Январь"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Февраль"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Март"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Апрель"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Май" ></local:RecordCS>           
+                                                <local:RecordCS Mounth="Июнь"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Август"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Сентябрь"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Октябрь"></local:RecordCS>           
+                                                <local:RecordCS Mounth="Ноябрь" ></local:RecordCS>           
+                                                <local:RecordCS Mounth="Декабрь" ></local:RecordCS>           
+                                            </collections:ArrayList>
                                         </ListView.Resources>
                                     </ListView>
                                 </StackPanel>
                             </StackPanel>
-                            <StackPanel Margin="10,10,10,10" Orientation="Vertical">
-                                <TextBlock>В том числе авторские вознаграждения - 3.1.1</TextBlock>
-                                <StackPanel Orientation="Vertical">
-                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                            <StackPanel Margin="100,10,10,10" Orientation="Vertical">
+                               <StackPanel Orientation="Horizontal">
+                                   <StackPanel Orientation="Vertical">
+                                   <TextBlock FontStyle="Italic">В том числе авторские вознаграждения - 3.1.1</TextBlock>
+                                   <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                         <TextBlock Margin="10,0,25,0">Код</TextBlock>
                                         <TextBox Width="90"></TextBox>
                                         <Button Margin="0,0,10,0" Content="..."></Button>
@@ -167,8 +181,8 @@
                                                 <TextBlock Foreground="Red"> > </TextBlock>
                                             </Button.Content>
                                         </Button>
-                                    </StackPanel>
-                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                   </StackPanel>
+                                   <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                         <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
                                         <ComboBox Name="ComboBoxMonth" Width="100">
                                             <TextBlock>Январь</TextBlock>
@@ -184,19 +198,121 @@
                                             <TextBlock>Ноябрь</TextBlock>
                                             <TextBlock>Декабрь</TextBlock>
                                         </ComboBox>
-                                    </StackPanel>
-                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                        <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                   </StackPanel>
+                                   <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                        <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
                                         <TextBox Width="100"></TextBox>
-                                        <Button>
+                                        <Button Margin="10,0,0,0">
                                             <Button.Content>
-                                                <TextBlock Foreground="Green" Text=""></TextBlock>
+                                                <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
                                             </Button.Content>
                                         </Button>
                                     </StackPanel>
+
                                 </StackPanel>
+                                   <StackPanel Orientation="Vertical">
+                                       <ListBox Margin="0,30,0,0" Width="100" Height="100">
+
+                                       </ListBox>
+                                   </StackPanel>
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock FontStyle="Italic">В том числе операции с ЦБ - 3.1.2</TextBlock>
+                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                                <TextBox Width="90"></TextBox>
+                                                <Button Margin="0,0,10,0" Content="..."></Button>
+                                                <Button>
+                                                    <Button.Content>
+                                                        <TextBlock Foreground="Red"> ></TextBlock>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
+                                                <ComboBox Name="ComboBoxMonth2" Width="100" RenderTransformOrigin="0.86,0.682">
+                                                    <TextBlock>Январь</TextBlock>
+                                                    <TextBlock>Февраль</TextBlock>
+                                                    <TextBlock>Март</TextBlock>
+                                                    <TextBlock>Апрель</TextBlock>
+                                                    <TextBlock>Май</TextBlock>
+                                                    <TextBlock>Июнь</TextBlock>
+                                                    <TextBlock>Июль</TextBlock>
+                                                    <TextBlock>Август</TextBlock>
+                                                    <TextBlock>Сентябрь</TextBlock>
+                                                    <TextBlock>Октябрь</TextBlock>
+                                                    <TextBlock>Ноябрь</TextBlock>
+                                                    <TextBlock>Декабрь</TextBlock>
+                                                </ComboBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                <TextBlock Margin="10,0,10,0">Сумма</TextBlock>
+                                                <TextBox Width="100"></TextBox>
+                                                <Button Margin="10,0,0,0">
+                                                    <Button.Content>
+                                                        <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                        <StackPanel Orientation="Vertical">
+                                            <ListBox Margin="70,30,0,0" Width="100" Height="100"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock FontStyle="Italic">в т.ч. - получ. гражданами государств - членов ЕАЭС, за искл. граждан РБ - 3.1.6</TextBlock>
+                                            <StackPanel Orientation="Vertical">
+                                                                                       <StackPanel Orientation="Vertical">
+                                                <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                                <TextBox Width="90"></TextBox>
+                                                <Button Margin="0,0,10,0" Content="..."></Button>
+                                                <Button>
+                                                    <Button.Content>
+                                                        <TextBlock Foreground="Red"> ></TextBlock>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
+                                                <ComboBox Name="ComboBoxMonth3" Width="100">
+                                                    <TextBlock>Январь</TextBlock>
+                                                    <TextBlock>Февраль</TextBlock>
+                                                    <TextBlock>Март</TextBlock>
+                                                    <TextBlock>Апрель</TextBlock>
+                                                    <TextBlock>Май</TextBlock>
+                                                    <TextBlock>Июнь</TextBlock>
+                                                    <TextBlock>Июль</TextBlock>
+                                                    <TextBlock>Август</TextBlock>
+                                                    <TextBlock>Сентябрь</TextBlock>
+                                                    <TextBlock>Октябрь</TextBlock>
+                                                    <TextBlock>Ноябрь</TextBlock>
+                                                    <TextBlock>Декабрь</TextBlock>
+                                                </ComboBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
+                                                <TextBox Width="100"></TextBox>
+                                                <Button Margin="10,0,0,0">
+                                                    <Button.Content>
+                                                        <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                        </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
                             </StackPanel>
                         </StackPanel>
+                    </StackPanel>
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
@@ -205,8 +321,98 @@
                     <TextBlock>Взносы</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel>
-
+                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                        <StackPanel Margin="30,0,0,0" Orientation="Vertical">
+                            <TextBlock>в т.ч. - взносы (строительство) - 3.1.3</TextBlock>
+                            <ListView Width="200" Height="350" x:Name="listSpravka313" ItemsSource="{DynamicResource ResourceKey=ListDpxod}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Индексация"/>
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.Resources>
+                                    <collections:ArrayList x:Key="ListDpxod">
+                                        <local:RecordCS Mounth="Январь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Февраль"></local:RecordCS>
+                                        <local:RecordCS Mounth="Март"></local:RecordCS>
+                                        <local:RecordCS Mounth="Апрель"></local:RecordCS>
+                                        <local:RecordCS Mounth="Май" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Июнь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Август"></local:RecordCS>
+                                        <local:RecordCS Mounth="Сентябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Октябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Ноябрь" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Декабрь" ></local:RecordCS>
+                                    </collections:ArrayList>
+                                </ListView.Resources>
+                            </ListView>
+                            <DockPanel>
+                                <TextBlock>Итого по 3.1.3:</TextBlock>
+                                <TextBlock Margin="10,0,0,0">0</TextBlock>
+                            </DockPanel>
+                            </StackPanel>
+                        <StackPanel Margin="30,0,0,0" Orientation="Vertical">
+                            <TextBlock>в т.ч. - возврат страх. взносов - 3.1.4</TextBlock>
+                            <ListView  Width="200" Height="350" x:Name="listSpravka314" ItemsSource="{DynamicResource ResourceKey=ListDpxod}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.Resources>
+                                    <collections:ArrayList x:Key="ListDpxod">
+                                        <local:RecordCS Mounth="Январь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Февраль"></local:RecordCS>
+                                        <local:RecordCS Mounth="Март"></local:RecordCS>
+                                        <local:RecordCS Mounth="Апрель"></local:RecordCS>
+                                        <local:RecordCS Mounth="Май" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Июнь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Август"></local:RecordCS>
+                                        <local:RecordCS Mounth="Сентябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Октябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Ноябрь" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Декабрь" ></local:RecordCS>
+                                    </collections:ArrayList>
+                                </ListView.Resources>
+                            </ListView>
+                            <DockPanel>
+                                <TextBlock>Итого по 3.1.4:</TextBlock>
+                                <TextBlock Margin="10,0,0,0">0</TextBlock>
+                            </DockPanel>
+                        </StackPanel>
+                        <StackPanel Margin="30,0,0,0" Orientation="Vertical">
+                            <TextBlock>в т.ч. - погашение жилищных облигаций - 3.1.5</TextBlock>
+                            <ListView Width="200" Height="350" x:Name="listSpravka315" ItemsSource="{DynamicResource ResourceKey=ListDpxod}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                                    </GridView>
+                                </ListView.View>
+                                <ListView.Resources>
+                                    <collections:ArrayList x:Key="ListDpxod">
+                                        <local:RecordCS Mounth="Январь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Февраль"></local:RecordCS>
+                                        <local:RecordCS Mounth="Март"></local:RecordCS>
+                                        <local:RecordCS Mounth="Апрель"></local:RecordCS>
+                                        <local:RecordCS Mounth="Май" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Июнь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Август"></local:RecordCS>
+                                        <local:RecordCS Mounth="Сентябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Октябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Ноябрь" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Декабрь" ></local:RecordCS>
+                                    </collections:ArrayList>
+                                </ListView.Resources>
+                            </ListView>
+                            <DockPanel Margin="30,0,0,0">
+                                <TextBlock>Итого по 3.1.5:</TextBlock>
+                                <TextBlock Margin="10,0,0,0">0</TextBlock>
+                            </DockPanel>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
@@ -215,9 +421,38 @@
                     <TextBlock>п. 3.1.7</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel>
-
-                    </StackPanel>
+                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                        <StackPanel Margin="30,0,0,0" Orientation="Vertical">
+                            <TextBlock>в т.ч. - получ. от реал-ции продукции растениеводсва - 3.1.7</TextBlock>
+                            <ListView Width="200" Margin="0,10,0,0" Height="350" x:Name="listSpravka317" ItemsSource="{DynamicResource ResourceKey=ListDpxod}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Mounth}" Header="Месяц"/>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
+                                     </GridView>
+                                </ListView.View>
+                                <ListView.Resources>
+                                    <collections:ArrayList x:Key="ListDpxod">
+                                        <local:RecordCS Mounth="Январь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Февраль"></local:RecordCS>
+                                        <local:RecordCS Mounth="Март"></local:RecordCS>
+                                        <local:RecordCS Mounth="Апрель"></local:RecordCS>
+                                        <local:RecordCS Mounth="Май" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Июнь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Август"></local:RecordCS>
+                                        <local:RecordCS Mounth="Сентябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Октябрь"></local:RecordCS>
+                                        <local:RecordCS Mounth="Ноябрь" ></local:RecordCS>
+                                        <local:RecordCS Mounth="Декабрь" ></local:RecordCS>
+                                    </collections:ArrayList>
+                                </ListView.Resources>
+                            </ListView>
+                            <DockPanel>
+                                <TextBlock>Итого по 3.1.7:</TextBlock>
+                                <TextBlock Margin="10,0,0,0">0</TextBlock>
+                            </DockPanel>
+                        </StackPanel>
+                        </StackPanel>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
@@ -226,13 +461,13 @@
                 </TabItem.Header>
                 <TabItem.Content>
                     <StackPanel>
-
+                        
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock>Вычеты (авт. и ЦБ</TextBlock>
+                    <TextBlock>Вычеты (авт. и ЦБ)</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
                     <StackPanel>
