@@ -96,22 +96,20 @@
             </MenuItem>
         </Menu>
         <Grid Margin="0,50,0,25">
-            <ListView x:Name="listUser" ItemsSource="{DynamicResource ResourceKey=UserList}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Key}" Header="№"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding UNP}" Header="УНП"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Familia}" Header="Фамилия"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Imia}" Header="Имя"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Otchestvo}" Header="Отчетсво"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Doxod}" Header="Доход"/>
-                        <GridViewColumn DisplayMemberBinding="{Binding Nalog}" Header="Налог"/>
-                    </GridView>
-                </ListView.View>
-                <ListView.Resources>
+            <DataGrid x:Name="listUser" ItemsSource="{DynamicResource ResourceKey=UserList}" Margin="1,0,-1,0">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Key}" Header="№"/>
+                        <DataGridTextColumn Binding="{Binding UNP}" Header="УНП"/>
+                        <DataGridTextColumn Binding="{Binding Familia}" Header="Фамилия"/>
+                        <DataGridTextColumn Binding="{Binding Imia}" Header="Имя"/>
+                        <DataGridTextColumn Binding="{Binding Otchestvo}" Header="Отчетсво"/>
+                        <DataGridTextColumn Binding="{Binding Doxod}" Header="Доход"/>
+                        <DataGridTextColumn Binding="{Binding Nalog}" Header="Налог"/>
+                   </DataGrid.Columns>
+                <DataGrid.Items>
 
-                </ListView.Resources>
-            </ListView>
+                </DataGrid.Items>
+            </DataGrid>
         </Grid>
         <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">
             <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Итого</TextBlock>
