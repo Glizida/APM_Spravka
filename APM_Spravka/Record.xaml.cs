@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static APM_Spravka.RecordCS;
+using static APM_Spravka.RecordCSIndex;
 
 namespace APM_Spravka
 {

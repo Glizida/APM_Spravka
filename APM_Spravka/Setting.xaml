@@ -6,10 +6,6 @@
         xmlns:local="clr-namespace:APM_Spravka"
         mc:Ignorable="d" Height="319" MinHeight="319" MinWidth="749" Width="749" Icon="Images/Settings.png" ResizeMode="NoResize" Title="Настройки - Реквизиты заголовка файла" Closing="Window_Closing">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="245*"/>
-            <ColumnDefinition Width="498*"/>
-        </Grid.ColumnDefinitions>
         <TextBlock  VerticalAlignment="Top" FontSize="20"  Margin="10,20,0,0" Grid.ColumnSpan="2">Введите начальные значения:</TextBlock>
         <StackPanel VerticalAlignment="Top" Margin="10,50,10,0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
