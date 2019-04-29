@@ -18,6 +18,18 @@ namespace APM_Spravka
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+
+    public class Example
+    {
+        public string nomer { get; set; }
+        public string unp { get; set; }
+        public string fio { get; set; }
+        public string name { get; set; }
+        public string othc { get; set; }
+        public string doxod { get; set; }
+        public string nalog { get; set; }
+
+    }
     public partial class MainWindow : Window
     {
         public MainWindow()

@@ -35,6 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Web, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,6 +57,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BD Table\Author.cs" />
+    <Compile Include="BD Table\City.cs" />
+    <Compile Include="BD Table\Country.cs" />
+    <Compile Include="BD Table\Ecunion.cs" />
+    <Compile Include="BD Table\Norma.cs" />
+    <Compile Include="BD Table\Mogilev.cs" />
+    <Compile Include="BD Table\Ngni.cs" />
+    <Compile Include="BD Table\Othless.cs" />
+    <Compile Include="BD Table\Parkvt.cs" />
+    <Compile Include="BD Table\Property.cs" />
+    <Compile Include="BD Table\Social.cs" />
+    <Compile Include="BD Table\Standart.cs" />
+    <Compile Include="BD Table\Statplat.cs" />
+    <Compile Include="BD Table\Stock.cs" />
+    <Compile Include="BD Table\Taxlimit.cs" />
+    <Compile Include="BD Table\Tipul.cs" />
     <Compile Include="HelpCS\DoxodvMounth.cs" />
     <Compile Include="HelpCS\RecordCSIndex.cs" />
     <Compile Include="HelpCS\Record.cs" />

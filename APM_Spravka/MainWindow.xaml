@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
+        xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d" Height="450" Width="800" Title="АРМ Справка" MinWidth="800" MinHeight="450">
     <Grid>
         <Menu Height="25" VerticalAlignment="Top">
@@ -96,19 +97,19 @@
             </MenuItem>
         </Menu>
         <Grid Margin="0,50,0,25">
-            <DataGrid x:Name="listUser" ItemsSource="{Binding Examples}" Margin="1,0,-1,0">
+            <DataGrid x:Name="listUser" ItemsSource="{Binding Example}" Margin="1,0,-1,0">
                 <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Key}" Header="№"/>
-                        <DataGridTextColumn Binding="{Binding UNP}" Header="УНП"/>
-                        <DataGridTextColumn Binding="{Binding Familia}" Header="Фамилия"/>
-                        <DataGridTextColumn Binding="{Binding Imia}" Header="Имя"/>
-                        <DataGridTextColumn Binding="{Binding Otchestvo}" Header="Отчетсво"/>
-                        <DataGridTextColumn Binding="{Binding Doxod}" Header="Доход"/>
-                        <DataGridTextColumn Binding="{Binding Nalog}" Header="Налог"/>
+                        <DataGridTextColumn Binding="{Binding nomer}" Header="№"/>
+                        <DataGridTextColumn Binding="{Binding unp}" Header="УНП"/>
+                        <DataGridTextColumn Binding="{Binding fio}" Header="Фамилия"/>
+                        <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
+                        <DataGridTextColumn Binding="{Binding otch}" Header="Отчетсво"/>
+                        <DataGridTextColumn Binding="{Binding doxod}" Header="Доход"/>
+                        <DataGridTextColumn Binding="{Binding nalog}" Header="Налог"/>
                    </DataGrid.Columns>
-                <DataGrid.Items>
-
-                </DataGrid.Items>
+                <!--<DataGrid.Items>
+                    <local:Example nomer="1" unp="21323123" fio="Гайдукевич" name="Владислав" othc="Анатольевич" doxod="10000" nalog="1240"></local:Example>
+                </DataGrid.Items>-->
             </DataGrid>
         </Grid>
         <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">

@@ -6,27 +6,19 @@
         xmlns:local="clr-namespace:APM_Spravka"
         xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:generic="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+        xmlns:data="clr-namespace:System.Data;assembly=System.Data"
+        xmlns:bdTable="clr-namespace:APM_Spravka_Admin.BD_Table"
         mc:Ignorable="d"
         Title="SpavkaRazmetka" Height="587" Width="629" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Top">
                 <TextBlock Margin="10,10,0,10">Поиск:</TextBlock>
-                <TextBox Margin="10,10,0,10" Width="250" Height="20"/>
-                <Button Margin="130,0,0,0" Width="75" Height="25" Content="Найти"/>
-                <Button Margin="10,0,0,0" Width="75" Height="25" Content="Отмена"/>
+                <TextBox Margin="10,10,0,10" Name="TextBox" Width="250" Height="20"/>
+                <Button Margin="130,0,0,0" Width="75" Height="25" Content="Найти" Click="Button_Click_1"/>
+                <Button Margin="10,0,0,0"  Width="75" Height="25" Content="Сбросить" Click="Button_Click_2"/>
             </StackPanel>
-            <ListView x:Name="listSpravka" ItemsSource="{DynamicResource ResourceKey=spravka}" Width="590">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Width="100" DisplayMemberBinding="{Binding Key}" Header="Код"/>
-                        <GridViewColumn Width="490" DisplayMemberBinding="{Binding Name}" Header="Наименование"/>
-                    </GridView>
-                </ListView.View>
-                <ListView.Resources>
-
-                </ListView.Resources>
-            </ListView>
+            <ListView Name="listSpravka" Width="590" Height="450"></ListView>
         </StackPanel>
         <Button Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Click="Button_Click">Закрыть</Button>
     </Grid>
