@@ -57,22 +57,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BD Table\Author.cs" />
     <Compile Include="BD Table\City.cs" />
-    <Compile Include="BD Table\Country.cs" />
-    <Compile Include="BD Table\Ecunion.cs" />
     <Compile Include="BD Table\Norma.cs" />
-    <Compile Include="BD Table\Mogilev.cs" />
-    <Compile Include="BD Table\Ngni.cs" />
-    <Compile Include="BD Table\Othless.cs" />
-    <Compile Include="BD Table\Parkvt.cs" />
-    <Compile Include="BD Table\Property.cs" />
-    <Compile Include="BD Table\Social.cs" />
-    <Compile Include="BD Table\Standart.cs" />
-    <Compile Include="BD Table\Statplat.cs" />
-    <Compile Include="BD Table\Stock.cs" />
-    <Compile Include="BD Table\Taxlimit.cs" />
-    <Compile Include="BD Table\Tipul.cs" />
     <Compile Include="HelpCS\DoxodvMounth.cs" />
     <Compile Include="HelpCS\RecordCSIndex.cs" />
     <Compile Include="HelpCS\Record.cs" />
