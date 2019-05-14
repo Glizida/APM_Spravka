@@ -256,6 +256,7 @@ namespace APM_Spravka
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            TextBox.Text = "";
             listSpravka.ItemsSource = norma;
         }
     }
