@@ -59,9 +59,13 @@
     </ApplicationDefinition>
     <Compile Include="BD Table\City.cs" />
     <Compile Include="BD Table\Norma.cs" />
+    <Compile Include="BD Table\User.cs" />
     <Compile Include="HelpCS\DoxodvMounth.cs" />
     <Compile Include="HelpCS\RecordCSIndex.cs" />
     <Compile Include="HelpCS\Record.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Record.xaml.cs">
       <DependentUpon>Record.xaml</DependentUpon>
     </Compile>
@@ -72,6 +76,10 @@
       <DependentUpon>SpavkaRazmetka.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelpCS\Spravka.cs" />
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
