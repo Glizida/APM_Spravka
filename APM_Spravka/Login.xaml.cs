@@ -67,7 +67,10 @@ namespace APM_Spravka
                                     MessageBox.Show("Admin2");
                                     break;
                                 case 3:
-                                    MessageBox.Show("Admin3");
+                                    InspectorMain inspectorMain = new InspectorMain();
+                                    inspectorMain.Owner = this;
+                                    inspectorMain.Show();
+                                    this.Hide();
                                     break;
                             }
                         }

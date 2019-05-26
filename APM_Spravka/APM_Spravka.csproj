@@ -63,6 +63,9 @@
     <Compile Include="HelpCS\DoxodvMounth.cs" />
     <Compile Include="HelpCS\RecordCSIndex.cs" />
     <Compile Include="HelpCS\Record.cs" />
+    <Compile Include="InspectorMain.xaml.cs">
+      <DependentUpon>InspectorMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
       <DependentUpon>SpavkaRazmetka.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelpCS\Spravka.cs" />
+    <Page Include="InspectorMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
