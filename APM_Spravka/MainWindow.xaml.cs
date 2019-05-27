@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using APM_Spravka.BD_Table;
 
 namespace APM_Spravka
 {
@@ -30,11 +31,15 @@ namespace APM_Spravka
         public string nalog { get; set; }
 
     }
+
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public User polsovatel;
+
+        public MainWindow(User user)
         {
             InitializeComponent();
+            polsovatel = user;
         }
 
         private void Exit_Application(object sender, RoutedEventArgs e)

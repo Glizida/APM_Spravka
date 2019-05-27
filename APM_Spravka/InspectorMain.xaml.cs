@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using APM_Spravka.BD_Table;
+using APM_Spravka_Admin.BD_Table;
+using MySql.Data.MySqlClient;
 
 namespace APM_Spravka
 {
@@ -19,36 +22,41 @@ namespace APM_Spravka
     /// </summary>
     public partial class InspectorMain : Window
     {
-        public InspectorMain()
+        public User polsovatel;
+        public List<User> allUsers = new List<User>();
+
+        public string CONNECT = "Database=nzzGtRxVKL;Data Source=remotemysql.com;User Id=nzzGtRxVKL;Password=OCqp3u3YNf";
+
+
+        public InspectorMain(User user)
         {
             InitializeComponent();
+            polsovatel = user;
+
+            string CommandText = "";
+
+            MySqlCommand myCommand = new MySqlCommand();
+            MySqlDataReader MyDataReader;
+            MySqlConnection myConnection = new MySqlConnection(CONNECT);
+
+            CommandText = "SELECT * FROM nzzGtRxVKL.User;";
+            ListAdmin.ItemsSource = null;
+            myCommand = new MySqlCommand(CommandText, myConnection);
+            myConnection.Open();
+            MyDataReader = myCommand.ExecuteReader();
+            while (MyDataReader.Read())
+            {
+                User govno = new User(MyDataReader.GetInt32(0), MyDataReader.GetString(1), MyDataReader.GetString(2),
+                    MyDataReader.GetInt32(3), MyDataReader.GetInt32(4));
+                allUsers.Add(govno);
+            }
+            MyDataReader.Close();
+            ListAdmin.ItemsSource = allUsers;
         }
 
-        private void Exit_Application(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
-        }
-
-        private void Open_Setting_Click(object sender, RoutedEventArgs e)
-        {
-            Setting setting = new Setting();
-            setting.Owner = this;
-            setting.Show();
-            this.IsEnabled = false;
-        }
-
-        private void Open_Spravka_Click(object sender, RoutedEventArgs e)
-        {
-            MenuItem menu;
-            if (sender as MenuItem != null)
-            {
-                menu = (MenuItem)sender;
-            }
-            else return;
-            SpavkaRazmetka spavkaRazmetka = new SpavkaRazmetka(menu.Header.ToString());
-            spavkaRazmetka.Owner = this;
-            spavkaRazmetka.Show();
-            this.IsEnabled = false;
         }
     }
 }

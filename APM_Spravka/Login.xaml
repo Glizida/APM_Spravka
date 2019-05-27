@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Вход" Height="450" Width="400" ResizeMode="NoResize">
     <Grid>
+        <Menu>
+            <MenuItem Header="О программе" Click="Oprogramme_Click"></MenuItem>
+        </Menu>
         <StackPanel Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
             <DockPanel>
                 <TextBlock FontSize="30" HorizontalAlignment="Center">Авторизация</TextBlock>

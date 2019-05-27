@@ -148,7 +148,7 @@
                                             <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
                                             <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
                                         </DataGrid.Columns>
-                                        <DataGrid.Items>111
+                                        <DataGrid.Items>
                                             <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
                                             <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
                                             <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>

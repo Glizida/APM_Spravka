@@ -48,7 +48,7 @@ namespace APM_Spravka
                     MyDataReader = myCommand.ExecuteReader();
                     while (MyDataReader.Read())
                     {
-                        users.Add(new User(MyDataReader.GetInt32(0), MyDataReader.GetString(1), MyDataReader.GetString(2), MyDataReader.GetInt32(3)));
+                        users.Add(new User(MyDataReader.GetInt32(0), MyDataReader.GetString(1), MyDataReader.GetString(2), MyDataReader.GetInt32(3), MyDataReader.GetInt32(4)));
                     }
                     MyDataReader.Close();
                     if (users.Count != 0)
@@ -58,7 +58,7 @@ namespace APM_Spravka
                             switch (users[0].LevelAccess)
                             {
                                 case 1:
-                                    MainWindow mainWindow = new MainWindow();
+                                    MainWindow mainWindow = new MainWindow(users[0]);
                                     mainWindow.Owner = this;
                                     mainWindow.Show();
                                     this.Hide();
@@ -67,7 +67,7 @@ namespace APM_Spravka
                                     MessageBox.Show("Admin2");
                                     break;
                                 case 3:
-                                    InspectorMain inspectorMain = new InspectorMain();
+                                    InspectorMain inspectorMain = new InspectorMain(users[0]);
                                     inspectorMain.Owner = this;
                                     inspectorMain.Show();
                                     this.Hide();
@@ -100,6 +100,13 @@ namespace APM_Spravka
         private void Closed_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Oprogramme_Click(object sender, RoutedEventArgs e)
+        {
+            OProgramme oProgramme = new OProgramme();
+            oProgramme.Owner = this;
+            oProgramme.Show();
         }
     }
 }
