@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace APM_Spravka
             MySqlDataReader MyDataReader;
             MySqlConnection myConnection = new MySqlConnection(CONNECT);
 
-            CommandText = "SELECT * FROM nzzGtRxVKL.User;";
+            CommandText = "SELECT * FROM nzzGtRxVKL.User";
             ListAdmin.ItemsSource = null;
             myCommand = new MySqlCommand(CommandText, myConnection);
             myConnection.Open();
@@ -55,6 +56,11 @@ namespace APM_Spravka
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void InspectorMain_OnClosing(object sender, CancelEventArgs e)
         {
             Environment.Exit(0);
         }
