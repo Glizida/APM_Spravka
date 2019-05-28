@@ -55,17 +55,8 @@ namespace APM_Spravka.BD_Table
         public int IdCreator
         {
             get => idCreator;
-            set
-            {
-                if (value != null)
-                {
-                    idCreator = value;
-                }
-                else
-                {
-                    idCreator = 0;
-                }
-            }
+            set => idCreator = value;
+
         }
 
         //public override string ToString()

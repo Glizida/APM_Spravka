@@ -1,0 +1,28 @@
+<Window x:Class="APM_Spravka.SpravkaRazmetkaRed"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:APM_Spravka"
+        mc:Ignorable="d"
+        Title="SpravkaRazmetkaRed" Height="450" Width="800">
+    <Grid>
+        <DockPanel VerticalAlignment="Top" Margin="10,10,0,0">
+            <StackPanel Orientation="Vertical">
+                <DockPanel Margin="0,10,0,0">
+                    <TextBlock Margin="10,10,0,10">Поиск:</TextBlock>
+                    <DockPanel Margin="10,0,0,0">
+                        <TextBox Name="TextBox" Width="370" Height="20"></TextBox>
+                    </DockPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button  Width="75" Height="25" Content="Найти" Click="Button_Click_1"/>
+                        <Button Margin="10,0,10,0"  Width="75" Height="25" Content="Сбросить" Click="Button_Click_2"/>
+                        <Button Margin="10,0,10,0"  Width="200" Height="25" Content="Изменить выбранный элемент" Click="RedButton_Click"/>
+                    </StackPanel>
+                </DockPanel>
+                <ListView Margin="0,10,0,10"  Name="listSpravka"></ListView>
+            </StackPanel>
+        </DockPanel>
+        <Button Margin="10,10,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="25" Click="Button_Click">Закрыть</Button>
+    </Grid>
+</Window>

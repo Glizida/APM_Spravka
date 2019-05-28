@@ -64,5 +64,18 @@ namespace APM_Spravka
         {
             Environment.Exit(0);
         }
+
+        private void Open_Spravka_Click(object sender, RoutedEventArgs e)
+        { 
+            MenuItem menu;
+            if (sender as MenuItem != null)
+            {
+                menu = (MenuItem) sender;
+            }
+            else return; 
+            SpravkaRazmetkaRed spravkaRazmetkaRed = new SpravkaRazmetkaRed(menu.Header.ToString());
+            spravkaRazmetkaRed.Owner = this;
+            spravkaRazmetkaRed.Show();
+        }
     }
 }

@@ -75,6 +75,9 @@
     <Compile Include="Record.xaml.cs">
       <DependentUpon>Record.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RedSpravka.xaml.cs">
+      <DependentUpon>RedSpravka.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,9 @@
       <DependentUpon>SpavkaRazmetka.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelpCS\Spravka.cs" />
+    <Compile Include="SpravkaRazmetkaRed.xaml.cs">
+      <DependentUpon>SpravkaRazmetkaRed.xaml</DependentUpon>
+    </Compile>
     <Page Include="InspectorMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +116,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RedSpravka.xaml" />
     <Page Include="Setting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SpravkaRazmetkaRed.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

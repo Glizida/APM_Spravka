@@ -8,9 +8,27 @@ namespace APM_Spravka_Admin.BD_Table
 {
     public class Norma
     {
-        private int id { get; set; }
-        private int code { get; set; }
-        private string content { get; set; }
+        private int id;
+        private int code;
+        private string content;
+
+        public int Id
+        {
+            get => id;
+            set => id = value;
+        }
+
+        public int Code
+        {
+            get => code;
+            set => code = value;
+        }
+
+        public string Content
+        {
+            get => content;
+            set => content = value;
+        }
 
         public Norma(int id, int code, string content)
         {

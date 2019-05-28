@@ -1,0 +1,23 @@
+<Window x:Class="APM_Spravka.RedSpravka"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:APM_Spravka"
+        mc:Ignorable="d"
+        Title="Изменить" Height="100" Width="450" ResizeMode="NoResize" Closing="RedSpravka_OnClosing">
+    <Grid>
+        <StackPanel Margin="10,10,10,10" Orientation="Vertical">
+            <DockPanel>
+            <TextBlock>Код</TextBlock>
+        <TextBox Width="175" Margin="59,0,0,0" Name="CodeBox"></TextBox>
+        <Button HorizontalAlignment="Right" Height="20" Width="140" Margin="10,0,10,0" Content="Сохранить изменения" Click="SeveButton_Click"></Button>
+            </DockPanel>
+            <DockPanel>
+            <TextBlock>Содержание</TextBlock>
+        <TextBox Width="175" Margin="10,0,0,0" Name="ContentBox"></TextBox>
+        <Button HorizontalAlignment="Right" Height="20" Width="140" Margin="10,0,10,0" Content="Закрыть" Click="ExitButton_Click"></Button>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>
