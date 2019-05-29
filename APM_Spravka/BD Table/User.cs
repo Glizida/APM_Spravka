@@ -17,6 +17,7 @@ namespace APM_Spravka.BD_Table
 
         public User()
         {
+            
         }
 
         public User(int idUser, string loginUser, string passwordUser, int levelAccess, int idCreator)

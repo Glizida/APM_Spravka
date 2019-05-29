@@ -229,6 +229,17 @@ namespace APM_Spravka
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (Owner as InspectorMain != null)
+            {
+                if (listSpravka.SelectedIndex != 0)
+                {
+                    ((InspectorMain) Owner).SetTex(norma[listSpravka.SelectedIndex]);
+                }
+                else
+                {
+                    MessageBox.Show("Вы ничего не выбрали ИМНС","Предупреждение",MessageBoxButton.OK,MessageBoxImage.Information);
+                }
+            }
             Owner.Show();
             Owner.IsEnabled = true;
         }

@@ -57,9 +57,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddSpravka.xaml.cs">
+      <DependentUpon>AddSpravka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddUserWindows.xaml.cs">
+      <DependentUpon>AddUserWindows.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BD Table\City.cs" />
     <Compile Include="BD Table\Norma.cs" />
     <Compile Include="BD Table\User.cs" />
+    <Compile Include="BD Table\UserData.cs" />
     <Compile Include="HelpCS\DoxodvMounth.cs" />
     <Compile Include="HelpCS\RecordCSIndex.cs" />
     <Compile Include="HelpCS\Record.cs" />
@@ -88,6 +95,8 @@
     <Compile Include="SpravkaRazmetkaRed.xaml.cs">
       <DependentUpon>SpravkaRazmetkaRed.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddSpravka.xaml" />
+    <Page Include="AddUserWindows.xaml" />
     <Page Include="InspectorMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

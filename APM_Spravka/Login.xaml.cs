@@ -37,6 +37,7 @@ namespace APM_Spravka
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            users.Clear();
             MySqlConnection myConnection = new MySqlConnection(CONNECT);
             try
             {

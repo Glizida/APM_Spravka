@@ -1,0 +1,31 @@
+<Window x:Class="APM_Spravka.AddUserWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:APM_Spravka"
+        mc:Ignorable="d"
+        Title="AddUserWindows" Height="150" ResizeMode="NoResize" Width="420">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Логин</TextBlock>
+                <TextBox Width="200" Margin="42,0,0,0" Name="Login_Box"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Пароль</TextBlock>
+                <TextBox Width="200" Margin="35,0,10,0" Name="Password_Box"></TextBox>
+                <Button Width="80" Click="RandomButton_Click" Content="Случайный"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Права</TextBlock>
+                <ComboBox Name="ComboBoxx" Margin="42,0,0,0" Width="200">
+                    <TextBlock>Пользователь</TextBlock>
+                    <TextBlock>Администратор</TextBlock>
+                    <TextBlock>Инспектор</TextBlock>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <Button Margin="20,20,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Сохранить" Click="SaveButton_Click"></Button>
+    </Grid>
+</Window>
