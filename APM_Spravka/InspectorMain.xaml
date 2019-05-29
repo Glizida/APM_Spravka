@@ -69,6 +69,7 @@
                 <Button Content="Сохранить" Width="100" Click="SaveButton_Click"></Button>
             </StackPanel>
         </DockPanel>
+        <Button Content="Удалить" Click="DeleteButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20"></Button>
         <ProgressBar HorizontalAlignment="Right" VerticalAlignment="Bottom" Minimum="0" IsIndeterminate="True" Maximum="100" Width="100" Height="20" Name="ProgressBar" ></ProgressBar>
     </Grid>
 </Window>

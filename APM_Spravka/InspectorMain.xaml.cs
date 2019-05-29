@@ -27,13 +27,14 @@ namespace APM_Spravka
         public User polsovatel;
         public List<User> allUsers = new List<User>();
 
-        public string CONNECT = "Database=nzzGtRxVKL;Data Source=remotemysql.com;User Id=nzzGtRxVKL;Password=OCqp3u3YNf";
+        public string CONNECT =
+            "Database=nzzGtRxVKL;Data Source=remotemysql.com;User Id=nzzGtRxVKL;Password=OCqp3u3YNf";
 
 
         public InspectorMain(User user)
         {
             InitializeComponent();
-            
+
             polsovatel = user;
 
             string CommandText = "";
@@ -52,6 +53,7 @@ namespace APM_Spravka
                     MyDataReader.GetInt32(3), MyDataReader.GetInt32(4));
                 allUsers.Add(govno);
             }
+
             MyDataReader.Close();
             ListAdmin.ItemsSource = allUsers;
             ProgressBar.IsIndeterminate = false;
@@ -68,38 +70,43 @@ namespace APM_Spravka
         }
 
         private void Open_Spravka_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             MenuItem menu;
             if (sender as MenuItem != null)
             {
                 menu = (MenuItem) sender;
             }
-            else return; 
+            else return;
+
             SpravkaRazmetkaRed spravkaRazmetkaRed = new SpravkaRazmetkaRed(menu.Header.ToString());
             spravkaRazmetkaRed.Owner = this;
             spravkaRazmetkaRed.Show();
         }
 
         List<UserData> dataUser = new List<UserData>();
-        
+
         private void ListSelect(object sender, SelectionChangedEventArgs e)
         {
             try
-            { 
+            {
                 ProgressBar.IsIndeterminate = true;
                 dataUser.Clear();
                 MySqlCommand myCommand = new MySqlCommand();
                 MySqlDataReader MyDataReader;
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
-                string CommandText = "SELECT * FROM nzzGtRxVKL.UserData WHERE idUsers = " + allUsers[ListAdmin.SelectedIndex].IdUser + "";
+                string CommandText = "SELECT * FROM nzzGtRxVKL.UserData WHERE idUsers = " +
+                                     allUsers[ListAdmin.SelectedIndex].IdUser + "";
                 myCommand = new MySqlCommand(CommandText, myConnection);
                 myConnection.Open();
                 MyDataReader = myCommand.ExecuteReader();
                 while (MyDataReader.Read())
                 {
-                   UserData data = new UserData(MyDataReader.GetInt32(0),MyDataReader.GetInt32(1),MyDataReader.GetString(2),MyDataReader.GetInt32(3),MyDataReader.GetInt32(4),MyDataReader.GetString(5),MyDataReader.GetString(6));
-                   dataUser.Add(data);
+                    UserData data = new UserData(MyDataReader.GetInt32(0), MyDataReader.GetInt32(1),
+                        MyDataReader.GetString(2), MyDataReader.GetInt32(3), MyDataReader.GetInt32(4),
+                        MyDataReader.GetString(5), MyDataReader.GetString(6));
+                    dataUser.Add(data);
                 }
+
                 MyDataReader.Close();
 
                 NameFull_TextBox.Text = dataUser[0].fullName;
@@ -107,7 +114,7 @@ namespace APM_Spravka
                 KeyOrgana_TextBox.Text = dataUser[0].keyOrgana.ToString();
                 Telefon_TextBox.Text = dataUser[0].telefon;
                 God_TextBox.Text = dataUser[0].god;
-                
+
                 ProgressBar.IsIndeterminate = false;
             }
             catch (Exception exception)
@@ -118,15 +125,20 @@ namespace APM_Spravka
 
         private void SaveButton_Click(object sender, RoutedEventArgs ex)
         {
-            if (NameFull_TextBox.Text != "" && UNP_TextBox.Text != "" && KeyOrgana_TextBox.Text != "" && Telefon_TextBox.Text != "" && God_TextBox.Text != "")
-                {
+            if (NameFull_TextBox.Text != "" && UNP_TextBox.Text != "" && KeyOrgana_TextBox.Text != "" &&
+                Telefon_TextBox.Text != "" && God_TextBox.Text != "")
+            {
                 try
                 {
                     int intik = Convert.ToInt32(UNP_TextBox.Text);
                     int intik1 = Convert.ToInt32(KeyOrgana_TextBox.Text);
                     try
                     {
-                        string commantText = "UPDATE nzzGtRxVKL.UserData SET FullName = \""+ NameFull_TextBox.Text +"\", UNP = " + UNP_TextBox.Text +" ,KeyOrgana = " + KeyOrgana_TextBox.Text + " , KontaktniiTelefon = " + Telefon_TextBox.Text + ", GodViplati = "+ God_TextBox.Text +" WHERE idUserData = "+ dataUser[0].IdUserData +"";
+                        string commantText = "UPDATE nzzGtRxVKL.UserData SET FullName = \"" + NameFull_TextBox.Text +
+                                             "\", UNP = " + UNP_TextBox.Text + " ,KeyOrgana = " +
+                                             KeyOrgana_TextBox.Text + " , KontaktniiTelefon = " + Telefon_TextBox.Text +
+                                             ", GodViplati = " + God_TextBox.Text + " WHERE idUserData = " +
+                                             dataUser[0].IdUserData + "";
                         MySqlCommand myCommand = new MySqlCommand();
                         MySqlDataReader MyDataReader;
                         MySqlConnection myConnection = new MySqlConnection(CONNECT);
@@ -145,19 +157,20 @@ namespace APM_Spravka
                 {
                     MessageBox.Show("Введите число в UNP и Тип оргнана");
                 }
-                }
-                else
-                {
-                    MessageBox.Show("Заполните все поля");
-                }
             }
+            else
+            {
+                MessageBox.Show("Заполните все поля");
+            }
+        }
+
         public void SetTex(Norma normas)
         {
             KeyOrgana_TextBox.Text = normas.Code.ToString();
-        } 
-        
-        
-        
+        }
+
+
+
         private void OrganButton_Click(object sender, RoutedEventArgs e)
         {
             SpavkaRazmetka spavkaRazmetka = new SpavkaRazmetka("Налоговые инспекции");
@@ -170,6 +183,39 @@ namespace APM_Spravka
             AddUserWindows addWind = new AddUserWindows(polsovatel);
             addWind.Owner = this;
             addWind.Show();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListAdmin.SelectedIndex != 0)
+            {
+                try
+                {
+                    string commantText = "DELETE FROM nzzGtRxVKL.UserData WHERE idUsers = " +
+                                         allUsers[ListAdmin.SelectedIndex].IdUser;
+                    string commantText2 = "DELETE FROM nzzGtRxVKL.User WHERE idUser = " +
+                                          allUsers[ListAdmin.SelectedIndex].IdUser;
+                    MySqlCommand myCommand = new MySqlCommand();
+                    MySqlCommand myCommand2 = new MySqlCommand();
+                    MySqlDataReader MyDataReader;
+                    MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                    myCommand = new MySqlCommand(commantText, myConnection);
+                    myCommand2 = new MySqlCommand(commantText2, myConnection);
+                    myConnection.Open();
+                    myCommand.ExecuteNonQuery();
+                    myCommand2.ExecuteNonQuery();
+                    MessageBox.Show("Удалено");
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Не предвиденная ошибка" + exception, "Ошибка", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент для удаления");
+            }
         }
     }
 }
