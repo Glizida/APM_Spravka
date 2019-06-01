@@ -10,23 +10,21 @@
         <StackPanel VerticalAlignment="Top" Margin="10,50,10,0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                 <TextBlock ToolTip="Учетный Номер Плательщика" FontSize="15">УНП налогового агента:</TextBlock>
-                <TextBox MaxLength="9" Margin="10,0,0,0" MinWidth="100" MaxWidth="100"></TextBox>
+                <TextBox MaxLength="9" Margin="10,0,0,0" MinWidth="100" Name="UNP_Box" MaxWidth="100"></TextBox>
             </StackPanel>
             <TextBlock  FontSize="15" ToolTip="ИП - Идивидуальный предпрениматель" Margin="0,20,0,0">Полное наименование, место нахождение(для ИП - ФИО, место жительства):</TextBlock>
-            <TextBox Margin="0,10,0,20"></TextBox>
+            <TextBox Margin="0,10,0,20" Name="FullName_Box"></TextBox>
             <StackPanel Orientation="Horizontal">
                 <TextBlock ToolTip="Код Инспекции по Налогам и Сборам">Код налогового органа:</TextBlock>
-                <TextBox MaxLength="3"  Margin="10,0,10,0" MinWidth="50" MaxWidth="50"></TextBox>
-                <Button Width="20" Content="..."></Button>
-
+                <TextBox MaxLength="3"  Name="KeyOrgana_TextBox" Margin="10,0,10,0" MinWidth="50" MaxWidth="50"></TextBox>
+                <Button Click="OpenOrgan_Click" Width="20" Content="..."></Button>
                 <TextBlock Margin="20,0,10,0">Год выплаты дохода:</TextBlock>
-                <TextBox MaxLength="4" MinWidth="35" MaxWidth="35"></TextBox>
-
+                <TextBox MaxLength="4" Name="God_Box" MinWidth="35" MaxWidth="35"></TextBox>
                 <TextBlock Margin="20,0,10,0">Контактный телефон:</TextBlock>
-                <TextBox MaxLength="13" MinWidth="125" MaxWidth="125"></TextBox>
+                <TextBox MaxLength="13" Name="Telefon_Box" MinWidth="125" MaxWidth="125"></TextBox>
             </StackPanel>
         </StackPanel>
-        <Button MinWidth="100" Content="Сохранить" MinHeight="25" MaxHeight="25" MaxWidth="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Column="1"></Button>
+        <Button MinWidth="100" Content="Сохранить" MinHeight="25" MaxHeight="25" MaxWidth="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="SaveButton_Click"></Button>
         <Button MinWidth="100" Content="Отмена"  MaxWidth="100" MinHeight="25" MaxHeight="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" Click="Button_Click"></Button>
     </Grid>
 </Window>

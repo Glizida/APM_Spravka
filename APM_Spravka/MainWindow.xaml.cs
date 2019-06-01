@@ -49,7 +49,7 @@ namespace APM_Spravka
 
         private void Open_Setting_Click(object sender, RoutedEventArgs e)
         {
-            Setting setting = new Setting();
+            Setting setting = new Setting(polsovatel);
             setting.Owner = this;
             setting.Show();
             this.IsEnabled = false;
