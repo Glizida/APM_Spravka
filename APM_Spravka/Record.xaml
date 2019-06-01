@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Новая запись" Height="675" Width="850" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
-        <TabControl>
+        <TabControl BorderBrush="{x:Null}" Background="{x:Null}">
             <TabItem x:Name="Razdel2">
                 <TabItem.Header>
                     <TextBlock>Раздел 2</TextBlock>
@@ -143,74 +143,103 @@
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Margin="0,10,0,0">Доходы в месяц - 3.1</TextBlock>
-                                    <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka310" ItemsSource="{Binding Examples}">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
-                                            <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
-                                        </DataGrid.Columns>
-                                        <DataGrid.Items>
-                                            <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Апрель" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Май" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Июнь" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Август" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Сентябрь" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Октябрь" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Ноябрь" Doxod="0"></local:RecordCS>
-                                            <local:RecordCS Mounth="Декабрь" Doxod="0"></local:RecordCS>
-                                        </DataGrid.Items>
-                                    </DataGrid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Январь</TextBlock>
+                                        <TextBox Margin="20.3,0,0,0" Width="100" Name="DoxodIanvari"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Февраль</TextBlock>
+                                        <TextBox Margin="13,0,0,0" Width="100" Name="DoxodFevrali"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Март</TextBlock>
+                                        <TextBox Margin="31,0,0,0" Width="100" Name="DoxodMart"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Апрель</TextBlock>
+                                        <TextBox Margin="19.5,0,0,0" Width="100" Name="DoxodAprel"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Май</TextBlock>
+                                        <TextBox  Margin="36,0,0,0" Width="100" Name="DoxodMai"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Июль</TextBlock>
+                                        <TextBox Margin="28.7,0,0,0" Width="100" Name="DoxodIyul"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Июнь</TextBlock>
+                                        <TextBox Margin="28.1,0,0,0" Width="100" Name="DoxodIyun"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Август</TextBlock>
+                                        <TextBox Margin="24.9,0,0,0" Width="100" Name="DoxodAvgust"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Сентябрь</TextBlock>
+                                        <TextBox Margin="8.2,0,0,0" Width="100" Name="DoxodSentiabr"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Октябрь</TextBlock>
+                                        <TextBox Margin="13.9,0,0,0" Width="100" Name="DoxodOktiabri"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Ноябрь</TextBlock>
+                                        <TextBox Margin="18.3,0,0,0" Width="100" Name="DoxodNoiabr"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>Декабрь</TextBlock>
+                                        <TextBox Margin="13.22,0,0,0" Width="100" Name="DoxodDekabri"></TextBox>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Margin="100,10,10,10" Orientation="Vertical">
-                               <StackPanel Orientation="Horizontal">
-                                   <StackPanel Orientation="Vertical">
-                                   <TextBlock FontStyle="Italic">В том числе авторские вознаграждения - 3.1.1</TextBlock>
-                                   <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                        <TextBlock Margin="10,0,25,0">Код</TextBlock>
-                                        <TextBox Width="90"></TextBox>
-                                        <Button Margin="0,0,10,0" Content="..."></Button>
-                                        <Button>
-                                            <Button.Content>
-                                                <TextBlock Foreground="Red"> > </TextBlock>
-                                            </Button.Content>
-                                        </Button>
-                                   </StackPanel>
-                                   <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                        <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
-                                        <ComboBox Name="ComboBoxMonth" Width="100">
-                                            <TextBlock>Январь</TextBlock>
-                                            <TextBlock>Февраль</TextBlock>
-                                            <TextBlock>Март</TextBlock>
-                                            <TextBlock>Апрель</TextBlock>
-                                            <TextBlock>Май</TextBlock>
-                                            <TextBlock>Июнь</TextBlock>
-                                            <TextBlock>Июль</TextBlock>
-                                            <TextBlock>Август</TextBlock>
-                                            <TextBlock>Сентябрь</TextBlock>
-                                            <TextBlock>Октябрь</TextBlock>
-                                            <TextBlock>Ноябрь</TextBlock>
-                                            <TextBlock>Декабрь</TextBlock>
-                                        </ComboBox>
-                                   </StackPanel>
-                                   <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                        <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
-                                        <TextBox Width="100"></TextBox>
-                                        <Button Margin="10,0,0,0">
-                                            <Button.Content>
-                                                <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
-                                            </Button.Content>
-                                        </Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock FontStyle="Italic">В том числе авторские вознаграждения - 3.1.1</TextBlock>
+                                        <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                            <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                            <TextBox Width="90"></TextBox>
+                                            <Button Margin="0,0,10,0" Content="..."></Button>
+                                            <Button>
+                                                <Button.Content>
+                                                    <TextBlock Foreground="Red"> ></TextBlock>
+                                                </Button.Content>
+                                            </Button>
+                                        </StackPanel>
+                                        <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                            <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
+                                            <ComboBox Name="ComboBoxMonth" Width="100">
+                                                <TextBlock>Январь</TextBlock>
+                                                <TextBlock>Февраль</TextBlock>
+                                                <TextBlock>Март</TextBlock>
+                                                <TextBlock>Апрель</TextBlock>
+                                                <TextBlock>Май</TextBlock>
+                                                <TextBlock>Июнь</TextBlock>
+                                                <TextBlock>Июль</TextBlock>
+                                                <TextBlock>Август</TextBlock>
+                                                <TextBlock>Сентябрь</TextBlock>
+                                                <TextBlock>Октябрь</TextBlock>
+                                                <TextBlock>Ноябрь</TextBlock>
+                                                <TextBlock>Декабрь</TextBlock>
+                                            </ComboBox>
+                                        </StackPanel>
+                                        <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                            <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
+                                            <TextBox Width="100"></TextBox>
+                                            <Button Margin="10,0,0,0">
+                                                <Button.Content>
+                                                    <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
+                                                </Button.Content>
+                                            </Button>
+                                        </StackPanel>
+
                                     </StackPanel>
+                                    <StackPanel Orientation="Vertical">
+                                        <ListBox Margin="0,30,0,0" Width="100" Height="100">
 
-                                </StackPanel>
-                                   <StackPanel Orientation="Vertical">
-                                       <ListBox Margin="0,30,0,0" Width="100" Height="100">
-
-                                       </ListBox>
-                                   </StackPanel>
+                                        </ListBox>
+                                    </StackPanel>
                                 </StackPanel>
                                 <StackPanel>
                                     <StackPanel Orientation="Horizontal">
@@ -262,56 +291,56 @@
                                 <StackPanel>
                                     <StackPanel Orientation="Horizontal" Width="500">
                                         <StackPanel Orientation="Vertical">
-                                            <TextBlock FontStyle="Italic">в т.ч. - получ. гражданами государств - членов ЕАЭС, </TextBlock>
+                                            <TextBlock FontStyle="Italic">в т.ч. - получ. гражданами государств - членов ЕАЭС,</TextBlock>
                                             <StackPanel Orientation="Vertical">
                                                 <StackPanel Orientation="Vertical">
-                                                <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                                <TextBlock Margin="10,0,25,0">Код</TextBlock>
-                                                <TextBox Width="90"></TextBox>
-                                                <Button Margin="0,0,10,0" Content="..."></Button>
-                                                <Button>
-                                                    <Button.Content>
-                                                        <TextBlock Foreground="Red"> ></TextBlock>
-                                                    </Button.Content>
-                                                </Button>
-                                            </StackPanel>
-                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                                <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
-                                                <ComboBox Name="ComboBoxMonth3" Width="100">
-                                                    <TextBlock>Январь</TextBlock>
-                                                    <TextBlock>Февраль</TextBlock>
-                                                    <TextBlock>Март</TextBlock>
-                                                    <TextBlock>Апрель</TextBlock>
-                                                    <TextBlock>Май</TextBlock>
-                                                    <TextBlock>Июнь</TextBlock>
-                                                    <TextBlock>Июль</TextBlock>
-                                                    <TextBlock>Август</TextBlock>
-                                                    <TextBlock>Сентябрь</TextBlock>
-                                                    <TextBlock>Октябрь</TextBlock>
-                                                    <TextBlock>Ноябрь</TextBlock>
-                                                    <TextBlock>Декабрь</TextBlock>
-                                                </ComboBox>
-                                                        
+                                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                        <TextBlock Margin="10,0,25,0">Код</TextBlock>
+                                                        <TextBox Width="90"></TextBox>
+                                                        <Button Margin="0,0,10,0" Content="..."></Button>
+                                                        <Button>
+                                                            <Button.Content>
+                                                                <TextBlock Foreground="Red"> ></TextBlock>
+                                                            </Button.Content>
+                                                        </Button>
                                                     </StackPanel>
-                                            <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                                <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
-                                                <TextBox Width="100"></TextBox>
-                                                <Button Margin="10,0,0,0">
-                                                    <Button.Content>
-                                                        <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
-                                                    </Button.Content>
-                                                </Button>
+                                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                        <TextBlock Margin="10,0,10,0">Месяц</TextBlock>
+                                                        <ComboBox Name="ComboBoxMonth3" Width="100">
+                                                            <TextBlock>Январь</TextBlock>
+                                                            <TextBlock>Февраль</TextBlock>
+                                                            <TextBlock>Март</TextBlock>
+                                                            <TextBlock>Апрель</TextBlock>
+                                                            <TextBlock>Май</TextBlock>
+                                                            <TextBlock>Июнь</TextBlock>
+                                                            <TextBlock>Июль</TextBlock>
+                                                            <TextBlock>Август</TextBlock>
+                                                            <TextBlock>Сентябрь</TextBlock>
+                                                            <TextBlock>Октябрь</TextBlock>
+                                                            <TextBlock>Ноябрь</TextBlock>
+                                                            <TextBlock>Декабрь</TextBlock>
+                                                        </ComboBox>
 
-                                            </StackPanel>
-                                                   
+                                                    </StackPanel>
+                                                    <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
+                                                        <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
+                                                        <TextBox Width="100"></TextBox>
+                                                        <Button Margin="10,0,0,0">
+                                                            <Button.Content>
+                                                                <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
+                                                            </Button.Content>
+                                                        </Button>
+
+                                                    </StackPanel>
+
                                                 </StackPanel>
-                                        </StackPanel>
+                                            </StackPanel>
                                         </StackPanel>
                                         <ListBox Margin="70,30,0,0" Width="100" Height="100"/>
                                     </StackPanel>
+                                </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                    </StackPanel>
                     </StackPanel>
                 </TabItem.Content>
             </TabItem>
@@ -323,52 +352,130 @@
                     <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                         <StackPanel Margin="30,0,0,0" Orientation="Vertical">
                             <TextBlock>в т.ч. - взносы (строительство) - 3.1.3</TextBlock>
-                            <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka313" ItemsSource="{Binding Examples}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Mounth}" Width="75" Header="Месяц"/>
-                                    <DataGridTextColumn Binding="{Binding Doxod}" Width="50" Header="Доход"/>
-                                    <DataGridTextColumn Binding="{Binding Index}" Width="50" Header="Индексация"/>
-                                </DataGrid.Columns>
-                                <DataGrid.Items>
-                                    <local:RecordCSIndex Mounth="Январь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Февраль" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Март" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Апрель" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Май" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Июнь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Август" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Сентябрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Октябрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Ноябрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Декабрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                </DataGrid.Items>
-                            </DataGrid>
+                            <DockPanel >
+                                <TextBlock>Месяц</TextBlock>
+                                <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                                <TextBlock>Индекс</TextBlock>
+                            </DockPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Январь</TextBlock>
+                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Vznos1Ianvari"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Ianvari"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Февраль</TextBlock>
+                                <TextBox Margin="13,0,0,0" Width="100" Name="Vznos1Fevrali"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Fevrali"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Март</TextBlock>
+                                <TextBox Margin="31,0,0,0" Width="100" Name="Vznos1Mart"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Mart"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Апрель</TextBlock>
+                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Vznos1Aprel"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Aprel"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Май</TextBlock>
+                                <TextBox  Margin="36,0,0,0" Width="100" Name="Vznos1Mai"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Mai"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июль</TextBlock>
+                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Vznos1Iyul"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Iyul"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июнь</TextBlock>
+                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Vznos1Iyun"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Iyun"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Август</TextBlock>
+                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Vznos1Avgust"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Avgust"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Сентябрь</TextBlock>
+                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Vznos1Sentiabr"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Sentiabr"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Октябрь</TextBlock>
+                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Vznos1Oktiabri"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Oktiabri"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Ноябрь</TextBlock>
+                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Vznos1Noiabr"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Noiabr"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Декабрь</TextBlock>
+                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Vznos1Dekabri"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos1Dekabri"></TextBox>
+                            </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.3:</TextBlock>
                                 <TextBlock Margin="10,0,0,0">0</TextBlock>
                             </DockPanel>
-                            </StackPanel>
+                        </StackPanel>
                         <StackPanel Margin="30,0,0,0" Orientation="Vertical">
                             <TextBlock>в т.ч. - возврат страх. взносов - 3.1.4</TextBlock>
-                            <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka314" ItemsSource="{Binding Examples}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
-                                    <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
-                                </DataGrid.Columns>
-                                <DataGrid.Items>111
-                                    <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Апрель" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Май" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Июнь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Август" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Сентябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Октябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Ноябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Декабрь" Doxod="0"></local:RecordCS>
-                                </DataGrid.Items>
-                            </DataGrid>
+                            <DockPanel >
+                                <TextBlock>Месяц</TextBlock>
+                                <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                            </DockPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Январь</TextBlock>
+                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Vznos2Ianvari"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Февраль</TextBlock>
+                                <TextBox Margin="13,0,0,0" Width="100" Name="Vznos2Fevrali"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Март</TextBlock>
+                                <TextBox Margin="31,0,0,0" Width="100" Name="Vznos2Mart"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Апрель</TextBlock>
+                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Vznos2Aprel"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Май</TextBlock>
+                                <TextBox  Margin="36,0,0,0" Width="100" Name="Vznos2Mai"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июль</TextBlock>
+                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Vznos2Iyul"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июнь</TextBlock>
+                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Vznos2Iyun"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Август</TextBlock>
+                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Vznos2Avgust"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Сентябрь</TextBlock>
+                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Vznos2Sentiabr"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Октябрь</TextBlock>
+                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Vznos2Oktiabri"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Ноябрь</TextBlock>
+                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Vznos2Noiabr"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Декабрь</TextBlock>
+                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Vznos2Dekabri"></TextBox>
+                            </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.4:</TextBlock>
                                 <TextBlock Margin="10,0,0,0">0</TextBlock>
@@ -376,26 +483,71 @@
                         </StackPanel>
                         <StackPanel Margin="30,0,0,0" Orientation="Vertical">
                             <TextBlock>в т.ч. - погашение жилищных облигаций - 3.1.5</TextBlock>
-                            <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka315" ItemsSource="{Binding Examples}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Mounth}" Width="75" Header="Месяц"/>
-                                    <DataGridTextColumn Binding="{Binding Doxod}" Width="50" Header="Доход"/>
-                                    <DataGridTextColumn Binding="{Binding Index}" Width="50" Header="Индексация"/>
-                                </DataGrid.Columns>
-                                <DataGrid.Items>
-                                    <local:RecordCSIndex Mounth="Январь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Февраль" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Март" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Апрель" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Май" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Июнь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Август" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Сентябрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Октябрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Ноябрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                    <local:RecordCSIndex Mounth="Декабрь" Doxod="0" Index = "0"></local:RecordCSIndex>
-                                </DataGrid.Items>
-                            </DataGrid>
+                            <DockPanel >
+                                <TextBlock>Месяц</TextBlock>
+                                <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                                <TextBlock>Индекс</TextBlock>
+                            </DockPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Январь</TextBlock>
+                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Vznos3Ianvari"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Ianvari"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Февраль</TextBlock>
+                                <TextBox Margin="13,0,0,0" Width="100" Name="Vznos3Fevrali"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Fevrali"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Март</TextBlock>
+                                <TextBox Margin="31,0,0,0" Width="100" Name="Vznos3Mart"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Mart"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Апрель</TextBlock>
+                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Vznos3Aprel"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Aprel"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Май</TextBlock>
+                                <TextBox  Margin="36,0,0,0" Width="100" Name="Vznos3Mai"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Mai"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июль</TextBlock>
+                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Vznos3Iyul"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Iyul"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июнь</TextBlock>
+                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Vznos3Iyun"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Iyun"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Август</TextBlock>
+                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Vznos3Avgust"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Avgust"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Сентябрь</TextBlock>
+                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Vznos3Sentiabr"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Sentiabr"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Октябрь</TextBlock>
+                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Vznos3Oktiabri"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Oktiabri"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Ноябрь</TextBlock>
+                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Vznos3Noiabr"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Noiabr"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Декабрь</TextBlock>
+                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Vznos3Dekabri"></TextBox>
+                                <TextBox Width="40" Name="IndexVznos3Dekabri"></TextBox>
+                            </StackPanel>
                             <DockPanel Margin="30,0,0,0">
                                 <TextBlock>Итого по 3.1.5:</TextBlock>
                                 <TextBlock Margin="10,0,0,0">0</TextBlock>
@@ -412,37 +564,70 @@
                     <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                         <StackPanel Margin="30,0,0,0" Orientation="Vertical">
                             <TextBlock>в т.ч. - получ. от реал-ции продукции растениеводсва - 3.1.7</TextBlock>
-                            <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka317" ItemsSource="{Binding Examples}">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
-                                        <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
-                                    </DataGrid.Columns>
-                                <DataGrid.Items>111
-                                        <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Апрель" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Май" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Июнь" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Август" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Сентябрь" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Октябрь" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Ноябрь" Doxod="0"></local:RecordCS>
-                                        <local:RecordCS Mounth="Декабрь" Doxod="0"></local:RecordCS>
-                                </DataGrid.Items>
-                            </DataGrid>
+                            <DockPanel >
+                                <TextBlock>Месяц</TextBlock>
+                                <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                            </DockPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Январь</TextBlock>
+                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Февраль</TextBlock>
+                                <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Март</TextBlock>
+                                <TextBox Margin="31,0,0,0" Width="100" Name="Mart317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Апрель</TextBlock>
+                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Май</TextBlock>
+                                <TextBox  Margin="36,0,0,0" Width="100" Name="Mai317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июль</TextBlock>
+                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июнь</TextBlock>
+                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Август</TextBlock>
+                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Сентябрь</TextBlock>
+                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Октябрь</TextBlock>
+                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Ноябрь</TextBlock>
+                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr317_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Декабрь</TextBlock>
+                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri317_1"></TextBox>
+                            </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.7:</TextBlock>
                                 <TextBlock Margin="10,0,0,0">0</TextBlock>
                             </DockPanel>
                         </StackPanel>
-                        </StackPanel>
+                    </StackPanel>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <TextBlock>Льготы и вычеты</TextBlock>
-                    
+
                 </TabItem.Header>
                 <TabItem.Content>
                     <StackPanel Orientation="Vertical">
@@ -450,82 +635,82 @@
                         <StackPanel Orientation="Vertical" Margin="30,0,0,0">
                             <TextBlock Margin="10,0,0,0">Доходы, освобождаемые от подоходного налога в установленных законодательством пределах - 4.1</TextBlock>
                             <DockPanel>
-                            <StackPanel Width="200" Orientation="Vertical">
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                    <TextBox Margin="10,0,0,0" Width="130"></TextBox>
-                                    <Button>
-                                        <Button.Content>
-                                            ...
-                                        </Button.Content>
-                                    </Button>
-                                </DockPanel>
+                                <StackPanel Width="200" Orientation="Vertical">
                                     <DockPanel Margin="0,10,0,10">
-                                    <TextBlock Margin="10,0,0,0">Месяц</TextBlock>
-                                    <ComboBox Margin="10,0,0,0" Name="ComboBoxMonth4">
-                                        <TextBlock>Январь</TextBlock>
-                                        <TextBlock>Февраль</TextBlock>
-                                        <TextBlock>Март</TextBlock>
-                                        <TextBlock>Апрель</TextBlock>
-                                        <TextBlock>Май</TextBlock>
-                                        <TextBlock>Июнь</TextBlock>
-                                        <TextBlock>Июль</TextBlock>
-                                        <TextBlock>Август</TextBlock>
-                                        <TextBlock>Сентябрь</TextBlock>
-                                        <TextBlock>Октябрь</TextBlock>
-                                        <TextBlock>Ноябрь</TextBlock>
-                                        <TextBlock>Декабрь</TextBlock>
-                                    </ComboBox>
-                                </DockPanel>
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock Margin="10,0,0,0">Доход</TextBlock>
-                                    <TextBox Margin="10,0,0,0"></TextBox>
-                                </DockPanel>
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock Margin="10,0,0,0">Льгота</TextBlock>
-                                    <TextBox Margin="10,0,0,0"></TextBox>
-                                </DockPanel>
-                            </StackPanel>
-                            <StackPanel Margin="10,0,0,0" Orientation="Vertical">
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock>  </TextBlock>
-                                </DockPanel>
-                                <DockPanel Margin="0,14,0,10">
-                                    <Button Width="30">
-                                        <Button.Content>
-                                            <TextBlock Foreground="Red"> ></TextBlock>
-                                        </Button.Content>
-                                    </Button>
+                                        <TextBlock Margin="10,0,0,0">Код</TextBlock>
+                                        <TextBox Margin="25,0,0,0" Width="130"></TextBox>
+                                        <Button>
+                                            <Button.Content>
+                                                ...
+                                            </Button.Content>
+                                        </Button>
+                                    </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock Margin="10,0,0,0">Месяц</TextBlock>
+                                        <ComboBox Margin="10,0,0,0" Name="ComboBoxMonth4">
+                                            <TextBlock>Январь</TextBlock>
+                                            <TextBlock>Февраль</TextBlock>
+                                            <TextBlock>Март</TextBlock>
+                                            <TextBlock>Апрель</TextBlock>
+                                            <TextBlock>Май</TextBlock>
+                                            <TextBlock>Июнь</TextBlock>
+                                            <TextBlock>Июль</TextBlock>
+                                            <TextBlock>Август</TextBlock>
+                                            <TextBlock>Сентябрь</TextBlock>
+                                            <TextBlock>Октябрь</TextBlock>
+                                            <TextBlock>Ноябрь</TextBlock>
+                                            <TextBlock>Декабрь</TextBlock>
+                                        </ComboBox>
+                                    </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock Margin="10,0,0,0">Доход</TextBlock>
+                                        <TextBox Margin="10,0,0,0"></TextBox>
+                                    </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock Margin="10,0,0,0">Льгота</TextBlock>
+                                        <TextBox Margin="10,0,0,0"></TextBox>
+                                    </DockPanel>
+                                </StackPanel>
+                                <StackPanel Margin="10,0,0,0" Orientation="Vertical">
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel Margin="0,14,0,10">
+                                        <Button Width="30">
+                                            <Button.Content>
+                                                <TextBlock Foreground="Red"> ></TextBlock>
+                                            </Button.Content>
+                                        </Button>
                                     </DockPanel>
                                     <DockPanel Margin="0,11,0,10" >
-                                    <Button>
-                                        <Button.Content>
-                                            <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
-                                        </Button.Content>
-                                    </Button>
+                                        <Button>
+                                            <Button.Content>
+                                                <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
+                                            </Button.Content>
+                                        </Button>
                                     </DockPanel>
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock></TextBlock>
-                                </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock></TextBlock>
+                                    </DockPanel>
                                 </StackPanel>
-                            <StackPanel Margin="10,0,0,0" Orientation="Vertical">
-                                <ListBox Margin="0,30,0,0" Width="200" Height="100"></ListBox>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <DockPanel Margin="0,10,0,10">
+                                <StackPanel Margin="10,0,0,0" Orientation="Vertical">
+                                    <ListBox Margin="0,30,0,0" Width="200" Height="100"></ListBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="30,0,0,0">Итого по 4.1 - доход:</TextBlock>
-                                </DockPanel>
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock></TextBlock>
-                                </DockPanel>
-                                <DockPanel Margin="0,10,0,10">
-                                    <TextBlock></TextBlock>
-                                </DockPanel>
-                                <DockPanel Margin="0,10,0,10">
+                                    </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
+                                        <TextBlock></TextBlock>
+                                    </DockPanel>
+                                    <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="30,0,0,0">Итого по 4.1 - льгота:</TextBlock>
-                                </DockPanel>
+                                    </DockPanel>
                                 </StackPanel>
-                        </DockPanel>
+                            </DockPanel>
                         </StackPanel>
                         <StackPanel Margin="30,50,0,0" Orientation="Vertical">
                             <TextBlock Margin="10,0,0,0">Стандартные, социальные и имущественные налоговые вычеты</TextBlock>
@@ -533,7 +718,7 @@
                                 <StackPanel Width="200" Orientation="Vertical">
                                     <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                        <TextBox Margin="10,0,0,0" Width="130"></TextBox>
+                                        <TextBox Margin="25,0,0,0" Width="130"></TextBox>
                                         <Button>
                                             <Button.Content>
                                                 ...
@@ -618,60 +803,126 @@
                     <StackPanel>
                         <TextBlock FontSize="18" FontStyle="Italic" VerticalAlignment="Center" HorizontalAlignment="Center">Сведенья о доходах, не подлежащих налогообложению, и произведенных налоговых вычетах</TextBlock>
                         <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                        <StackPanel Margin="30,0,0,0" Orientation="Vertical">
+                            <StackPanel Margin="30,0,0,0" Orientation="Vertical">
                                 <TextBlock>профессиональные налоговые вычеты - 4.5</TextBlock>
-                                <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka450" ItemsSource="{Binding Examples}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
-                                    <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
-                                </DataGrid.Columns>
-                                <DataGrid.Items>
-                                    <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Апрель" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Май" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Июнь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Август" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Сентябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Октябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Ноябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Декабрь" Doxod="0"></local:RecordCS>
-                                </DataGrid.Items>
-                            </DataGrid>
-                            <DockPanel>
-                                <TextBlock>Итого по 4.5:</TextBlock>
-                                <TextBlock Margin="10,0,0,0">0</TextBlock>
-                            </DockPanel>
-                        </StackPanel>
-                        <StackPanel Margin="30,0,0,0" Orientation="Vertical">
+                                <DockPanel >
+                                    <TextBlock>Месяц</TextBlock>
+                                    <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                                </DockPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Январь</TextBlock>
+                                    <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Февраль</TextBlock>
+                                    <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Март</TextBlock>
+                                    <TextBox Margin="31,0,0,0" Width="100" Name="Mart45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Апрель</TextBlock>
+                                    <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Май</TextBlock>
+                                    <TextBox  Margin="36,0,0,0" Width="100" Name="Mai45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Июль</TextBlock>
+                                    <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Июнь</TextBlock>
+                                    <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Август</TextBlock>
+                                    <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Сентябрь</TextBlock>
+                                    <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Октябрь</TextBlock>
+                                    <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Ноябрь</TextBlock>
+                                    <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr45_1"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Декабрь</TextBlock>
+                                    <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri45_1"></TextBox>
+                                </StackPanel>
+                                <DockPanel>
+                                    <TextBlock>Итого по 4.5:</TextBlock>
+                                    <TextBlock Margin="10,0,0,0">0</TextBlock>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel Margin="30,0,0,0" Orientation="Vertical">
                                 <TextBlock>вычеты по операциям с ЦБ - 4.6</TextBlock>
-                                <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka460" ItemsSource="{Binding Examples}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
-                                    <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
-                                </DataGrid.Columns>
-                                <DataGrid.Items>111
-                                    <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Апрель" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Май" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Июнь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Август" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Сентябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Октябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Ноябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Декабрь" Doxod="0"></local:RecordCS>
-                                </DataGrid.Items>
-                            </DataGrid>
-                            <DockPanel>
-                                <TextBlock>Итого по 4.6:</TextBlock>
-                                <TextBlock Margin="10,0,0,0">0</TextBlock>
-                            </DockPanel>
+                                <DockPanel >
+                                    <TextBlock>Месяц</TextBlock>
+                                    <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                                </DockPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Январь</TextBlock>
+                                    <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Февраль</TextBlock>
+                                    <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Март</TextBlock>
+                                    <TextBox Margin="31,0,0,0" Width="100" Name="Mart45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Апрель</TextBlock>
+                                    <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Май</TextBlock>
+                                    <TextBox  Margin="36,0,0,0" Width="100" Name="Mai45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Июль</TextBlock>
+                                    <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Июнь</TextBlock>
+                                    <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Август</TextBlock>
+                                    <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Сентябрь</TextBlock>
+                                    <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Октябрь</TextBlock>
+                                    <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Ноябрь</TextBlock>
+                                    <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr45_2"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Декабрь</TextBlock>
+                                    <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri45_2"></TextBox>
+                                </StackPanel>
+                                <DockPanel>
+                                    <TextBlock>Итого по 4.6:</TextBlock>
+                                    <TextBlock Margin="10,0,0,0">0</TextBlock>
+                                </DockPanel>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                  </StackPanel>
                 </TabItem.Content>
             </TabItem>
             <TabItem>
@@ -682,25 +933,58 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="30,20,0,0" Orientation="Vertical">
                             <TextBlock>Удержано подоходного налога 5.1</TextBlock>
-                            <DataGrid Width="200" Margin="0,10,0,0" Height="260" x:Name="listSpravka51" ItemsSource="{Binding Examples}">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Mounth}" Width="125" Header="Месяц"/>
-                                    <DataGridTextColumn Binding="{Binding Doxod}" Width="75" Header="Доход"/>
-                                </DataGrid.Columns>
-                                <DataGrid.Items>111
-                                    <local:RecordCS Mounth="Январь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Февраль" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Март" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Апрель" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Май" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Июнь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Август" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Сентябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Октябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Ноябрь" Doxod="0"></local:RecordCS>
-                                    <local:RecordCS Mounth="Декабрь" Doxod="0"></local:RecordCS>
-                                </DataGrid.Items>
-                            </DataGrid>
+                            <DockPanel >
+                                <TextBlock>Месяц</TextBlock>
+                                <TextBlock Margin="30,0,60,0">Доход</TextBlock>
+                            </DockPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Январь</TextBlock>
+                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Февраль</TextBlock>
+                                <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Март</TextBlock>
+                                <TextBox Margin="31,0,0,0" Width="100" Name="Mart51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Апрель</TextBlock>
+                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Май</TextBlock>
+                                <TextBox  Margin="36,0,0,0" Width="100" Name="Mai51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июль</TextBlock>
+                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Июнь</TextBlock>
+                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Август</TextBlock>
+                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Сентябрь</TextBlock>
+                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Октябрь</TextBlock>
+                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Ноябрь</TextBlock>
+                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr51_1"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Декабрь</TextBlock>
+                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri51_1"></TextBox>
+                            </StackPanel>
                             <DockPanel>
                                 <TextBlock>Сумма удержанного подоходного налога 5.2:</TextBlock>
                                 <TextBlock Margin="10,0,0,0">0</TextBlock>
@@ -737,7 +1021,7 @@
                                     </ComboBox>
                                 </StackPanel>
                                 <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
-                                    <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
+                                    <TextBlock Margin="10,0,10,0">Сумма</TextBlock>
                                     <TextBox Width="100"></TextBox>
                                     <Button Margin="10,0,0,0">
                                         <Button.Content>
@@ -774,7 +1058,7 @@
                                         <StackPanel Width="200" Orientation="Vertical">
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                                <TextBox Margin="10,0,0,0" Width="130"></TextBox>
+                                                <TextBox Margin="25,0,0,0" Width="130"></TextBox>
                                                 <Button>
                                                     <Button.Content>
                                                         ...
@@ -842,7 +1126,7 @@
                                         <StackPanel Width="200" Orientation="Vertical">
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                                <TextBox Margin="10,0,0,0" Width="130"></TextBox>
+                                                <TextBox Margin="25,0,0,0" Width="130"></TextBox>
                                                 <Button>
                                                     <Button.Content>
                                                         ...
@@ -910,7 +1194,7 @@
                                         <StackPanel Width="200" Orientation="Vertical">
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                                <TextBox Margin="10,0,0,0" Width="130"></TextBox>
+                                                <TextBox Margin="25,0,0,0" Width="130"></TextBox>
                                                 <Button>
                                                     <Button.Content>
                                                         ...
@@ -974,51 +1258,51 @@
                         </StackPanel>
                         <StackPanel Margin="10,20,0,0" Orientation="Vertical">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock FontSize="20" FontStyle="Italic">И того по Разделу 6 и 7</TextBlock>
+                                <TextBlock FontSize="20" FontStyle="Italic">Итого по Разделу 6 и 7</TextBlock>
                                 <TextBlock FontSize="16">Итого по:</TextBlock>
                                 <DockPanel>
                                     <TextBlock>6.1 - доход</TextBlock>
-                                    <TextBlock Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock Margin="93,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <DockPanel>
                                     <TextBlock>в т.ч. 6.1-1 - доход</TextBlock>
-                                    <TextBlock Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock Margin="52,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <Separator></Separator>
                                 <DockPanel>
                                     <TextBlock>6.1 - налог</TextBlock>
-                                    <TextBlock Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock Margin="95,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <DockPanel>
                                     <TextBlock>в т.ч. 6.1-1 - налог</TextBlock>
-                                    <TextBlock Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock Margin="54,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <TextBlock FontSize="16">Итого по:</TextBlock>
                                 <DockPanel>
                                     <TextBlock>6.1-2 - доход</TextBlock>
-                                    <TextBlock Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock Margin="82,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <DockPanel>
                                     <TextBlock>6.1-2 - налог</TextBlock>
-                                    <TextBlock Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock Margin="84,0,0,0">0</TextBlock>
                                 </DockPanel>
                             </StackPanel>
                             <StackPanel Margin="0,10,0,0" Orientation="Vertical">
                                 <DockPanel>
                                     <TextBlock FontSize="14">Итого по 6.2 - доход</TextBlock>
-                                    <TextBlock FontSize="14" Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock FontSize="14" Margin="20,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <DockPanel>
                                     <TextBlock FontSize="14">Итого 6.3 - налог</TextBlock>
-                                    <TextBlock FontSize="14" Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock FontSize="14" Margin="42,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <DockPanel>
                                     <TextBlock FontSize="14">Всего доходов 7.1</TextBlock>
-                                    <TextBlock FontSize="14" Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock FontSize="14" Margin="37,0,0,0">0</TextBlock>
                                 </DockPanel>
                                 <DockPanel>
                                     <TextBlock FontSize="14">Всего налогов 7.2</TextBlock>
-                                    <TextBlock FontSize="14" Margin="40,0,0,0">0</TextBlock>
+                                    <TextBlock FontSize="14" Margin="39,0,0,0">0</TextBlock>
                                 </DockPanel>
                             </StackPanel>
                         </StackPanel>
@@ -1038,8 +1322,8 @@
             </ListBox>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
-        <Button  Margin="10,10,10,10" Width="75" Height="25" Content="Отмена" Click="Button_Click"></Button>
-        <Button  Margin="10,10,10,10"  Width="75" Height="25" Content="Сохранить"></Button>
+            <Button  Margin="10,10,10,10" Width="75" Height="25" Content="Отмена" Click="Button_Click"></Button>
+            <Button  Margin="10,10,10,10"  Width="75" Height="25" Content="Сохранить"></Button>
         </StackPanel>
     </Grid>
 </Window>
