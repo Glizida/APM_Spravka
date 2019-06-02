@@ -21,7 +21,7 @@
             </MenuItem>
             <MenuItem Header="Редактирование" >
                 <MenuItem Header="Новая запись" Click="Open_Record_Click"></MenuItem>
-                <MenuItem Header="Корректировка"></MenuItem>
+                <MenuItem Header="Корректировка" Click="Open_Record_Click"></MenuItem>
                 <MenuItem Header="Удаление"></MenuItem>
             </MenuItem>
             <MenuItem Header="Справочники" >
@@ -56,7 +56,7 @@
                     <Image Source="Images/File.png"></Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Width="24">
+            <MenuItem Width="24" Click="Open_Record_Click">
                 <MenuItem.Icon>
                     <Image Source="Images/Pen.png"></Image>
                 </MenuItem.Icon>
@@ -84,7 +84,7 @@
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem IsEnabled ="false" Width="20"></MenuItem>
-            <MenuItem Width="24">
+            <MenuItem Click="Help_Click"  Width="24">
                 <MenuItem.Icon>
                     <Image Source="Images/Help.png"></Image>
                 </MenuItem.Icon>
@@ -96,22 +96,20 @@
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>
-        <Grid Margin="0,50,0,25">
-            <DataGrid x:Name="listUser" ItemsSource="{Binding Example}" Margin="1,0,-1,0">
-                <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding nomer}" Header="№"/>
-                        <DataGridTextColumn Binding="{Binding unp}" Header="УНП"/>
-                        <DataGridTextColumn Binding="{Binding fio}" Header="Фамилия"/>
-                        <DataGridTextColumn Binding="{Binding name}" Header="Имя"/>
-                        <DataGridTextColumn Binding="{Binding otch}" Header="Отчетсво"/>
-                        <DataGridTextColumn Binding="{Binding doxod}" Header="Доход"/>
-                        <DataGridTextColumn Binding="{Binding nalog}" Header="Налог"/>
-                   </DataGrid.Columns>
-                <!--<DataGrid.Items>
-                    <local:Example nomer="1" unp="21323123" fio="Гайдукевич" name="Владислав" othc="Анатольевич" doxod="10000" nalog="1240"></local:Example>
-                </DataGrid.Items>-->
-            </DataGrid>
-        </Grid>
+        <DockPanel Margin="0,40,0,20" >
+        <ListView Name="ListZapisei">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Unp}">УНП</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Fio}">Фамилия</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Namee}">Имя</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Otch}">Отчество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Doxod}">Доход</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Nalog}">Налог</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        </DockPanel>
         <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">
             <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Итого</TextBlock>
             <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Доход</TextBlock>

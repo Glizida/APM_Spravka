@@ -67,6 +67,7 @@
     <Compile Include="BD Table\Norma.cs" />
     <Compile Include="BD Table\User.cs" />
     <Compile Include="BD Table\UserData.cs" />
+    <Compile Include="BD Table\UserTable.cs" />
     <Compile Include="HelpCS\DoxodvMounth.cs" />
     <Compile Include="HelpCS\RecordCSIndex.cs" />
     <Compile Include="HelpCS\Record.cs" />

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using APM_Spravka.BD_Table;
 using static APM_Spravka.RecordCS;
 using static APM_Spravka.RecordCSIndex;
 
@@ -21,9 +22,20 @@ namespace APM_Spravka
     /// </summary>
     public partial class Record : Window
     {
-        public Record()
+        public User polzovatel;
+        public UserTable userTablee;
+        public bool korrekt;
+        
+        public Record(User user,UserTable userTable, bool korekt)
         {
             InitializeComponent();
+            polzovatel = user;
+            if (userTable != null)
+            {
+                userTablee = userTable;
+            }
+            korrekt = korekt;
+            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
