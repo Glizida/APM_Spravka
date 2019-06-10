@@ -34,6 +34,10 @@ namespace APM_Spravka
         MySqlCommand myCommand = new MySqlCommand();
         MySqlDataReader MyDataReader;
 
+        private int doxod = 0;
+        private int doxodTable1 = 0;
+        private int razdel2 = 0;
+        
         
         public Record(User user,UserTable userTable, bool korekt)
         {
@@ -44,10 +48,54 @@ namespace APM_Spravka
             {
                 userTablee = userTable;
                 GetRazdel2(userTablee);
+                GetDoxod(userTablee);
             }
             korrekt = korekt;
         }
 
+        public void GetDoxod(UserTable table)
+        {
+            try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commandText = $"SELECT * FROM nzzGtRxVKL.Doxod WHERE idUser = {table.IdSviazi};";
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.DoxodTable WHERE idDoxod= {table.IdSviazi};";
+                myCommand = new MySqlCommand(commandText, myConnection);
+                myConnection.Open();
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    doxod = MyDataReader.GetInt32(0);
+                    Avtor_ListBox.Items.Add(MyDataReader.GetString(3));
+                    OperCB_ListBox.Items.Add(MyDataReader.GetString(4));
+                }
+                MyDataReader.Close();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    doxodTable1 = MyDataReader.GetInt32(0);
+                    DoxodIanvari.Text = MyDataReader.GetString(2);
+                    DoxodFevrali.Text = MyDataReader.GetString(3);
+                    DoxodMart.Text = MyDataReader.GetString(4);
+                    DoxodAprel.Text = MyDataReader.GetString(5);
+                    DoxodMai.Text = MyDataReader.GetString(6);
+                    DoxodIyul.Text = MyDataReader.GetString(7);
+                    DoxodIyun.Text = MyDataReader.GetString(8);
+                    DoxodAvgust.Text = MyDataReader.GetString(9);
+                    DoxodSentiabr.Text = MyDataReader.GetString(10);
+                    DoxodOktiabri.Text = MyDataReader.GetString(11);
+                    DoxodNoiabr.Text = MyDataReader.GetString(12);
+                    DoxodDekabri.Text = MyDataReader.GetString(13);
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
         public void GetRazdel2(UserTable table)
         {
             try
@@ -59,6 +107,7 @@ namespace APM_Spravka
                 MyDataReader = myCommand.ExecuteReader();
                 while (MyDataReader.Read())
                 {
+                    razdel2 = MyDataReader.GetInt32(0);
                     UNP_TextBox.Text = MyDataReader.GetString(2);
                     Status_TextBox.Text = MyDataReader.GetString(3);
                     if (MyDataReader.GetInt32(4) == 0)

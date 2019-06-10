@@ -193,7 +193,7 @@
 
                                     </StackPanel>
                                     <StackPanel Orientation="Vertical">
-                                        <ListBox Margin="0,30,0,0" Width="100" Height="100">
+                                        <ListBox Name="Avtor_ListBox" Margin="0,30,0,0" Width="100" Height="100">
 
                                         </ListBox>
                                     </StackPanel>
@@ -241,7 +241,7 @@
 
                                         </StackPanel>
                                         <StackPanel Orientation="Vertical">
-                                            <ListBox Margin="70,30,0,0" Width="100" Height="100"/>
+                                            <ListBox Name="OperCB_ListBox" Margin="70,30,0,0" Width="100" Height="100"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </StackPanel>
