@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using APM_Spravka.BD_Table;
 using APM_Spravka_Admin.BD_Table;
+using MySql.Data.MySqlClient;
 using static APM_Spravka.RecordCS;
 using static APM_Spravka.RecordCSIndex;
 
@@ -29,18 +30,72 @@ namespace APM_Spravka
 
         public string nameWindow;
         
+        public string CONNECT = "Database=nzzGtRxVKL;Data Source=remotemysql.com;User Id=nzzGtRxVKL;Password=OCqp3u3YNf";
+        MySqlCommand myCommand = new MySqlCommand();
+        MySqlDataReader MyDataReader;
+
+        
         public Record(User user,UserTable userTable, bool korekt)
         {
+            
             InitializeComponent();
             polzovatel = user;
             if (userTable != null)
             {
                 userTablee = userTable;
+                GetRazdel2(userTablee);
             }
             korrekt = korekt;
-            
         }
 
+        public void GetRazdel2(UserTable table)
+        {
+            try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commandText = $"SELECT * FROM nzzGtRxVKL.Rasdel2 WHERE idSviazi = {table.IdSviazi};";
+                myCommand = new MySqlCommand(commandText, myConnection);
+                myConnection.Open();
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    UNP_TextBox.Text = MyDataReader.GetString(2);
+                    Status_TextBox.Text = MyDataReader.GetString(3);
+                    if (MyDataReader.GetInt32(4) == 0)
+                    {
+                        KeyVorkOsn_RadioButton.IsChecked = true;
+                        KeyVorkNeOns_RadioButton.IsChecked = false;
+                    }
+                    else
+                    {
+                        KeyVorkOsn_RadioButton.IsChecked = false;
+                        KeyVorkNeOns_RadioButton.IsChecked = true;
+                    }
+
+                    Familii_TextBox.Text = MyDataReader.GetString(5);
+                    Imia_TextBox.Text = MyDataReader.GetString(6);
+                    Otchestvo_TextBox.Text = MyDataReader.GetString(7);
+                    KodDoc_TextBox.Text = MyDataReader.GetString(8);
+                    Seria_TextBox.Text = MyDataReader.GetString(9);
+                    Nomer_TextBox.Text = MyDataReader.GetString(10);
+                    DataViachi_DatePicker.Text = Convert.ToString(MyDataReader.GetDateTime(20));
+                    KemVidan_TextBox.Text = MyDataReader.GetString(11);
+                    Idificationi_TextBox.Text = MyDataReader.GetString(12);
+                    XataIndex_TextBox.Text = MyDataReader.GetString(13);
+                    Gorod_TextBox.Text = MyDataReader.GetString(14);
+                    TipUlic_TextBox.Text = MyDataReader.GetString(15);
+                    NameYlica_TextBox.Text = MyDataReader.GetString(16);
+                    Dom_TextBox.Text = MyDataReader.GetString(17);
+                    Korpus_TextBox.Text = MyDataReader.GetString(18);
+                    Kvartira_TextBox.Text = MyDataReader.GetString(19);
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Owner.Show();
