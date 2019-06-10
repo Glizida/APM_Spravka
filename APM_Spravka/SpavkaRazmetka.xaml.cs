@@ -240,7 +240,6 @@ namespace APM_Spravka
                     MessageBox.Show("Вы ничего не выбрали ИМНС","Предупреждение",MessageBoxButton.OK,MessageBoxImage.Information);
                 }
             }
-
             if (Owner as Setting != null)
             {
                 if (listSpravka.SelectedIndex != 0)
@@ -250,6 +249,18 @@ namespace APM_Spravka
                 else
                 {
                     MessageBox.Show("Вы ничего не выбрали ИМНС", "Предупреждение", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                }
+            }
+            if (Owner as Record != null)
+            {
+                if (listSpravka.SelectedIndex != 0)
+                {
+                    ((Record) Owner).SetText(norma[listSpravka.SelectedIndex]);
+                }
+                else
+                {
+                    MessageBox.Show("Вы ничего не выбрали", "Предупреждение", MessageBoxButton.OK,
                         MessageBoxImage.Information);
                 }
             }

@@ -26,7 +26,6 @@
             </MenuItem>
             <MenuItem Header="Справочники" >
                 <MenuItem Header="Документы, удостоверяющие личность" Name="MenuItem_Udostaverenie" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Класификаторы СОАТО"  Name="MenuItem_COATO" Click="Open_Spravka_Click"></MenuItem>
                 <MenuItem Header="Налоговые инспекции"  Name="MenuItem_NalogInspekt" Click="Open_Spravka_Click"></MenuItem>
                 <MenuItem Header="Статусы плательщика"  Name="MenuItem_Status" Click="Open_Spravka_Click"></MenuItem>
                 <MenuItem Header="Страны мира"  Name="MenuItem_World" Click="Open_Spravka_Click"></MenuItem>
@@ -39,7 +38,6 @@
                 <MenuItem Header="Стандартные вычеты"  Name="MenuItem_StandartVichet" Click="Open_Spravka_Click"></MenuItem>
                 <MenuItem Header="Социальные вычеты" Name="MenuItem_SocialnieVicheti" Click="Open_Spravka_Click"></MenuItem>
                 <MenuItem Header="Имущественные вычеты" Name="MenuItem_Imychestmennie" Click="Open_Spravka_Click"></MenuItem>
-                <MenuItem Header="Доходы, полученные гражданами ЕАЭС"  Name="MenuItem_EAEC" Click="Open_Spravka_Click"></MenuItem>
                 <MenuItem Header="Доходы, полученные в Могилевской области" Name="MenuItem_MogilevObl" Click="Open_Spravka_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Помощь"></MenuItem>
