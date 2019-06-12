@@ -970,7 +970,7 @@
                                             </DockPanel>
                                         </StackPanel>
                                         <StackPanel Margin="10,0,0,0" Orientation="Vertical">
-                                            <ListBox Margin="0,30,0,0" Width="200" Height="100"></ListBox>
+                                            <ListBox Name="l61_ListBox" Margin="0,30,0,0" Width="200" Height="100"></ListBox>
                                         </StackPanel>
                                     </DockPanel>
                                 </StackPanel>
@@ -1039,7 +1039,7 @@
                                             </DockPanel>
                                         </StackPanel>
                                         <StackPanel Margin="10,0,0,0" Orientation="Vertical">
-                                            <ListBox Margin="0,30,0,0" Width="200" Height="100"></ListBox>
+                                            <ListBox Name="l62_ListBox"  Margin="0,30,0,0" Width="200" Height="100"></ListBox>
                                         </StackPanel>
                                     </DockPanel>
                                 </StackPanel>

@@ -43,7 +43,9 @@ namespace APM_Spravka
         private int table317 = 0;
         private int table45 = 0;
         private int table46 = 0;
+        private int table51 = 0;
         private int ligoti = 0;
+        private int razdel56 = 0;
 
 
         public Record(User user,UserTable userTable, bool korekt)
@@ -60,10 +62,36 @@ namespace APM_Spravka
                 GetP317(userTablee);
                 GetLigoti(userTablee);
                 GetVicheti(userTablee);
+                GetRazdel5(userTablee);
+                GetRazdel67(userTablee);
             }
             korrekt = korekt;
         }
 
+        public void GetRazdel67(UserTable table)
+        {
+            try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+               
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Razdel67 WHERE idUser= {table.IdSviazi};";
+                myConnection.Open();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    razdel56 = MyDataReader.GetInt32(0);
+                    l61_ListBox.Items.Add(MyDataReader.GetString(2));
+                    l62_ListBox.Items.Add(MyDataReader.GetString(3));
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
         public void GetLigoti(UserTable table)
         {
             try
@@ -88,7 +116,7 @@ namespace APM_Spravka
             }
         }
         
-        public void GetP317(UserTable table)
+        public async void GetP317(UserTable table)
         {
             try
             {
@@ -128,7 +156,7 @@ namespace APM_Spravka
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 string commandText1 = $"SELECT * FROM nzzGtRxVKL.Pnkt45Table1 WHERE idDoxod= {table.IdSviazi};";
-                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt46Table2 WHERE idDoxod= {table.IdSviazi};";
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt46Table1 WHERE idDoxod= {table.IdSviazi};";
                 myCommand = new MySqlCommand(commandText1, myConnection);
                 myConnection.Open();
                 MyDataReader = myCommand.ExecuteReader();
@@ -174,7 +202,40 @@ namespace APM_Spravka
                 MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
+        public void GetRazdel5(UserTable table)
+        {
+            try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt51Table1 WHERE idDoxod= {table.IdSviazi};";
+                myConnection.Open();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    table51 = MyDataReader.GetInt32(0);
+                    Ianvari51_1.Text = MyDataReader.GetString(2);
+                    Fevrali51_1.Text = MyDataReader.GetString(3);
+                    Mart51_1.Text = MyDataReader.GetString(4);
+                    Aprel51_1.Text = MyDataReader.GetString(5);
+                    Mai51_1.Text = MyDataReader.GetString(6);
+                    Iyul51_1.Text = MyDataReader.GetString(7);
+                    Iyun51_1.Text = MyDataReader.GetString(8);
+                    Avgust51_1.Text = MyDataReader.GetString(9);
+                    Sentiabr51_1.Text = MyDataReader.GetString(10);
+                    Oktiabri51_1.Text = MyDataReader.GetString(11);
+                    Noiabr51_1.Text = MyDataReader.GetString(12);
+                    Dekabri51_1.Text = MyDataReader.GetString(13);
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }  
+        }
+
         public void GetDoxod(UserTable table)
         {
             try
@@ -182,14 +243,14 @@ namespace APM_Spravka
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 string commandText = $"SELECT * FROM nzzGtRxVKL.Doxod WHERE idUser = {table.IdSviazi};";
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.DoxodTable WHERE idDoxod= {table.IdSviazi};";
-                myCommand = new MySqlCommand(commandText, myConnection);
                 myConnection.Open();
+                myCommand = new MySqlCommand(commandText2, myConnection);
                 MyDataReader = myCommand.ExecuteReader();
                 while (MyDataReader.Read())
                 {
                     doxod = MyDataReader.GetInt32(0);
-                    Avtor_ListBox.Items.Add(MyDataReader.GetString(3));
-                    OperCB_ListBox.Items.Add(MyDataReader.GetString(4));
+                    Avtor_ListBox.Items.Add(MyDataReader.GetString(2));
+                    OperCB_ListBox.Items.Add(MyDataReader.GetString(3));
                 }
                 MyDataReader.Close();
                 myCommand = new MySqlCommand(commandText2, myConnection);
