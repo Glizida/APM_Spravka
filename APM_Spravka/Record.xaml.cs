@@ -37,8 +37,11 @@ namespace APM_Spravka
         private int doxod = 0;
         private int doxodTable1 = 0;
         private int razdel2 = 0;
-        
-        
+        private int vznosiTable1 = 0;
+        private int vznosiTable2 = 0;
+        private int vznosiTable3 = 0;
+
+
         public Record(User user,UserTable userTable, bool korekt)
         {
             
@@ -49,6 +52,7 @@ namespace APM_Spravka
                 userTablee = userTable;
                 GetRazdel2(userTablee);
                 GetDoxod(userTablee);
+                GetVznos(userTablee);
             }
             korrekt = korekt;
         }
@@ -95,7 +99,104 @@ namespace APM_Spravka
                 MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
+        public void GetVznos(UserTable table)
+        {
+ try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commandText = $"SELECT * FROM nzzGtRxVKL.VznosiTabl1 WHERE idDoxod = {table.IdSviazi};";
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.VznosiTabl2 WHERE idDoxod= {table.IdSviazi};";
+                string commandText3 = $"SELECT * FROM nzzGtRxVKL.VznosiTabl3 WHERE idDoxod= {table.IdSviazi};";
+                myCommand = new MySqlCommand(commandText, myConnection);
+                myConnection.Open();
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    vznosiTable1 = MyDataReader.GetInt32(0);
+                    Vznos1Ianvari.Text = MyDataReader.GetString(2);
+                    Vznos1Fevrali.Text = MyDataReader.GetString(3);
+                    Vznos1Mart.Text  = MyDataReader.GetString(4);
+                    Vznos1Aprel.Text  = MyDataReader.GetString(5);
+                    Vznos1Mai.Text  = MyDataReader.GetString(6);
+                    Vznos1Iyul.Text = MyDataReader.GetString(7);
+                    Vznos1Iyun.Text  = MyDataReader.GetString(8);
+                    Vznos1Avgust.Text = MyDataReader.GetString(9);
+                    Vznos1Sentiabr.Text  = MyDataReader.GetString(10);
+                    Vznos1Oktiabri.Text  = MyDataReader.GetString(11);
+                    Vznos1Noiabr.Text = MyDataReader.GetString(12);
+                    Vznos1Dekabri.Text = MyDataReader.GetString(13);
+                    IndexVznos1Ianvari.Text = MyDataReader.GetString(14);
+                    IndexVznos1Fevrali.Text = MyDataReader.GetString(15);
+                    IndexVznos1Mart.Text  = MyDataReader.GetString(16);
+                    IndexVznos1Aprel.Text  = MyDataReader.GetString(17);
+                    IndexVznos1Mai.Text  = MyDataReader.GetString(18);
+                    IndexVznos1Iyul.Text = MyDataReader.GetString(19);
+                    IndexVznos1Iyun.Text  = MyDataReader.GetString(20);
+                    IndexVznos1Avgust.Text = MyDataReader.GetString(21);
+                    IndexVznos1Sentiabr.Text  = MyDataReader.GetString(22);
+                    IndexVznos1Oktiabri.Text  = MyDataReader.GetString(23);
+                    IndexVznos1Noiabr.Text = MyDataReader.GetString(24);
+                    IndexVznos1Dekabri.Text = MyDataReader.GetString(25);
+                }
+                MyDataReader.Close();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    vznosiTable2 = MyDataReader.GetInt32(0);
+                    Vznos2Ianvari.Text = MyDataReader.GetString(2);
+                    Vznos2Fevrali.Text = MyDataReader.GetString(3);
+                    Vznos2Mart.Text  = MyDataReader.GetString(4);
+                    Vznos2Aprel.Text  = MyDataReader.GetString(5);
+                    Vznos2Mai.Text  = MyDataReader.GetString(6);
+                    Vznos2Iyul.Text = MyDataReader.GetString(7);
+                    Vznos2Iyun.Text  = MyDataReader.GetString(8);
+                    Vznos2Avgust.Text = MyDataReader.GetString(9);
+                    Vznos2Sentiabr.Text  = MyDataReader.GetString(10);
+                    Vznos2Oktiabri.Text  = MyDataReader.GetString(11);
+                    Vznos2Noiabr.Text = MyDataReader.GetString(12);
+                    Vznos2Dekabri.Text = MyDataReader.GetString(13);
+                }
+                MyDataReader.Close();
+                myCommand = new MySqlCommand(commandText3, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    vznosiTable3 = MyDataReader.GetInt32(0);
+                    Vznos3Ianvari.Text = MyDataReader.GetString(2);
+                    Vznos3Fevrali.Text = MyDataReader.GetString(3);
+                    Vznos3Mart.Text  = MyDataReader.GetString(4);
+                    Vznos3Aprel.Text  = MyDataReader.GetString(5);
+                    Vznos3Mai.Text  = MyDataReader.GetString(6);
+                    Vznos3Iyul.Text = MyDataReader.GetString(7);
+                    Vznos3Iyun.Text  = MyDataReader.GetString(8);
+                    Vznos3Avgust.Text = MyDataReader.GetString(9);
+                    Vznos3Sentiabr.Text  = MyDataReader.GetString(10);
+                    Vznos3Oktiabri.Text  = MyDataReader.GetString(11);
+                    Vznos3Noiabr.Text = MyDataReader.GetString(12);
+                    Vznos3Dekabri.Text = MyDataReader.GetString(13);
+                    IndexVznos3Ianvari.Text = MyDataReader.GetString(14);
+                    IndexVznos3Fevrali.Text = MyDataReader.GetString(15);
+                    IndexVznos3Mart.Text  = MyDataReader.GetString(16);
+                    IndexVznos3Aprel.Text  = MyDataReader.GetString(17);
+                    IndexVznos3Mai.Text  = MyDataReader.GetString(18);
+                    IndexVznos3Iyul.Text = MyDataReader.GetString(19);
+                    IndexVznos3Iyun.Text  = MyDataReader.GetString(20);
+                    IndexVznos3Avgust.Text = MyDataReader.GetString(21);
+                    IndexVznos3Sentiabr.Text  = MyDataReader.GetString(22);
+                    IndexVznos3Oktiabri.Text  = MyDataReader.GetString(23);
+                    IndexVznos3Noiabr.Text = MyDataReader.GetString(24);
+                    IndexVznos3Dekabri.Text = MyDataReader.GetString(25);
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         public void GetRazdel2(UserTable table)
         {
             try
