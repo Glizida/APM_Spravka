@@ -40,6 +40,7 @@ namespace APM_Spravka
         private int vznosiTable1 = 0;
         private int vznosiTable2 = 0;
         private int vznosiTable3 = 0;
+        private int table317 = 0;
 
 
         public Record(User user,UserTable userTable, bool korekt)
@@ -53,8 +54,43 @@ namespace APM_Spravka
                 GetRazdel2(userTablee);
                 GetDoxod(userTablee);
                 GetVznos(userTablee);
+                GetP317(userTablee);
             }
             korrekt = korekt;
+        }
+
+        public void GetP317(UserTable table)
+        {
+            try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+               
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt37Table1 WHERE idDoxod= {table.IdSviazi};";
+                myConnection.Open();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    table317 = MyDataReader.GetInt32(0);
+                    Ianvari317_1.Text = MyDataReader.GetString(2);
+                    Fevrali317_1.Text = MyDataReader.GetString(3);
+                    Mart317_1.Text = MyDataReader.GetString(4);
+                    Aprel317_1.Text = MyDataReader.GetString(5);
+                    Mai317_1.Text = MyDataReader.GetString(6);
+                    Iyul317_1.Text = MyDataReader.GetString(7);
+                    Iyun317_1.Text = MyDataReader.GetString(8);
+                    Avgust317_1.Text = MyDataReader.GetString(9);
+                    Sentiabr317_1.Text = MyDataReader.GetString(10);
+                    Oktiabri317_1.Text = MyDataReader.GetString(11);
+                    Noiabr317_1.Text = MyDataReader.GetString(12);
+                    Dekabri317_1.Text = MyDataReader.GetString(13);
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void GetDoxod(UserTable table)
