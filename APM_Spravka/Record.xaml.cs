@@ -41,6 +41,9 @@ namespace APM_Spravka
         private int vznosiTable2 = 0;
         private int vznosiTable3 = 0;
         private int table317 = 0;
+        private int table45 = 0;
+        private int table46 = 0;
+        private int ligoti = 0;
 
 
         public Record(User user,UserTable userTable, bool korekt)
@@ -55,10 +58,36 @@ namespace APM_Spravka
                 GetDoxod(userTablee);
                 GetVznos(userTablee);
                 GetP317(userTablee);
+                GetLigoti(userTablee);
+                GetVicheti(userTablee);
             }
             korrekt = korekt;
         }
 
+        public void GetLigoti(UserTable table)
+        {
+            try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+               
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Ligoti WHERE idUser= {table.IdSviazi};";
+                myConnection.Open();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    ligoti = MyDataReader.GetInt32(0);
+                    L41_ListBox.Items.Add(MyDataReader.GetString(2));
+                    L42_ListBox.Items.Add(MyDataReader.GetString(3));
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
         public void GetP317(UserTable table)
         {
             try
@@ -93,6 +122,59 @@ namespace APM_Spravka
             }
         }
 
+        public void GetVicheti(UserTable table)
+        {
+             try
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commandText1 = $"SELECT * FROM nzzGtRxVKL.Pnkt45Table1 WHERE idDoxod= {table.IdSviazi};";
+                string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt46Table2 WHERE idDoxod= {table.IdSviazi};";
+                myCommand = new MySqlCommand(commandText1, myConnection);
+                myConnection.Open();
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    table45 = MyDataReader.GetInt32(0);
+                    Ianvari45_1.Text = MyDataReader.GetString(2);
+                    Fevrali45_1.Text = MyDataReader.GetString(3);
+                    Mart45_1.Text = MyDataReader.GetString(4);
+                    Aprel45_1.Text = MyDataReader.GetString(5);
+                    Mai45_1.Text = MyDataReader.GetString(6);
+                    Iyul45_1.Text = MyDataReader.GetString(7);
+                    Iyun45_1.Text = MyDataReader.GetString(8);
+                    Avgust45_1.Text = MyDataReader.GetString(9);
+                    Sentiabr45_1.Text = MyDataReader.GetString(10);
+                    Oktiabri45_1.Text = MyDataReader.GetString(11);
+                    Noiabr45_1.Text = MyDataReader.GetString(12);
+                    Dekabri45_1.Text = MyDataReader.GetString(13);
+                }
+                MyDataReader.Close();
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    table46 = MyDataReader.GetInt32(0);
+                    Ianvari45_2.Text = MyDataReader.GetString(2);
+                    Fevrali45_2.Text = MyDataReader.GetString(3);
+                    Mart45_2.Text = MyDataReader.GetString(4);
+                    Aprel45_2.Text = MyDataReader.GetString(5);
+                    Mai45_2.Text = MyDataReader.GetString(6);
+                    Iyul45_2.Text = MyDataReader.GetString(7);
+                    Iyun45_2.Text = MyDataReader.GetString(8);
+                    Avgust45_2.Text = MyDataReader.GetString(9);
+                    Sentiabr45_2.Text = MyDataReader.GetString(10);
+                    Oktiabri45_2.Text = MyDataReader.GetString(11);
+                    Noiabr45_2.Text = MyDataReader.GetString(12);
+                    Dekabri45_2.Text = MyDataReader.GetString(13);
+                }
+                MyDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
         public void GetDoxod(UserTable table)
         {
             try
