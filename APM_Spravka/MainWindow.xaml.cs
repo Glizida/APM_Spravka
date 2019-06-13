@@ -97,6 +97,27 @@ namespace APM_Spravka
 
         private void Open_Record_Click(object sender, RoutedEventArgs e)
         {
+            
+                Record record = new Record(polsovatel,null, false);
+                record.Owner = this;
+                record.Show();
+        }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            OProgramme oProgramme = new OProgramme();
+            oProgramme.Show();
+        }
+
+
+        private void Otchet_Click(object sender, RoutedEventArgs e)
+        {
+            Othet othet = new Othet();
+            othet.Show();
+        }
+        
+        private void Open_RedRecord_Click(object sender, RoutedEventArgs e)
+        {
             if (ListZapisei.SelectedItem != null)
             {
                 Record record = new Record(polsovatel,(UserTable)ListZapisei.SelectedItem, true);
@@ -111,10 +132,9 @@ namespace APM_Spravka
             }
         }
 
-        private void Help_Click(object sender, RoutedEventArgs e)
+        private void OpenSpravkaPrinting_Click(object sender, RoutedEventArgs e)
         {
-            OProgramme oProgramme = new OProgramme();
-            oProgramme.Show();
+            throw new NotImplementedException();
         }
     }
 }

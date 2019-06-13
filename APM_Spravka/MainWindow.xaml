@@ -11,17 +11,13 @@
             <MenuItem Header="Файл">
                 <MenuItem Header="Настройка" Click="Open_Setting_Click" ></MenuItem>
                 <Separator />
-                <MenuItem Header="Сохранить всё"></MenuItem>
-                <Separator />
-                <MenuItem Header="Печать справки" ></MenuItem>
-                <Separator />
-                <MenuItem Header="Файл для МНС" ></MenuItem>
+                <MenuItem Click="OpenSpravkaPrinting_Click" Header="Печать справки" ></MenuItem>
                 <Separator />
                 <MenuItem Header="Выход" Click="Exit_Application"></MenuItem>
             </MenuItem>
             <MenuItem Header="Редактирование" >
                 <MenuItem Header="Новая запись" Click="Open_Record_Click"></MenuItem>
-                <MenuItem Header="Корректировка" Click="Open_Record_Click"></MenuItem>
+                <MenuItem Header="Корректировка" Click="Open_RedRecord_Click"></MenuItem>
                 <MenuItem Header="Удаление"></MenuItem>
             </MenuItem>
             <MenuItem Header="Справочники" >
@@ -54,7 +50,7 @@
                     <Image Source="Images/File.png"></Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Width="24" Click="Open_Record_Click">
+            <MenuItem Width="24"  Click="Open_RedRecord_Click">
                 <MenuItem.Icon>
                     <Image Source="Images/Pen.png"></Image>
                 </MenuItem.Icon>
@@ -70,7 +66,7 @@
                     <Image Source="Images/Save.png"></Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Width="24">
+            <MenuItem Click="Otchet_Click" Width="24">
                 <MenuItem.Icon>
                     <Image Source="Images/Print.png"></Image>
                 </MenuItem.Icon>
