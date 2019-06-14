@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Shapes;
 using APM_Spravka.BD_Table;
 using APM_Spravka_Admin.BD_Table;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Bcpg;
 using static APM_Spravka.RecordCS;
 using static APM_Spravka.RecordCSIndex;
 
@@ -47,6 +49,8 @@ namespace APM_Spravka
         private int ligoti = 0;
         private int razdel56 = 0;
 
+        private bool updatee = false;
+
 
         public Record(User user,UserTable userTable, bool korekt)
         {
@@ -64,10 +68,79 @@ namespace APM_Spravka
                 GetVicheti(userTablee);
                 GetRazdel5(userTablee);
                 GetRazdel67(userTablee);
+
+                updatee = true;
             }
             korrekt = korekt;
         }
 
+
+        public void SetTable()
+        {
+            
+        }
+
+        public void SetRazdel2()
+        {
+            try
+            {
+                int keyVork = 0;
+                if (KeyVorkOsn_RadioButton.IsChecked == true)
+                {
+                    keyVork = 0;
+                }
+                else
+                {
+                    keyVork = 1;
+                }
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commandText2 = $"INSERT nzzGtRxVKL.UserTable SET idUser = {polzovatel.IdUser}," +
+                                      $" UNP = \"{UNP_TextBox.Text}\", FIO = \"{Familii_TextBox.Text}\"," +
+                                      $" Namee = \"{Imia_TextBox.Text}\", Otch = \"{Otchestvo_TextBox.Text}\"," +
+                                      $" Doxod = \"Временно без подсчетов\", Nalog = \"Для удобства отладки\";";
+                myCommand = new MySqlCommand(commandText2, myConnection);
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+                
+                userTablee = new UserTable();
+               
+                string commandText3 = $"SELECT * FROM nzzGtRxVKL.UserTable ORDER BY idSviazi DESC LIMIT 1;";
+                myConnection.Open();
+                myCommand = new MySqlCommand(commandText3, myConnection);
+                MyDataReader = myCommand.ExecuteReader();
+                MyDataReader.Read();
+                userTablee.IdSviazi = MyDataReader.GetInt32(0);
+                userTablee.IdUser = MyDataReader.GetInt32(1);
+                userTablee.Unp = MyDataReader.GetString(2);
+                userTablee.Fio = MyDataReader.GetString(3);
+                userTablee.Namee = MyDataReader.GetString(4);
+                userTablee.Otch = MyDataReader.GetString(5);
+                userTablee.Doxod = MyDataReader.GetString(6);
+                userTablee.Nalog = MyDataReader.GetString(7);
+                MyDataReader.Close();
+                myConnection.Close();
+                
+                
+                string commandText =
+                    $"INSERT nzzGtRxVKL.Rasdel2 SET idSviazi = {userTablee.IdSviazi}, UNP = \"{UNP_TextBox.Text}\", StatusPlatelchika = \"{Status_TextBox.Text}\", " +
+                    $"KeyWork = \"{keyVork}\", Familia = \"{Familii_TextBox.Text}\", Imia = \"{Imia_TextBox.Text}\", " +
+                    $"Otchestvo = \"{Otchestvo_TextBox.Text}\", KeyDokymenta = \"{KodDoc_TextBox.Text}\", Seria = \"{Seria_TextBox.Text}\", " +
+                    $"Nomer = \"{Nomer_TextBox.Text}\", KemVidan = \"{KemVidan_TextBox.Text}\", IndifikacionniNomer = \"{Idificationi_TextBox.Text}\", XataIndex = \"{XataIndex_TextBox.Text}\"," +
+                    $" Gorod = \"{Gorod_TextBox.Text}\", Dom = \"{Dom_TextBox.Text}\", Nazvanie = \"{NameYlica_TextBox.Text}\", TipUlici = \"{TipUlic_TextBox.Text}\", Korpus = \"{Korpus_TextBox.Text}\", " +
+                    $"Kvartira = \"{Kvartira_TextBox.Text}\", DataVidachi = \"{DataViachi_DatePicker.Text}\";";
+            
+                myCommand = new MySqlCommand(commandText, myConnection);
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        
         public void GetRazdel67(UserTable table)
         {
             try
@@ -116,7 +189,7 @@ namespace APM_Spravka
             }
         }
         
-        public async void GetP317(UserTable table)
+        public void GetP317(UserTable table)
         {
             try
             {
@@ -376,6 +449,39 @@ namespace APM_Spravka
             }
         }
 
+        public void UpdateRazdel2()
+        {
+            try
+            {
+                int keyVork = 0;
+                if (KeyVorkOsn_RadioButton.IsChecked == true)
+                {
+                    keyVork = 0;
+                }
+                else
+                {
+                    keyVork = 1;
+                }
+
+                string commandText =
+                    $"UPDATE nzzGtRxVKL.Rasdel2 SET UNP = \"{UNP_TextBox.Text}\", StatusPlatelchika = \"{Status_TextBox.Text}\", " +
+                    $"KeyWork = \"{keyVork}\", Familia = \"{Familii_TextBox.Text}\", Imia = \"{Imia_TextBox.Text}\", " +
+                    $"Otchestvo = \"{Otchestvo_TextBox.Text}\", KeyDokymenta = \"{KodDoc_TextBox.Text}\", Seria = \"{Seria_TextBox.Text}\", " +
+                    $"Nomer = \"{Nomer_TextBox.Text}\", KemVidan = \"{KemVidan_TextBox.Text}\", IndifikacionniNomer = \"{Idificationi_TextBox.Text}\", XataIndex = \"{XataIndex_TextBox.Text}\"," +
+                    $" Gorod = \"{Gorod_TextBox.Text}\", Dom = \"{Dom_TextBox.Text}\", Nazvanie = \"{NameYlica_TextBox.Text}\", TipUlici = \"{TipUlic_TextBox.Text}\", Korpus = \"{Korpus_TextBox.Text}\", " +
+                    $"Kvartira = \"{Kvartira_TextBox.Text}\", DataVidachi = \"{DataViachi_DatePicker.Text}\" WHERE idPolsovatelData = {razdel2};";
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                myCommand = new MySqlCommand(commandText, myConnection);
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
         public void GetRazdel2(UserTable table)
         {
             try
@@ -467,7 +573,7 @@ namespace APM_Spravka
                         RezidentPVT_TextBox.Text = norma.Code.ToString();
                         break; 
                     case "Статусы плательщика":
-                        RezidentPVT_TextBox.Text = norma.Code.ToString();
+                        Status_TextBox.Text = norma.Code.ToString();
                         break;
                 }
             }
@@ -550,6 +656,23 @@ namespace APM_Spravka
             SpavkaRazmetka spavkaRazmetka = new SpavkaRazmetka(nameWindow);
             spavkaRazmetka.Show();
             spavkaRazmetka.Owner = this;
+        }
+
+        private void KeyDown_TextBox(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (updatee)
+            {
+                UpdateRazdel2();
+            }
+            else
+            {
+               SetRazdel2();
+            }
         }
     }
 }

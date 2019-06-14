@@ -55,7 +55,7 @@
                     <Image Source="Images/Pen.png"></Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Width="24">
+            <MenuItem Click="Delete_Click" Width="24">
                 <MenuItem.Icon>
                     <Image Source="Images/Delete.png"></Image>
                 </MenuItem.Icon>
@@ -104,10 +104,12 @@
             </ListView.View>
         </ListView>
         </DockPanel>
+        <!--
         <StackPanel  Orientation="Horizontal" VerticalAlignment="Bottom" Height="25">
             <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Итого</TextBlock>
             <TextBlock TextAlignment="Center" FontSize="20" Margin="0,0,100,0">Доход</TextBlock>
             <TextBlock TextAlignment="Center" FontSize="20">Налог</TextBlock>
         </StackPanel>
+        -->
     </Grid>
 </Window>

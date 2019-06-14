@@ -56,7 +56,6 @@ namespace APM_Spravka
 
             MyDataReader.Close();
             ListAdmin.ItemsSource = allUsers;
-            ProgressBar.IsIndeterminate = false;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -89,33 +88,35 @@ namespace APM_Spravka
         {
             try
             {
-                ProgressBar.IsIndeterminate = true;
-                dataUser.Clear();
-                MySqlCommand myCommand = new MySqlCommand();
-                MySqlDataReader MyDataReader;
-                MySqlConnection myConnection = new MySqlConnection(CONNECT);
-                string CommandText = "SELECT * FROM nzzGtRxVKL.UserData WHERE idUsers = " +
-                                     allUsers[ListAdmin.SelectedIndex].IdUser + "";
-                myCommand = new MySqlCommand(CommandText, myConnection);
-                myConnection.Open();
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                if (allUsers[ListAdmin.SelectedIndex].LevelAccess != 3)
                 {
-                    UserData data = new UserData(MyDataReader.GetInt32(0), MyDataReader.GetInt32(1),
-                        MyDataReader.GetString(2), MyDataReader.GetInt32(3), MyDataReader.GetInt32(4),
-                        MyDataReader.GetString(5), MyDataReader.GetString(6));
-                    dataUser.Add(data);
+
+                    dataUser.Clear();
+                    MySqlCommand myCommand = new MySqlCommand();
+                    MySqlDataReader MyDataReader;
+                    MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                    string CommandText = "SELECT * FROM nzzGtRxVKL.UserData WHERE idUsers = " +
+                                         allUsers[ListAdmin.SelectedIndex].IdUser + "";
+                    myCommand = new MySqlCommand(CommandText, myConnection);
+                    myConnection.Open();
+                    MyDataReader = myCommand.ExecuteReader();
+                    while (MyDataReader.Read())
+                    {
+                        UserData data = new UserData(MyDataReader.GetInt32(0), MyDataReader.GetInt32(1),
+                            MyDataReader.GetString(2), MyDataReader.GetInt32(3), MyDataReader.GetInt32(4),
+                            MyDataReader.GetString(5), MyDataReader.GetString(6));
+                        dataUser.Add(data);
+                    }
+
+                    MyDataReader.Close();
+
+                    NameFull_TextBox.Text = dataUser[0].fullName;
+                    UNP_TextBox.Text = dataUser[0].unp.ToString();
+                    KeyOrgana_TextBox.Text = dataUser[0].keyOrgana.ToString();
+                    Telefon_TextBox.Text = dataUser[0].telefon;
+                    God_TextBox.Text = dataUser[0].god;
+                    
                 }
-
-                MyDataReader.Close();
-
-                NameFull_TextBox.Text = dataUser[0].fullName;
-                UNP_TextBox.Text = dataUser[0].unp.ToString();
-                KeyOrgana_TextBox.Text = dataUser[0].keyOrgana.ToString();
-                Telefon_TextBox.Text = dataUser[0].telefon;
-                God_TextBox.Text = dataUser[0].god;
-
-                ProgressBar.IsIndeterminate = false;
             }
             catch (Exception exception)
             {

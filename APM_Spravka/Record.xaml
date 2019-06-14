@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:APM_Spravka"
         xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
@@ -19,9 +20,9 @@
                             <StackPanel VerticalAlignment="Top" Orientation="Horizontal" Margin="10,10,10,10">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                     <TextBlock>УНП</TextBlock>
-                                    <TextBox Name = "UNP_TextBox" Margin="10,0,0,0" Width="75" MaxLength="9" Height="18"></TextBox>
+                                    <xctk:MaskedTextBox Mask="000000000" KeyDown="KeyDown_TextBox" MaxLines="9" Name = "UNP_TextBox" Margin="10,0,0,0" Width="75" MaxLength="9" Height="18"></xctk:MaskedTextBox>
                                     <TextBlock Margin="25,0,0,0">Статус</TextBlock>
-                                    <TextBox Name = "Status_TextBox" Margin="10,0,10,0" Width="75" MaxLength="9" Height="18"></TextBox>
+                                    <xctk:MaskedTextBox Name = "Status_TextBox" Margin="10,0,10,0" Width="75" MaxLength="9" Height="18"></xctk:MaskedTextBox>
                                     <Button Click="StatusButton_OnClick" Width="20" Content="..."></Button>
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
@@ -33,30 +34,30 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Margin="10,0,10,0">Фамилия</TextBlock>
-                            <TextBox Name="Familii_TextBox" Margin="10,0,10,0" Width="150"></TextBox>
+                            <xctk:MaskedTextBox Name="Familii_TextBox" Margin="10,0,10,0" Width="150"></xctk:MaskedTextBox>
                             <TextBlock Margin="10,0,10,0">Имя</TextBlock>
-                            <TextBox Name="Imia_TextBox" Margin="10,0,10,0" Width="150"></TextBox>
+                            <xctk:MaskedTextBox Name="Imia_TextBox" Margin="10,0,10,0" Width="150"></xctk:MaskedTextBox>
                             <TextBlock Margin="10,0,10,0">Отчество</TextBlock>
-                            <TextBox Name="Otchestvo_TextBox" Margin="10,0,10,0" Width="150"></TextBox>
+                            <xctk:MaskedTextBox Name="Otchestvo_TextBox" Margin="10,0,10,0" Width="150"></xctk:MaskedTextBox>
                         </StackPanel>
                         <Separator Margin="0,10,0,10"/>
                         <TextBlock Margin="0,0,0,10">Документ</TextBlock>
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock Margin="10,0,10,0">Код</TextBlock>
-                            <TextBox Name="KodDoc_TextBox" Width="50"></TextBox>
+                            <xctk:MaskedTextBox Mask = "000" Name="KodDoc_TextBox" Width="50"></xctk:MaskedTextBox>
                             <Button Click="KodDoc_Button_OnClick" Margin="10,0,30,0" Width="20" Content="..."></Button>
                             <TextBlock Margin="10,0,10,0">Серия</TextBlock>
-                            <TextBox Name = "Seria_TextBox" Width="50"></TextBox>
+                            <xctk:MaskedTextBox Mask = "0000000" Name = "Seria_TextBox" Width="50"></xctk:MaskedTextBox>
                             <TextBlock Margin="30,0,10,0">Номер</TextBlock>
-                            <TextBox Name = "Nomer_TextBox" Width="50"></TextBox>
+                            <xctk:MaskedTextBox Mask = "0000000000000" Name = "Nomer_TextBox" Width="50"></xctk:MaskedTextBox>
                             <TextBlock Margin="30,0,10,0">Дата выдачи</TextBlock>
                             <DatePicker Name="DataViachi_DatePicker"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <TextBlock Margin="10,0,10,0">Кем выдан</TextBlock>
-                            <TextBox Name = "KemVidan_TextBox" Width="300"  Margin="10,0,10,0"></TextBox>
+                            <xctk:MaskedTextBox Name = "KemVidan_TextBox" Width="300"  Margin="10,0,10,0"></xctk:MaskedTextBox>
                             <TextBlock Margin="10,0,10,0">Идентификационный номер</TextBlock>
-                            <TextBox Name = "Idificationi_TextBox" Width="150"  Margin="10,0,10,0"></TextBox>
+                            <xctk:MaskedTextBox Name = "Idificationi_TextBox" Width="150"  Margin="10,0,10,0"></xctk:MaskedTextBox>
                         </StackPanel>
                         <Separator Margin="0,10,0,10" />
                         <TextBlock>Место жительство в РБ</TextBlock>
@@ -64,25 +65,25 @@
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                     <TextBlock Margin="10,0,0,0">Индекс</TextBlock>
-                                    <TextBox Margin="28,0,10,0" Name="XataIndex_TextBox" Width="50" MaxLength="5"/>
+                                    <xctk:MaskedTextBox Mask = "000000" Margin="28,0,10,0" Name="XataIndex_TextBox" Width="50" MaxLength="5"/>
                                     <TextBlock Margin="30,0,10,0">Город</TextBlock>
-                                    <TextBox Margin="10,0,10,0" Name="Gorod_TextBox" Width="100"></TextBox>
+                                    <xctk:MaskedTextBox Margin="10,0,10,0" Name="Gorod_TextBox" Width="100"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                     <TextBlock Margin="10,0,0,0">Тип улицы</TextBlock>
-                                    <TextBox Name="TipUlic_TextBox" Margin="10,0,10,0" Width="50" MaxLength="5" Height="18"></TextBox>
+                                    <xctk:MaskedTextBox Mask = "000" Name="TipUlic_TextBox" Margin="10,0,10,0" Width="50" MaxLength="5" Height="18"></xctk:MaskedTextBox>
                                     <Button Click="TipUlicButton_OnClick" Width="20" Content="..."></Button>
                                     <TextBlock Margin="10,0,7,0">Название</TextBlock>
-                                    <TextBox Name="NameYlica_TextBox" Margin="0,0,10,0" Width="100"></TextBox>
+                                    <xctk:MaskedTextBox Name="NameYlica_TextBox" Margin="0,0,10,0" Width="100"></xctk:MaskedTextBox>
 
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                     <TextBlock Margin="10,0,10,0">Дом</TextBlock>
-                                    <TextBox Name = "Dom_TextBox" Width="50"  Margin="34,0,10,0"></TextBox>
+                                    <xctk:MaskedTextBox Mask = "000" Name = "Dom_TextBox" Width="50"  Margin="34,0,10,0"></xctk:MaskedTextBox>
                                     <TextBlock Margin="30,0,10,0">Корпус</TextBlock>
-                                    <TextBox Name = "Korpus_TextBox" Width="25"  Margin="10,0,10,0"></TextBox>
+                                    <xctk:MaskedTextBox Mask = "000" Name = "Korpus_TextBox" Width="25"  Margin="10,0,10,0"></xctk:MaskedTextBox>
                                     <TextBlock Margin="10,0,10,0">Квартира</TextBlock>
-                                    <TextBox Name = "Kvartira_TextBox" Width="50"  Margin="10,0,10,0"></TextBox>
+                                    <xctk:MaskedTextBox Mask = "000" Name = "Kvartira_TextBox" Width="50"  Margin="10,0,10,0"></xctk:MaskedTextBox>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
@@ -102,51 +103,51 @@
                                     <TextBlock Margin="0,10,0,0">Доходы в месяц - 3.1</TextBlock>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Январь</TextBlock>
-                                        <TextBox Margin="20.3,0,0,0" Width="100" Name="DoxodIanvari"></TextBox>
+                                        <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="DoxodIanvari"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Февраль</TextBlock>
-                                        <TextBox Margin="13,0,0,0" Width="100" Name="DoxodFevrali"></TextBox>
+                                        <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="DoxodFevrali"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Март</TextBlock>
-                                        <TextBox Margin="31,0,0,0" Width="100" Name="DoxodMart"></TextBox>
+                                        <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="DoxodMart"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Апрель</TextBlock>
-                                        <TextBox Margin="19.5,0,0,0" Width="100" Name="DoxodAprel"></TextBox>
+                                        <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="DoxodAprel"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Май</TextBlock>
-                                        <TextBox  Margin="36,0,0,0" Width="100" Name="DoxodMai"></TextBox>
+                                        <xctk:MaskedTextBox Margin="36,0,0,0" Width="100" Name="DoxodMai"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Июль</TextBlock>
-                                        <TextBox Margin="28.7,0,0,0" Width="100" Name="DoxodIyul"></TextBox>
+                                        <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="DoxodIyul"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Июнь</TextBlock>
-                                        <TextBox Margin="28.1,0,0,0" Width="100" Name="DoxodIyun"></TextBox>
+                                        <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="DoxodIyun"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Август</TextBlock>
-                                        <TextBox Margin="24.9,0,0,0" Width="100" Name="DoxodAvgust"></TextBox>
+                                        <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="DoxodAvgust"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Сентябрь</TextBlock>
-                                        <TextBox Margin="8.2,0,0,0" Width="100" Name="DoxodSentiabr"></TextBox>
+                                        <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="DoxodSentiabr"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Октябрь</TextBlock>
-                                        <TextBox Margin="13.9,0,0,0" Width="100" Name="DoxodOktiabri"></TextBox>
+                                        <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="DoxodOktiabri"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Ноябрь</TextBlock>
-                                        <TextBox Margin="18.3,0,0,0" Width="100" Name="DoxodNoiabr"></TextBox>
+                                        <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="DoxodNoiabr"></xctk:MaskedTextBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock>Декабрь</TextBlock>
-                                        <TextBox Margin="13.22,0,0,0" Width="100" Name="DoxodDekabri"></TextBox>
+                                        <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="DoxodDekabri"></xctk:MaskedTextBox>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
@@ -156,7 +157,7 @@
                                         <TextBlock FontStyle="Italic">В том числе авторские вознаграждения - 3.1.1</TextBlock>
                                         <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                             <TextBlock Margin="10,0,25,0">Код</TextBlock>
-                                            <TextBox Name="Avtor_TextBox" Width="90"></TextBox>
+                                            <xctk:MaskedTextBox Name="Avtor_TextBox" Width="90"></xctk:MaskedTextBox>
                                             <Button Click = "AvtorButton_OnClick" Margin="0,0,10,0" Content="..."></Button>
                                             <Button>
                                                 <Button.Content>
@@ -183,7 +184,7 @@
                                         </StackPanel>
                                         <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                             <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
-                                            <TextBox Width="100"></TextBox>
+                                            <xctk:MaskedTextBox Width="100"></xctk:MaskedTextBox>
                                             <Button Margin="10,0,0,0">
                                                 <Button.Content>
                                                     <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
@@ -204,7 +205,7 @@
                                             <TextBlock FontStyle="Italic">В том числе операции с ЦБ - 3.1.2</TextBlock>
                                             <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                                 <TextBlock Margin="10,0,25,0">Код</TextBlock>
-                                                <TextBox Name = "CinieBumagi_TextBox" Width="90"></TextBox>
+                                                <xctk:MaskedTextBox Name = "CinieBumagi_TextBox" Width="90"></xctk:MaskedTextBox>
                                                 <Button Click = "CinieBumagiButton_Click" Margin="0,0,10,0" Content="..."></Button>
                                                 <Button>
                                                     <Button.Content>
@@ -231,7 +232,7 @@
                                             </StackPanel>
                                             <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                                 <TextBlock Margin="10,0,10,0">Сумма</TextBlock>
-                                                <TextBox Width="100"></TextBox>
+                                                <xctk:MaskedTextBox Width="100"></xctk:MaskedTextBox>
                                                 <Button Margin="10,0,0,0">
                                                     <Button.Content>
                                                         <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
@@ -266,63 +267,63 @@
                             </DockPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Январь</TextBlock>
-                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Vznos1Ianvari"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Ianvari"></TextBox>
+                                <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Vznos1Ianvari"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Ianvari"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Февраль</TextBlock>
-                                <TextBox Margin="13,0,0,0" Width="100" Name="Vznos1Fevrali"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Fevrali"></TextBox>
+                                <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Vznos1Fevrali"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Fevrali"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Март</TextBlock>
-                                <TextBox Margin="31,0,0,0" Width="100" Name="Vznos1Mart"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Mart"></TextBox>
+                                <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Vznos1Mart"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Mart"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Апрель</TextBlock>
-                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Vznos1Aprel"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Aprel"></TextBox>
+                                <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Vznos1Aprel"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Aprel"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Май</TextBlock>
-                                <TextBox  Margin="36,0,0,0" Width="100" Name="Vznos1Mai"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Mai"></TextBox>
+                                <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Vznos1Mai"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Mai"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июль</TextBlock>
-                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Vznos1Iyul"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Iyul"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Vznos1Iyul"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Iyul"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июнь</TextBlock>
-                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Vznos1Iyun"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Iyun"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Vznos1Iyun"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Iyun"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Август</TextBlock>
-                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Vznos1Avgust"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Avgust"></TextBox>
+                                <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Vznos1Avgust"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Avgust"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Сентябрь</TextBlock>
-                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Vznos1Sentiabr"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Sentiabr"></TextBox>
+                                <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Vznos1Sentiabr"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Sentiabr"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Октябрь</TextBlock>
-                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Vznos1Oktiabri"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Oktiabri"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Vznos1Oktiabri"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Oktiabri"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Ноябрь</TextBlock>
-                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Vznos1Noiabr"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Noiabr"></TextBox>
+                                <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Vznos1Noiabr"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Noiabr"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Декабрь</TextBlock>
-                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Vznos1Dekabri"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos1Dekabri"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Vznos1Dekabri"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos1Dekabri"></xctk:MaskedTextBox>
                             </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.3:</TextBlock>
@@ -337,51 +338,51 @@
                             </DockPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Январь</TextBlock>
-                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Vznos2Ianvari"></TextBox>
+                                <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Vznos2Ianvari"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Февраль</TextBlock>
-                                <TextBox Margin="13,0,0,0" Width="100" Name="Vznos2Fevrali"></TextBox>
+                                <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Vznos2Fevrali"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Март</TextBlock>
-                                <TextBox Margin="31,0,0,0" Width="100" Name="Vznos2Mart"></TextBox>
+                                <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Vznos2Mart"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Апрель</TextBlock>
-                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Vznos2Aprel"></TextBox>
+                                <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Vznos2Aprel"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Май</TextBlock>
-                                <TextBox  Margin="36,0,0,0" Width="100" Name="Vznos2Mai"></TextBox>
+                                <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Vznos2Mai"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июль</TextBlock>
-                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Vznos2Iyul"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Vznos2Iyul"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июнь</TextBlock>
-                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Vznos2Iyun"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Vznos2Iyun"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Август</TextBlock>
-                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Vznos2Avgust"></TextBox>
+                                <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Vznos2Avgust"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Сентябрь</TextBlock>
-                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Vznos2Sentiabr"></TextBox>
+                                <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Vznos2Sentiabr"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Октябрь</TextBlock>
-                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Vznos2Oktiabri"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Vznos2Oktiabri"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Ноябрь</TextBlock>
-                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Vznos2Noiabr"></TextBox>
+                                <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Vznos2Noiabr"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Декабрь</TextBlock>
-                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Vznos2Dekabri"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Vznos2Dekabri"></xctk:MaskedTextBox>
                             </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.4:</TextBlock>
@@ -397,63 +398,63 @@
                             </DockPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Январь</TextBlock>
-                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Vznos3Ianvari"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Ianvari"></TextBox>
+                                <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Vznos3Ianvari"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Ianvari"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Февраль</TextBlock>
-                                <TextBox Margin="13,0,0,0" Width="100" Name="Vznos3Fevrali"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Fevrali"></TextBox>
+                                <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Vznos3Fevrali"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Fevrali"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Март</TextBlock>
-                                <TextBox Margin="31,0,0,0" Width="100" Name="Vznos3Mart"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Mart"></TextBox>
+                                <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Vznos3Mart"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Mart"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Апрель</TextBlock>
-                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Vznos3Aprel"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Aprel"></TextBox>
+                                <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Vznos3Aprel"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Aprel"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Май</TextBlock>
-                                <TextBox  Margin="36,0,0,0" Width="100" Name="Vznos3Mai"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Mai"></TextBox>
+                                <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Vznos3Mai"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Mai"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июль</TextBlock>
-                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Vznos3Iyul"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Iyul"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Vznos3Iyul"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Iyul"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июнь</TextBlock>
-                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Vznos3Iyun"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Iyun"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Vznos3Iyun"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Iyun"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Август</TextBlock>
-                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Vznos3Avgust"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Avgust"></TextBox>
+                                <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Vznos3Avgust"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Avgust"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Сентябрь</TextBlock>
-                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Vznos3Sentiabr"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Sentiabr"></TextBox>
+                                <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Vznos3Sentiabr"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Sentiabr"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Октябрь</TextBlock>
-                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Vznos3Oktiabri"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Oktiabri"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Vznos3Oktiabri"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Oktiabri"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Ноябрь</TextBlock>
-                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Vznos3Noiabr"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Noiabr"></TextBox>
+                                <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Vznos3Noiabr"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Noiabr"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Декабрь</TextBlock>
-                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Vznos3Dekabri"></TextBox>
-                                <TextBox Width="40" Name="IndexVznos3Dekabri"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Vznos3Dekabri"></xctk:MaskedTextBox>
+                                <xctk:MaskedTextBox Width="40" Name="IndexVznos3Dekabri"></xctk:MaskedTextBox>
                             </StackPanel>
                             <DockPanel Margin="30,0,0,0">
                                 <TextBlock>Итого по 3.1.5:</TextBlock>
@@ -477,51 +478,51 @@
                             </DockPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Январь</TextBlock>
-                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Февраль</TextBlock>
-                                <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Fevrali317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Март</TextBlock>
-                                <TextBox Margin="31,0,0,0" Width="100" Name="Mart317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Mart317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Апрель</TextBlock>
-                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Aprel317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Май</TextBlock>
-                                <TextBox  Margin="36,0,0,0" Width="100" Name="Mai317_1"></TextBox>
+                                <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Mai317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июль</TextBlock>
-                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Iyul317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июнь</TextBlock>
-                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Iyun317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Август</TextBlock>
-                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Avgust317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Сентябрь</TextBlock>
-                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Октябрь</TextBlock>
-                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Ноябрь</TextBlock>
-                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Декабрь</TextBlock>
-                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri317_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri317_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.7:</TextBlock>
@@ -545,7 +546,7 @@
                                 <StackPanel Width="200" Orientation="Vertical">
                                     <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                        <TextBox Name="DoxodNeOblg_TextBox" Margin="25,0,0,0" Width="130"></TextBox>
+                                        <xctk:MaskedTextBox Name="DoxodNeOblg_TextBox" Margin="25,0,0,0" Width="130"></xctk:MaskedTextBox>
                                         <Button Click = "DoxodNeOblgButton_Click">
                                             <Button.Content>
                                                 ...
@@ -571,11 +572,11 @@
                                     </DockPanel>
                                     <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="10,0,0,0">Доход</TextBlock>
-                                        <TextBox Margin="10,0,0,0"></TextBox>
+                                        <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                     </DockPanel>
                                     <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="10,0,0,0">Льгота</TextBlock>
-                                        <TextBox Margin="10,0,0,0"></TextBox>
+                                        <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                     </DockPanel>
                                 </StackPanel>
                                 <StackPanel Margin="10,0,0,0" Orientation="Vertical">
@@ -625,7 +626,7 @@
                                 <StackPanel Width="200" Orientation="Vertical">
                                     <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                        <TextBox Name="SocVichet_TextBox" Margin="25,0,0,0" Width="130"></TextBox>
+                                        <xctk:MaskedTextBox Name="SocVichet_TextBox" Margin="25,0,0,0" Width="130"></xctk:MaskedTextBox>
                                         <Button Click="SocVichetButton_OnClick">
                                             <Button.Content>
                                                 ...
@@ -651,7 +652,7 @@
                                     </DockPanel>
                                     <DockPanel Margin="0,10,0,10">
                                         <TextBlock Margin="10,0,0,0">Доход</TextBlock>
-                                        <TextBox Margin="10,0,0,0"></TextBox>
+                                        <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                     </DockPanel>
                                 </StackPanel>
                                 <StackPanel Margin="10,0,0,0" Orientation="Vertical">
@@ -718,51 +719,51 @@
                                 </DockPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Январь</TextBlock>
-                                    <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Февраль</TextBlock>
-                                    <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Fevrali45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Март</TextBlock>
-                                    <TextBox Margin="31,0,0,0" Width="100" Name="Mart45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Mart45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Апрель</TextBlock>
-                                    <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Aprel45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Май</TextBlock>
-                                    <TextBox  Margin="36,0,0,0" Width="100" Name="Mai45_1"></TextBox>
+                                    <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Mai45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Июль</TextBlock>
-                                    <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Iyul45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Июнь</TextBlock>
-                                    <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Iyun45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Август</TextBlock>
-                                    <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Avgust45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Сентябрь</TextBlock>
-                                    <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Октябрь</TextBlock>
-                                    <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Ноябрь</TextBlock>
-                                    <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Декабрь</TextBlock>
-                                    <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri45_1"></TextBox>
+                                    <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri45_1"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <DockPanel>
                                     <TextBlock>Итого по 4.5:</TextBlock>
@@ -777,51 +778,51 @@
                                 </DockPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Январь</TextBlock>
-                                    <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Февраль</TextBlock>
-                                    <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Fevrali45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Март</TextBlock>
-                                    <TextBox Margin="31,0,0,0" Width="100" Name="Mart45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Mart45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Апрель</TextBlock>
-                                    <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Aprel45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Май</TextBlock>
-                                    <TextBox  Margin="36,0,0,0" Width="100" Name="Mai45_2"></TextBox>
+                                    <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Mai45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Июль</TextBlock>
-                                    <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Iyul45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Июнь</TextBlock>
-                                    <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Iyun45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Август</TextBlock>
-                                    <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Avgust45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Сентябрь</TextBlock>
-                                    <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Октябрь</TextBlock>
-                                    <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Ноябрь</TextBlock>
-                                    <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock>Декабрь</TextBlock>
-                                    <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri45_2"></TextBox>
+                                    <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri45_2"></xctk:MaskedTextBox>
                                 </StackPanel>
                                 <DockPanel>
                                     <TextBlock>Итого по 4.6:</TextBlock>
@@ -846,51 +847,51 @@
                             </DockPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Январь</TextBlock>
-                                <TextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="20.3,0,0,0" Width="100" Name="Ianvari51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Февраль</TextBlock>
-                                <TextBox Margin="13,0,0,0" Width="100" Name="Fevrali51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="13,0,0,0" Width="100" Name="Fevrali51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Март</TextBlock>
-                                <TextBox Margin="31,0,0,0" Width="100" Name="Mart51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="31,0,0,0" Width="100" Name="Mart51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Апрель</TextBlock>
-                                <TextBox Margin="19.5,0,0,0" Width="100" Name="Aprel51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="19.5,0,0,0" Width="100" Name="Aprel51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Май</TextBlock>
-                                <TextBox  Margin="36,0,0,0" Width="100" Name="Mai51_1"></TextBox>
+                                <xctk:MaskedTextBox  Margin="36,0,0,0" Width="100" Name="Mai51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июль</TextBlock>
-                                <TextBox Margin="28.7,0,0,0" Width="100" Name="Iyul51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.7,0,0,0" Width="100" Name="Iyul51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Июнь</TextBlock>
-                                <TextBox Margin="28.1,0,0,0" Width="100" Name="Iyun51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="28.1,0,0,0" Width="100" Name="Iyun51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Август</TextBlock>
-                                <TextBox Margin="24.9,0,0,0" Width="100" Name="Avgust51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="24.9,0,0,0" Width="100" Name="Avgust51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Сентябрь</TextBlock>
-                                <TextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="8.2,0,0,0" Width="100" Name="Sentiabr51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Октябрь</TextBlock>
-                                <TextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.9,0,0,0" Width="100" Name="Oktiabri51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Ноябрь</TextBlock>
-                                <TextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="18.3,0,0,0" Width="100" Name="Noiabr51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock>Декабрь</TextBlock>
-                                <TextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri51_1"></TextBox>
+                                <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="Dekabri51_1"></xctk:MaskedTextBox>
                             </StackPanel>
                             <DockPanel>
                                 <TextBlock>Сумма удержанного подоходного налога 5.2:</TextBlock>
@@ -914,7 +915,7 @@
                                         <StackPanel Width="200" Orientation="Vertical">
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                                <TextBox Name = "RezidentPVT_TextBox"   Margin="25,0,0,0" Width="130"></TextBox>
+                                                <xctk:MaskedTextBox Name = "RezidentPVT_TextBox"   Margin="25,0,0,0" Width="130"></xctk:MaskedTextBox>
                                                 <Button Click = "RezidentPVTButton_OnClick">
                                                     <Button.Content>
                                                         ...
@@ -940,11 +941,11 @@
                                             </DockPanel>
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Доход</TextBlock>
-                                                <TextBox Margin="10,0,0,0"></TextBox>
+                                                <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                             </DockPanel>
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Льгота</TextBlock>
-                                                <TextBox Margin="10,0,0,0"></TextBox>
+                                                <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                             </DockPanel>
                                         </StackPanel>
                                         <StackPanel Margin="10,0,0,0" Orientation="Vertical">
@@ -983,7 +984,7 @@
                                         <StackPanel Width="200" Orientation="Vertical">
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Код</TextBlock>
-                                                <TextBox Name="Mogilev_TextBox" Margin="25,0,0,0" Width="130"></TextBox>
+                                                <xctk:MaskedTextBox Name="Mogilev_TextBox" Margin="25,0,0,0" Width="130"></xctk:MaskedTextBox>
                                                 <Button Click = "MogilevButton_OnClick">
                                                     <Button.Content>
                                                         ...
@@ -1009,11 +1010,11 @@
                                             </DockPanel>
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Доход</TextBlock>
-                                                <TextBox Margin="10,0,0,0"></TextBox>
+                                                <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                             </DockPanel>
                                             <DockPanel Margin="0,10,0,10">
                                                 <TextBlock Margin="10,0,0,0">Льгота</TextBlock>
-                                                <TextBox Margin="10,0,0,0"></TextBox>
+                                                <xctk:MaskedTextBox Margin="10,0,0,0"></xctk:MaskedTextBox>
                                             </DockPanel>
                                         </StackPanel>
                                         <StackPanel Margin="10,0,0,0" Orientation="Vertical">
@@ -1112,7 +1113,7 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
             <Button  Margin="10,10,10,10" Width="75" Height="25" Content="Отмена" Click="Button_Click"></Button>
-            <Button  Margin="10,10,10,10"  Width="75" Height="25" Content="Сохранить"></Button>
+            <Button  Margin="10,10,10,10"  Width="75" Height="25" Content="Сохранить" Click  = "SaveButton_Click"></Button>
         </StackPanel>
     </Grid>
 </Window>

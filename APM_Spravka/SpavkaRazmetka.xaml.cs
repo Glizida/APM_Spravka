@@ -231,7 +231,7 @@ namespace APM_Spravka
         {
             if (Owner as InspectorMain != null)
             {
-                if (listSpravka.SelectedIndex != 0)
+                if (listSpravka.SelectedIndex != -1)
                 {
                     ((InspectorMain) Owner).SetTex(norma[listSpravka.SelectedIndex]);
                 }
@@ -242,7 +242,7 @@ namespace APM_Spravka
             }
             if (Owner as Setting != null)
             {
-                if (listSpravka.SelectedIndex != 0)
+                if (listSpravka.SelectedIndex != -1)
                 {
                     ((Setting) Owner).SetTex(norma[listSpravka.SelectedIndex]);
                 }
@@ -254,7 +254,7 @@ namespace APM_Spravka
             }
             if (Owner as Record != null)
             {
-                if (listSpravka.SelectedIndex != 0)
+                if (listSpravka.SelectedIndex != 1)
                 {
                     ((Record) Owner).SetText(norma[listSpravka.SelectedIndex]);
                 }

@@ -21,7 +21,6 @@
                 <TextBlock>Права</TextBlock>
                 <ComboBox Name="ComboBoxx" Margin="42,0,0,0" Width="200">
                     <TextBlock>Пользователь</TextBlock>
-                    <TextBlock>Администратор</TextBlock>
                     <TextBlock>Инспектор</TextBlock>
                 </ComboBox>
             </StackPanel>

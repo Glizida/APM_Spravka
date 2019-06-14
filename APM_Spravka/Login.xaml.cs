@@ -41,7 +41,7 @@ namespace APM_Spravka
             MySqlConnection myConnection = new MySqlConnection(CONNECT);
             try
             {
-                if (LoginTexBox.Text != "" || PasswordTexBox.Text != "")
+                if (LoginTexBox.Text != "" || PasswordTexBox.Password != "")
                 {
                     CommandText = "SELECT * FROM nzzGtRxVKL.User where LoginUser = \""+LoginTexBox.Text+ "\";";
                     myCommand = new MySqlCommand(CommandText, myConnection);
@@ -54,7 +54,7 @@ namespace APM_Spravka
                     MyDataReader.Close();
                     if (users.Count != 0)
                     {
-                        if (users[0].PasswordUser == PasswordTexBox.Text)
+                        if (users[0].PasswordUser == PasswordTexBox.Password)
                         {
                             switch (users[0].LevelAccess)
                             {

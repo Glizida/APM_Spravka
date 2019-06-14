@@ -33,6 +33,7 @@
             </MenuItem>
         </Menu>
         <DockPanel>
+            <StackPanel Orientation="Vertical">
             <ListView Margin="0,20,0,10" SelectionChanged="ListSelect" MaxWidth="400" Name="ListAdmin">
                 <ListView.View>
                     <GridView>
@@ -44,6 +45,8 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Button Content="Удалить" Click="DeleteButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20"></Button>
+            </StackPanel>
             <StackPanel Margin="10,20,10,10" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Наименование</TextBlock>
@@ -69,7 +72,5 @@
                 <Button Content="Сохранить" Width="100" Click="SaveButton_Click"></Button>
             </StackPanel>
         </DockPanel>
-        <Button Content="Удалить" Click="DeleteButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20"></Button>
-        <ProgressBar HorizontalAlignment="Right" VerticalAlignment="Bottom" Minimum="0" IsIndeterminate="True" Maximum="100" Width="100" Height="20" Name="ProgressBar" ></ProgressBar>
     </Grid>
 </Window>

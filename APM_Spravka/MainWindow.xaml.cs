@@ -48,7 +48,7 @@ namespace APM_Spravka
             try
             {
                 CommandText = $"SELECT * FROM nzzGtRxVKL.UserTable WHERE idUser = {polsovatel.IdUser}";
-
+                userTables.Clear();
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 ListZapisei.ItemsSource = null;
                 myCommand = new MySqlCommand(CommandText, myConnection);
@@ -134,7 +134,28 @@ namespace APM_Spravka
 
         private void OpenSpravkaPrinting_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Othet othet = new Othet();
+            othet.Show();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить эту запись?","Вопрос",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                string commantText =
+                    $"DELETE FROM nzzGtRxVKL.UserTable WHERE idSviazi = {((UserTable) ListZapisei.SelectedItem).IdSviazi};";
+                myCommand = new MySqlCommand(commantText, myConnection);
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+                MyDataReader.Close();
+                LoadPolzovateli();
+            }
+            else
+            {
+                
+            }
+          
         }
     }
 }
