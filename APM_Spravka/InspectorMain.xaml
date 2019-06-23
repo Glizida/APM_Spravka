@@ -87,6 +87,7 @@
                         </ListView.View>
                     </ListView>
                     </ScrollViewer>
+                    <Button Content="Вывести отчет" Click="ButtonBase_OnClick"></Button>
                 </StackPanel>
             </StackPanel>
         </DockPanel>

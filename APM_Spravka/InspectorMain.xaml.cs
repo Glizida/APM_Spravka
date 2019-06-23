@@ -232,7 +232,7 @@ namespace APM_Spravka
                                           allUsers[ListAdmin.SelectedIndex].IdUser;
                     MySqlCommand myCommand = new MySqlCommand();
                     MySqlCommand myCommand2 = new MySqlCommand();
-                    MySqlDataReader MyDataReader;
+                    // MySqlDataReader MyDataReader;
                     MySqlConnection myConnection = new MySqlConnection(CONNECT);
                     myCommand = new MySqlCommand(commantText, myConnection);
                     myCommand2 = new MySqlCommand(commantText2, myConnection);
@@ -250,6 +250,28 @@ namespace APM_Spravka
             else
             {
                 MessageBox.Show("Выберите элемент для удаления");
+            }
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ListZapisei.Items.Count != 0)
+            {
+                if (ListZapisei.SelectedItem != null)
+                {
+                    Othet othet = new Othet();
+                    othet.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Выберите запись по которой нужно вывести отчет", "Предупреждение",MessageBoxButton.OK,MessageBoxImage.Information);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите пользователя у которого существуют записи", "Предупреждение",MessageBoxButton.OK,MessageBoxImage.Information);
+
             }
         }
     }

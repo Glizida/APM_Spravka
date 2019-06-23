@@ -35,28 +35,63 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.nzzGtRxVKLDataSet = new APM_Spravka.nzzGtRxVKLDataSet();
             this.Rasdel2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Rasdel2TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.Rasdel2TableAdapter();
+            this.nzzGtRxVKLDataSet = new APM_Spravka.nzzGtRxVKLDataSet();
             this.DoxodTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DoxodTableTableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.DoxodTableTableAdapter();
             this.DoxodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DoxodTableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.DoxodTableAdapter();
             this.VznosiTabl1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.VznosiTabl1TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.VznosiTabl1TableAdapter();
             this.VznosiTabl2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.VznosiTabl2TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.VznosiTabl2TableAdapter();
             this.VznosiTabl3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.Rasdel2TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.Rasdel2TableAdapter();
+            this.DoxodTableTableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.DoxodTableTableAdapter();
+            this.DoxodTableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.DoxodTableAdapter();
+            this.VznosiTabl1TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.VznosiTabl1TableAdapter();
+            this.VznosiTabl2TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.VznosiTabl2TableAdapter();
             this.VznosiTabl3TableAdapter = new APM_Spravka.nzzGtRxVKLDataSetTableAdapters.VznosiTabl3TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.nzzGtRxVKLDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rasdel2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nzzGtRxVKLDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoxodTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoxodBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VznosiTabl1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VznosiTabl2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VznosiTabl3BindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Rasdel2BindingSource
+            // 
+            this.Rasdel2BindingSource.DataMember = "Rasdel2";
+            this.Rasdel2BindingSource.DataSource = this.nzzGtRxVKLDataSet;
+            // 
+            // nzzGtRxVKLDataSet
+            // 
+            this.nzzGtRxVKLDataSet.DataSetName = "nzzGtRxVKLDataSet";
+            this.nzzGtRxVKLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // DoxodTableBindingSource
+            // 
+            this.DoxodTableBindingSource.DataMember = "DoxodTable";
+            this.DoxodTableBindingSource.DataSource = this.nzzGtRxVKLDataSet;
+            // 
+            // DoxodBindingSource
+            // 
+            this.DoxodBindingSource.DataMember = "Doxod";
+            this.DoxodBindingSource.DataSource = this.nzzGtRxVKLDataSet;
+            // 
+            // VznosiTabl1BindingSource
+            // 
+            this.VznosiTabl1BindingSource.DataMember = "VznosiTabl1";
+            this.VznosiTabl1BindingSource.DataSource = this.nzzGtRxVKLDataSet;
+            // 
+            // VznosiTabl2BindingSource
+            // 
+            this.VznosiTabl2BindingSource.DataMember = "VznosiTabl2";
+            this.VznosiTabl2BindingSource.DataSource = this.nzzGtRxVKLDataSet;
+            // 
+            // VznosiTabl3BindingSource
+            // 
+            this.VznosiTabl3BindingSource.DataMember = "VznosiTabl3";
+            this.VznosiTabl3BindingSource.DataSource = this.nzzGtRxVKLDataSet;
             // 
             // reportViewer1
             // 
@@ -87,60 +122,25 @@
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // nzzGtRxVKLDataSet
-            // 
-            this.nzzGtRxVKLDataSet.DataSetName = "nzzGtRxVKLDataSet";
-            this.nzzGtRxVKLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // Rasdel2BindingSource
-            // 
-            this.Rasdel2BindingSource.DataMember = "Rasdel2";
-            this.Rasdel2BindingSource.DataSource = this.nzzGtRxVKLDataSet;
-            // 
             // Rasdel2TableAdapter
             // 
             this.Rasdel2TableAdapter.ClearBeforeFill = true;
-            // 
-            // DoxodTableBindingSource
-            // 
-            this.DoxodTableBindingSource.DataMember = "DoxodTable";
-            this.DoxodTableBindingSource.DataSource = this.nzzGtRxVKLDataSet;
             // 
             // DoxodTableTableAdapter
             // 
             this.DoxodTableTableAdapter.ClearBeforeFill = true;
             // 
-            // DoxodBindingSource
-            // 
-            this.DoxodBindingSource.DataMember = "Doxod";
-            this.DoxodBindingSource.DataSource = this.nzzGtRxVKLDataSet;
-            // 
             // DoxodTableAdapter
             // 
             this.DoxodTableAdapter.ClearBeforeFill = true;
-            // 
-            // VznosiTabl1BindingSource
-            // 
-            this.VznosiTabl1BindingSource.DataMember = "VznosiTabl1";
-            this.VznosiTabl1BindingSource.DataSource = this.nzzGtRxVKLDataSet;
             // 
             // VznosiTabl1TableAdapter
             // 
             this.VznosiTabl1TableAdapter.ClearBeforeFill = true;
             // 
-            // VznosiTabl2BindingSource
-            // 
-            this.VznosiTabl2BindingSource.DataMember = "VznosiTabl2";
-            this.VznosiTabl2BindingSource.DataSource = this.nzzGtRxVKLDataSet;
-            // 
             // VznosiTabl2TableAdapter
             // 
             this.VznosiTabl2TableAdapter.ClearBeforeFill = true;
-            // 
-            // VznosiTabl3BindingSource
-            // 
-            this.VznosiTabl3BindingSource.DataMember = "VznosiTabl3";
-            this.VznosiTabl3BindingSource.DataSource = this.nzzGtRxVKLDataSet;
             // 
             // VznosiTabl3TableAdapter
             // 
@@ -150,13 +150,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "Othet";
-            this.Text = "Othet";
+            this.Text = "Отчет";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Othet_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nzzGtRxVKLDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rasdel2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nzzGtRxVKLDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoxodTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoxodBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VznosiTabl1BindingSource)).EndInit();
