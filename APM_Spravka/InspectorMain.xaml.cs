@@ -26,6 +26,12 @@ namespace APM_Spravka
     {
         public User polsovatel;
         public List<User> allUsers = new List<User>();
+        public List<UserTable> userTables = new List<UserTable>();
+
+        MySqlCommand myCommand = new MySqlCommand();
+        MySqlDataReader MyDataReader;
+        
+        public string CommandText;
 
         public string CONNECT =
             "Database=nzzGtRxVKL;Data Source=remotemysql.com;User Id=nzzGtRxVKL;Password=OCqp3u3YNf";
@@ -63,6 +69,32 @@ namespace APM_Spravka
             Environment.Exit(0);
         }
 
+        
+        public void LoadPolzovateli()
+        {
+            try
+            {
+                CommandText = "SELECT * FROM nzzGtRxVKL.UserTable WHERE idUser = " + allUsers[ListAdmin.SelectedIndex].IdUser;
+                userTables.Clear();
+                MySqlConnection myConnection = new MySqlConnection(CONNECT);
+                ListZapisei.ItemsSource = null;
+                myCommand = new MySqlCommand(CommandText, myConnection);
+                myConnection.Open();
+                MyDataReader = myCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+                    UserTable godno = new UserTable(MyDataReader.GetInt32(0), MyDataReader.GetInt32(1), MyDataReader.GetString(2),MyDataReader.GetString(3), MyDataReader.GetString(4), MyDataReader.GetString(5), MyDataReader.GetString(6),MyDataReader.GetString(7));
+                    userTables.Add(godno);
+                }
+                MyDataReader.Close();
+                ListZapisei.ItemsSource = userTables;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Не известная ошибка" + e, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
         private void InspectorMain_OnClosing(object sender, CancelEventArgs e)
         {
             Environment.Exit(0);
@@ -90,13 +122,15 @@ namespace APM_Spravka
             {
                 if (allUsers[ListAdmin.SelectedIndex].LevelAccess != 3)
                 {
-
+                    LoadBar.Visibility = Visibility.Collapsed;
+                    LoadBar.Visibility = Visibility.Visible;
+                    LoadBar.IsIndeterminate = true;
+                    LoadPolzovateli();
                     dataUser.Clear();
                     MySqlCommand myCommand = new MySqlCommand();
                     MySqlDataReader MyDataReader;
                     MySqlConnection myConnection = new MySqlConnection(CONNECT);
-                    string CommandText = "SELECT * FROM nzzGtRxVKL.UserData WHERE idUsers = " +
-                                         allUsers[ListAdmin.SelectedIndex].IdUser + "";
+                    string CommandText = "SELECT * FROM nzzGtRxVKL.UserData WHERE idUsers = " + allUsers[ListAdmin.SelectedIndex].IdUser + "";
                     myCommand = new MySqlCommand(CommandText, myConnection);
                     myConnection.Open();
                     MyDataReader = myCommand.ExecuteReader();
@@ -115,7 +149,7 @@ namespace APM_Spravka
                     KeyOrgana_TextBox.Text = dataUser[0].keyOrgana.ToString();
                     Telefon_TextBox.Text = dataUser[0].telefon;
                     God_TextBox.Text = dataUser[0].god;
-                    
+                    LoadBar.IsIndeterminate = false;
                 }
             }
             catch (Exception exception)

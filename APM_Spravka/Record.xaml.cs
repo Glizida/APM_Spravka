@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -54,8 +55,10 @@ namespace APM_Spravka
 
         public Record(User user,UserTable userTable, bool korekt)
         {
-            
             InitializeComponent();
+            this.Hide();
+            Load load = new Load();
+            load.Show();
             polzovatel = user;
             if (userTable != null)
             {
@@ -71,8 +74,13 @@ namespace APM_Spravka
 
                 updatee = true;
             }
+            Shet();
             korrekt = korekt;
+            load.Close();
+            this.Show();
+
         }
+
 
 
         public void SetTable()
@@ -350,6 +358,20 @@ namespace APM_Spravka
             {
                 MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        public void Shet()
+        {
+            
+                double i = Convert.ToDouble(Vznos2Ianvari.Text) + Convert.ToDouble(Vznos2Fevrali.Text) +
+                           Convert.ToDouble(Vznos2Mart.Text) + Convert.ToDouble(Vznos2Aprel.Text) +
+                           Convert.ToDouble(Vznos2Mai.Text) +
+                           Convert.ToDouble(Vznos2Iyul.Text) + Convert.ToDouble(Vznos2Iyun.Text)
+                           + Convert.ToDouble(Vznos2Avgust.Text) + Convert.ToDouble(Vznos2Sentiabr.Text) +
+                           Convert.ToDouble(Vznos2Oktiabri.Text) + Convert.ToDouble(Vznos2Noiabr.Text) +
+                           Convert.ToDouble(Vznos2Dekabri.Text);
+                Vznosi314_TextBlokc.Text = i.ToString();
+            
         }
 
         public void GetVznos(UserTable table)

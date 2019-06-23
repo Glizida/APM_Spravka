@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Инспектор" Height="450" Width="800" Closing="InspectorMain_OnClosing">
     <Grid>
-        <Menu>
+        <Menu VerticalAlignment="Top" Height="20">
             <MenuItem Header="Файл">
                 <MenuItem Header="Добавить пользователя" Click="AddItem_Click"></MenuItem>
                 <Separator/>
@@ -32,45 +32,64 @@
                 <MenuItem Header="Доходы, полученные в Могилевской области" Name="MenuItem_MogilevObl" Click="Open_Spravka_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        <DockPanel>
+        <DockPanel Margin="0,20,0,20">
             <StackPanel Orientation="Vertical">
-            <ListView Margin="0,20,0,10" SelectionChanged="ListSelect" MaxWidth="400" Name="ListAdmin">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=IdUser}">ID</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=LoginUser}">Логин</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=PasswordUser}">Пароль</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=LevelAccess}">Уровень доступа</GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=IdCreator}">ID создателя</GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                <ScrollViewer>
+                    <ListView SelectionChanged="ListSelect" MaxWidth="400" Name="ListAdmin">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=IdUser}">ID</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=LoginUser}">Логин</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=PasswordUser}">Пароль</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=LevelAccess}">Уровень доступа</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=IdCreator}">ID создателя</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+            </ScrollViewer>
             <Button Content="Удалить" Click="DeleteButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="20"></Button>
             </StackPanel>
             <StackPanel Margin="10,20,10,10" Orientation="Vertical">
+                <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Наименование</TextBlock>
                     <TextBox Name="NameFull_TextBox" Width="250" Margin="42,0,0,0"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
                     <TextBlock>УНП</TextBlock>
                     <TextBox Name="UNP_TextBox" Width="250" Margin="101,0,0,0"></TextBox>        
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
                     <TextBlock>Номер органа</TextBlock>
-                    <TextBox Name="KeyOrgana_TextBox" Width="250" Margin="47,0,0,0"></TextBox> 
-                    <Button Content="..." Width="30" Click="OrganButton_Click"></Button>
+                        <TextBox x:Name="KeyOrgana_TextBox" Width="250" Margin="47,0,0,0"/>
+                        <Button Content="..." Width="30" Click="OrganButton_Click"></Button>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
                     <TextBlock>Контактный телефон</TextBlock>
                     <TextBox Name="Telefon_TextBox" Width="250" Margin="10,0,0,0"></TextBox>                                
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
                     <TextBlock>Год</TextBlock>
                     <TextBox Name="God_TextBox" Width="250" Margin="106,0,0,0"></TextBox>        
                 </StackPanel>
-                <Button Content="Сохранить" Width="100" Click="SaveButton_Click"></Button>
+                <Button Margin="0,10,0,10" Content="Сохранить" Width="100" Click="SaveButton_Click"></Button>
+                    <ScrollViewer>
+                    <ListView Name="ListZapisei">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Unp}">УНП</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Fio}">Фамилия</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Namee}">Имя</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Otch}">Отчество</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Doxod}">Доход</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Nalog}">Налог</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    </ScrollViewer>
+                </StackPanel>
             </StackPanel>
         </DockPanel>
+        <ProgressBar Name="LoadBar" VerticalAlignment="Bottom" IsIndeterminate="False" Height="15"></ProgressBar>
     </Grid>
 </Window>
