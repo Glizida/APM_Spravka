@@ -27,7 +27,6 @@ namespace APM_Spravka
 
         private void Load_OnLoaded(object sender, RoutedEventArgs e)
         {
-            LoadBar.IsIndeterminate = true;
         }
     }
 }

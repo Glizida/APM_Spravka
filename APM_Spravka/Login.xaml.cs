@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -108,6 +109,28 @@ namespace APM_Spravka
             OProgramme oProgramme = new OProgramme();
             oProgramme.Owner = this;
             oProgramme.Show();
+        }
+
+        private void Login_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var ping = new Ping();
+            String host = "google.com";
+            byte[] buffer = new byte[32];
+            int timeout = 1000;
+            var options = new PingOptions();
+            try
+            {
+                var reply = ping.Send(host, timeout, buffer, options);
+                this.Show();
+                
+            }
+            catch (PingException)
+            {
+                MessageBox.Show("Проверте подключение к интернету!", "Ошибка", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
         }
     }
 }

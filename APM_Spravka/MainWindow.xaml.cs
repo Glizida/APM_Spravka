@@ -134,12 +134,24 @@ namespace APM_Spravka
 
         private void OpenSpravkaPrinting_Click(object sender, RoutedEventArgs e)
         {
-            Othet othet = new Othet();
-            othet.Show();
+            if (ListZapisei.SelectedItem != null)
+            {
+                Othet othet = new Othet();
+                othet.Show();
+            }
+            else
+            {
+                MessageBox.Show("Выберите запись по которой нужно вывести отчет", "Предупреждение",MessageBoxButton.OK,MessageBoxImage.Information);
+
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+           
             if (MessageBox.Show("Вы действительно хотите удалить эту запись?","Вопрос",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
@@ -151,11 +163,12 @@ namespace APM_Spravka
                 MyDataReader.Close();
                 LoadPolzovateli();
             }
-            else
-            {
-                
             }
-          
+            catch (Exception exception)
+            {
+                MessageBox.Show("Не известная ошибка" + exception, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
         }
     }
 }

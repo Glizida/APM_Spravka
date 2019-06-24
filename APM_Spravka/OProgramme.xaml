@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
         mc:Ignorable="d"
-        Title="О программе" Height="100" Width="500">
+        Title="О программе" ResizeMode="NoResize" Height="100" Width="500">
     <Grid>
         <DockPanel>
             <Image Source="Images/Logo.png" Width="225"></Image>

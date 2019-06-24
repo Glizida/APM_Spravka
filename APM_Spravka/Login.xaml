@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APM_Spravka"
         mc:Ignorable="d"
-        Title="Вход" Height="450" Width="400" ResizeMode="NoResize">
+        Title="Вход" Loaded="Login_OnLoaded" Height="450" Width="400" ResizeMode="NoResize">
     <Grid>
         <Menu>
             <MenuItem Header="О программе" Click="Oprogramme_Click"></MenuItem>

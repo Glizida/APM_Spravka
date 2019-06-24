@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:APM_Spravka"
         xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Новая запись" Height="675" Width="850" Closing="Window_Closing" ResizeMode="NoResize">
+        Title="Новая запись" Loaded="Record_OnLoaded" Height="675" Width="850" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
         <TabControl BorderBrush="{x:Null}" Background="{x:Null}">
             <TabItem x:Name="Razdel2">
@@ -44,7 +44,7 @@
                         <TextBlock Margin="0,0,0,10">Документ</TextBlock>
                         <StackPanel Orientation="Horizontal" >
                             <TextBlock Margin="10,0,10,0">Код</TextBlock>
-                            <xctk:MaskedTextBox Mask = "000" Name="KodDoc_TextBox" Width="50"></xctk:MaskedTextBox>
+                            <xctk:MaskedTextBox Name="KodDoc_TextBox" Width="50"></xctk:MaskedTextBox>
                             <Button Click="KodDoc_Button_OnClick" Margin="10,0,30,0" Width="20" Content="..."></Button>
                             <TextBlock Margin="10,0,10,0">Серия</TextBlock>
                             <xctk:MaskedTextBox  Name = "Seria_TextBox" Width="50"></xctk:MaskedTextBox>
@@ -75,7 +75,6 @@
                                     <Button Click="TipUlicButton_OnClick" Width="20" Content="..."></Button>
                                     <TextBlock Margin="10,0,7,0">Название</TextBlock>
                                     <xctk:MaskedTextBox Name="NameYlica_TextBox" Margin="0,0,10,0" Width="100"></xctk:MaskedTextBox>
-
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                     <TextBlock Margin="10,0,10,0">Дом</TextBlock>
@@ -149,6 +148,10 @@
                                         <TextBlock>Декабрь</TextBlock>
                                         <xctk:MaskedTextBox Margin="13.22,0,0,0" Width="100" Name="DoxodDekabri"></xctk:MaskedTextBox>
                                     </StackPanel>
+                                    <DockPanel>
+                                        <TextBlock>Итого по 3.1 - доходы в месяц:</TextBlock>
+                                        <TextBlock Name="Doxod31_TextBlock" Margin="10,0,0,0">0</TextBlock>
+                                    </DockPanel>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Margin="100,10,10,10" Orientation="Vertical">
@@ -185,7 +188,7 @@
                                         <StackPanel Margin="0,10,0,10" Orientation="Horizontal">
                                             <TextBlock Margin="10,0,25,0">Сумма</TextBlock>
                                             <xctk:MaskedTextBox Width="100"></xctk:MaskedTextBox>
-                                            <Button Margin="10,0,0,0">
+                                            <Button Click = "ButtonBase_OnClick" Margin="10,0,0,0">
                                                 <Button.Content>
                                                     <TextBlock Foreground="Green" Text="&lt;"></TextBlock>
                                                 </Button.Content>
@@ -327,7 +330,7 @@
                             </StackPanel>
                             <DockPanel>
                                 <TextBlock>Итого по 3.1.3:</TextBlock>
-                                <TextBlock Margin="10,0,0,0">0</TextBlock>
+                                <TextBlock Name="Vznosi313_TextBlock" Margin="10,0,0,0">0</TextBlock>
                             </DockPanel>
                         </StackPanel>
                         <StackPanel Margin="30,0,0,0" Orientation="Vertical">
@@ -458,7 +461,7 @@
                             </StackPanel>
                             <DockPanel Margin="30,0,0,0">
                                 <TextBlock>Итого по 3.1.5:</TextBlock>
-                                <TextBlock Margin="10,0,0,0">0</TextBlock>
+                                <TextBlock Name = "Vznosi315_TextBlock" Margin="10,0,0,0">0</TextBlock>
                             </DockPanel>
                         </StackPanel>
                     </StackPanel>
@@ -1024,7 +1027,7 @@
                                             <DockPanel Margin="0,14,0,10">
                                                 <Button Width="30">
                                                     <Button.Content>
-                                                        <TextBlock Foreground="Red"> ></TextBlock>
+                                                        <TextBlock Foreground="Red"> > </TextBlock>
                                                     </Button.Content>
                                                 </Button>
                                             </DockPanel>

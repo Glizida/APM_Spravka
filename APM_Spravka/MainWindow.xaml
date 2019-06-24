@@ -39,7 +39,7 @@
             <MenuItem Header="Помощь"></MenuItem>
         </Menu>
         <Menu Height="25" VerticalAlignment ="Top" Margin="0,20,0,0">
-            <MenuItem Width="24">
+            <MenuItem Width="24" Click="Open_Setting_Click">
                 <MenuItem.Icon>
                     <Image Source="Images/Settings.png"></Image>
                 </MenuItem.Icon>
@@ -61,20 +61,9 @@
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem IsEnabled ="false" Width="20"></MenuItem>
-            <MenuItem Width="24">
-                <MenuItem.Icon>
-                    <Image Source="Images/Save.png"></Image>
-                </MenuItem.Icon>
-            </MenuItem>
             <MenuItem Click="Otchet_Click" Width="24">
                 <MenuItem.Icon>
                     <Image Source="Images/Print.png"></Image>
-                </MenuItem.Icon>
-            </MenuItem>
-            <MenuItem IsEnabled ="false" Width="20"></MenuItem>
-            <MenuItem Width="24">
-                <MenuItem.Icon>
-                    <Image Source="Images/Mail.png"></Image>
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem IsEnabled ="false" Width="20"></MenuItem>

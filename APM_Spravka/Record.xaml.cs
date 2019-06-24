@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -35,7 +36,11 @@ namespace APM_Spravka
         
         public string CONNECT = "Database=nzzGtRxVKL;Data Source=remotemysql.com;User Id=nzzGtRxVKL;Password=OCqp3u3YNf";
         MySqlCommand myCommand = new MySqlCommand();
-        MySqlDataReader MyDataReader;
+        DbDataReader MyDataReader;
+
+        private Load load;
+
+
 
         private int doxod = 0;
         private int doxodTable1 = 0;
@@ -53,38 +58,19 @@ namespace APM_Spravka
         private bool updatee = false;
 
 
+       
+
         public Record(User user,UserTable userTable, bool korekt)
         {
             InitializeComponent();
-            this.Hide();
-            Load load = new Load();
-            load.Show();
+            
+            //this.Hide();
+            
+            userTablee = userTable;
             polzovatel = user;
-            if (userTable != null)
-            {
-                userTablee = userTable;
-                GetRazdel2(userTablee);
-                GetDoxod(userTablee);
-                GetVznos(userTablee);
-                GetP317(userTablee);
-                GetLigoti(userTablee);
-                GetVicheti(userTablee);
-                GetRazdel5(userTablee);
-                GetRazdel67(userTablee);
-
-                updatee = true;
-            }
-            Shet();
             korrekt = korekt;
-            load.Close();
-            this.Show();
-
-        }
-
-
-
-        public void SetTable()
-        {
+            
+            //this.Show();
             
         }
 
@@ -124,9 +110,7 @@ namespace APM_Spravka
                 userTablee.Fio = MyDataReader.GetString(3);
                 userTablee.Namee = MyDataReader.GetString(4);
                 userTablee.Otch = MyDataReader.GetString(5);
-                userTablee.Doxod = MyDataReader.GetString(6);
-                userTablee.Nalog = MyDataReader.GetString(7);
-                MyDataReader.Close();
+                 MyDataReader.Close();
                 myConnection.Close();
                 
                 
@@ -149,17 +133,18 @@ namespace APM_Spravka
             }
         }
         
-        public void GetRazdel67(UserTable table)
+        public async void GetRazdel67(UserTable table)
         {
             try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.Razdel67 WHERE idUser= {table.IdSviazi};";
-                myConnection.Open();
+                await myConnection.OpenAsync();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                
+                while (await MyDataReader.ReadAsync())
                 {
                     razdel56 = MyDataReader.GetInt32(0);
                     l61_ListBox.Items.Add(MyDataReader.GetString(2));
@@ -173,17 +158,17 @@ namespace APM_Spravka
             }
         }
         
-        public void GetLigoti(UserTable table)
+        public async void GetLigoti(UserTable table)
         {
             try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.Ligoti WHERE idUser= {table.IdSviazi};";
-                myConnection.Open();
+                await myConnection.OpenAsync();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     ligoti = MyDataReader.GetInt32(0);
                     L41_ListBox.Items.Add(MyDataReader.GetString(2));
@@ -197,17 +182,17 @@ namespace APM_Spravka
             }
         }
         
-        public void GetP317(UserTable table)
+        public async void GetP317(UserTable table)
         {
             try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt37Table1 WHERE idDoxod= {table.IdSviazi};";
-                myConnection.Open();
+                await myConnection.OpenAsync();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     table317 = MyDataReader.GetInt32(0);
                     Ianvari317_1.Text = MyDataReader.GetString(2);
@@ -231,7 +216,7 @@ namespace APM_Spravka
             }
         }
 
-        public void GetVicheti(UserTable table)
+        public async void GetVicheti(UserTable table)
         {
              try
             {
@@ -239,9 +224,9 @@ namespace APM_Spravka
                 string commandText1 = $"SELECT * FROM nzzGtRxVKL.Pnkt45Table1 WHERE idDoxod= {table.IdSviazi};";
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt46Table1 WHERE idDoxod= {table.IdSviazi};";
                 myCommand = new MySqlCommand(commandText1, myConnection);
-                myConnection.Open();
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                await myConnection.OpenAsync();
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     table45 = MyDataReader.GetInt32(0);
                     Ianvari45_1.Text = MyDataReader.GetString(2);
@@ -260,7 +245,7 @@ namespace APM_Spravka
                 MyDataReader.Close();
                 myCommand = new MySqlCommand(commandText2, myConnection);
                 MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                while (await MyDataReader.ReadAsync())
                 {
                     table46 = MyDataReader.GetInt32(0);
                     Ianvari45_2.Text = MyDataReader.GetString(2);
@@ -284,16 +269,16 @@ namespace APM_Spravka
             }
         }
 
-        public void GetRazdel5(UserTable table)
+        public async void GetRazdel5(UserTable table)
         {
             try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.Pnkt51Table1 WHERE idDoxod= {table.IdSviazi};";
-                myConnection.Open();
+                await myConnection.OpenAsync();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     table51 = MyDataReader.GetInt32(0);
                     Ianvari51_1.Text = MyDataReader.GetString(2);
@@ -317,17 +302,17 @@ namespace APM_Spravka
             }  
         }
 
-        public void GetDoxod(UserTable table)
+        public async void GetDoxod(UserTable table)
         {
             try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 string commandText = $"SELECT * FROM nzzGtRxVKL.Doxod WHERE idUser = {table.IdSviazi};";
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.DoxodTable WHERE idDoxod= {table.IdSviazi};";
-                myConnection.Open();
+                await myConnection.OpenAsync();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     doxod = MyDataReader.GetInt32(0);
                     Avtor_ListBox.Items.Add(MyDataReader.GetString(2));
@@ -335,8 +320,8 @@ namespace APM_Spravka
                 }
                 MyDataReader.Close();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     doxodTable1 = MyDataReader.GetInt32(0);
                     DoxodIanvari.Text = MyDataReader.GetString(2);
@@ -360,32 +345,106 @@ namespace APM_Spravka
             }
         }
 
-        public void Shet()
+        public void  Shet()
         {
-            
-                double i = Convert.ToDouble(Vznos2Ianvari.Text) + Convert.ToDouble(Vznos2Fevrali.Text) +
+
+            try
+            {
+                double a = Convert.ToDouble(Vznos2Ianvari.Text) + Convert.ToDouble(Vznos2Fevrali.Text) +
                            Convert.ToDouble(Vznos2Mart.Text) + Convert.ToDouble(Vznos2Aprel.Text) +
                            Convert.ToDouble(Vznos2Mai.Text) +
                            Convert.ToDouble(Vznos2Iyul.Text) + Convert.ToDouble(Vznos2Iyun.Text)
                            + Convert.ToDouble(Vznos2Avgust.Text) + Convert.ToDouble(Vznos2Sentiabr.Text) +
                            Convert.ToDouble(Vznos2Oktiabri.Text) + Convert.ToDouble(Vznos2Noiabr.Text) +
                            Convert.ToDouble(Vznos2Dekabri.Text);
-                Vznosi314_TextBlokc.Text = i.ToString();
+                Vznosi314_TextBlokc.Text = a.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
+            try
+            {
+                double b = Convert.ToDouble(Vznos1Ianvari.Text) + Convert.ToDouble(Vznos1Fevrali.Text) +
+                           Convert.ToDouble(Vznos1Mart.Text) + Convert.ToDouble(Vznos1Aprel.Text) +
+                           Convert.ToDouble(Vznos1Mai.Text) +
+                           Convert.ToDouble(Vznos1Iyul.Text) + Convert.ToDouble(Vznos1Iyun.Text)
+                           + Convert.ToDouble(Vznos1Avgust.Text) + Convert.ToDouble(Vznos1Sentiabr.Text) +
+                           Convert.ToDouble(Vznos1Oktiabri.Text) + Convert.ToDouble(Vznos1Noiabr.Text) +
+                           Convert.ToDouble(Vznos1Dekabri.Text) +
+                           //
+                           Convert.ToDouble(IndexVznos1Ianvari.Text) + Convert.ToDouble(IndexVznos1Fevrali.Text) +
+                           Convert.ToDouble(IndexVznos1Mart.Text) + Convert.ToDouble(IndexVznos1Aprel.Text) +
+                           Convert.ToDouble(IndexVznos1Mai.Text) +
+                           Convert.ToDouble(IndexVznos1Iyul.Text) + Convert.ToDouble(IndexVznos1Iyun.Text)
+                           + Convert.ToDouble(IndexVznos1Avgust.Text) + Convert.ToDouble(IndexVznos1Sentiabr.Text) +
+                           Convert.ToDouble(IndexVznos1Oktiabri.Text) + Convert.ToDouble(IndexVznos1Noiabr.Text) +
+                           Convert.ToDouble(IndexVznos1Dekabri.Text);;
+                Vznosi313_TextBlock.Text = b.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            
+            {
+                double c = Convert.ToDouble(DoxodIanvari.Text) + Convert.ToDouble(DoxodFevrali.Text) +
+                           Convert.ToDouble(DoxodMart.Text) + Convert.ToDouble(DoxodAprel.Text) +
+                           Convert.ToDouble(DoxodMai.Text) +
+                           Convert.ToDouble(DoxodIyul.Text) + Convert.ToDouble(DoxodIyun.Text)
+                           + Convert.ToDouble(DoxodAvgust.Text) + Convert.ToDouble(DoxodSentiabr.Text) +
+                           Convert.ToDouble(DoxodOktiabri.Text) + Convert.ToDouble(DoxodNoiabr.Text) +
+                           Convert.ToDouble(DoxodDekabri.Text);
+                Doxod31_TextBlock.Text = c.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
+            try
+            {
+                double d = Convert.ToDouble(Vznos3Ianvari.Text) + Convert.ToDouble(Vznos3Fevrali.Text) +
+                           Convert.ToDouble(Vznos3Mart.Text) + Convert.ToDouble(Vznos3Aprel.Text) +
+                           Convert.ToDouble(Vznos3Mai.Text) +
+                           Convert.ToDouble(Vznos3Iyul.Text) + Convert.ToDouble(Vznos3Iyun.Text)
+                           + Convert.ToDouble(Vznos3Avgust.Text) + Convert.ToDouble(Vznos3Sentiabr.Text) +
+                           Convert.ToDouble(Vznos3Oktiabri.Text) + Convert.ToDouble(Vznos3Noiabr.Text) +
+                           Convert.ToDouble(Vznos3Dekabri.Text) +
+                           //
+                           Convert.ToDouble(IndexVznos3Ianvari.Text) + Convert.ToDouble(IndexVznos3Fevrali.Text) +
+                           Convert.ToDouble(IndexVznos3Mart.Text) + Convert.ToDouble(IndexVznos3Aprel.Text) +
+                           Convert.ToDouble(IndexVznos3Mai.Text) +
+                           Convert.ToDouble(IndexVznos3Iyul.Text) + Convert.ToDouble(IndexVznos3Iyun.Text)
+                           + Convert.ToDouble(IndexVznos3Avgust.Text) + Convert.ToDouble(IndexVznos3Sentiabr.Text) +
+                           Convert.ToDouble(IndexVznos3Oktiabri.Text) + Convert.ToDouble(IndexVznos3Noiabr.Text) +
+                           Convert.ToDouble(IndexVznos3Dekabri.Text);;
+                Vznosi315_TextBlock.Text = d.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+               
+            
+                
+               
             
         }
 
-        public void GetVznos(UserTable table)
-        {
- try
+        public async void GetVznos(UserTable table)
+        { try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 string commandText = $"SELECT * FROM nzzGtRxVKL.VznosiTabl1 WHERE idDoxod = {table.IdSviazi};";
                 string commandText2 = $"SELECT * FROM nzzGtRxVKL.VznosiTabl2 WHERE idDoxod= {table.IdSviazi};";
                 string commandText3 = $"SELECT * FROM nzzGtRxVKL.VznosiTabl3 WHERE idDoxod= {table.IdSviazi};";
                 myCommand = new MySqlCommand(commandText, myConnection);
-                myConnection.Open();
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                await myConnection.OpenAsync();
+                MyDataReader = await  myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     vznosiTable1 = MyDataReader.GetInt32(0);
                     Vznos1Ianvari.Text = MyDataReader.GetString(2);
@@ -415,8 +474,8 @@ namespace APM_Spravka
                 }
                 MyDataReader.Close();
                 myCommand = new MySqlCommand(commandText2, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     vznosiTable2 = MyDataReader.GetInt32(0);
                     Vznos2Ianvari.Text = MyDataReader.GetString(2);
@@ -434,8 +493,8 @@ namespace APM_Spravka
                 }
                 MyDataReader.Close();
                 myCommand = new MySqlCommand(commandText3, myConnection);
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     vznosiTable3 = MyDataReader.GetInt32(0);
                     Vznos3Ianvari.Text = MyDataReader.GetString(2);
@@ -504,16 +563,16 @@ namespace APM_Spravka
             }
         }
         
-        public void GetRazdel2(UserTable table)
+        public async void GetRazdel2(UserTable table)
         {
             try
             {
                 MySqlConnection myConnection = new MySqlConnection(CONNECT);
                 string commandText = $"SELECT * FROM nzzGtRxVKL.Rasdel2 WHERE idSviazi = {table.IdSviazi};";
                 myCommand = new MySqlCommand(commandText, myConnection);
-                myConnection.Open();
-                MyDataReader = myCommand.ExecuteReader();
-                while (MyDataReader.Read())
+                await myConnection.OpenAsync();
+                MyDataReader = await myCommand.ExecuteReaderAsync();
+                while (await MyDataReader.ReadAsync())
                 {
                     razdel2 = MyDataReader.GetInt32(0);
                     UNP_TextBox.Text = MyDataReader.GetString(2);
@@ -695,6 +754,99 @@ namespace APM_Spravka
             {
                SetRazdel2();
             }
+        }
+
+        private void Record_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+            
+            Load load = new Load();
+            load.Show();
+            this.Hide();
+            if (userTablee != null)
+            {
+
+                GetRazdel2(userTablee);
+                GetDoxod(userTablee);
+              GetVznos(userTablee);
+              GetP317(userTablee);
+              GetLigoti(userTablee);
+              GetVicheti(userTablee);
+              GetRazdel5(userTablee);
+              GetRazdel67(userTablee);
+              updatee = true;
+                Shet();
+            }
+        
+        this.Show();                        
+        load.Close(); 
+            } 
+        catch (Exception exception)
+        {
+            MessageBox.Show(exception.ToString());
+        }
+        }
+        
+        
+
+        public void SetListBox(string nameList, string Data)
+        {
+            List<DoxodiData> tempData = new List<DoxodiData>();
+            var tempString = Data.Split('/');
+            for (int i = 0; i < tempString.Length; i++)
+            {
+                tempData.Add(DoxodiData.splitData(tempString[i]));
+            }
+            switch (nameList)
+            {
+                case "Avtor_ListBox":
+                    for (int i = 0; i < tempData.Count; i++)
+                    {
+                        Avtor_ListBox.Items.Add(tempData.ToString());    
+                    }
+                    
+                    break;
+                case "OperCB_ListBox":
+                    foreach (var VARIABLE in tempData)
+                    {
+                        OperCB_ListBox.Items.Add(VARIABLE.ToString());
+                    }
+                    break;
+                case "L41_ListBox":
+                    foreach (var VARIABLE in tempData)
+                    {
+                        L41_ListBox.Items.Add(VARIABLE.ToString());
+                    }
+                    break;
+                case "L42_ListBox":
+                    foreach (var VARIABLE in tempData)
+                    {
+                        L42_ListBox.Items.Add(VARIABLE.ToString());
+                    }
+                    
+                    break;
+                case "l61_ListBox":
+                    foreach (var VARIABLE in tempData)
+                    {
+                        l61_ListBox.Items.Add(VARIABLE.ToString());
+                    }
+                    break;
+                case "l62_ListBox":
+                    foreach (var VARIABLE in tempData)
+                    {
+                        l62_ListBox.Items.Add(VARIABLE.ToString());
+                    }
+                    break;
+            }    
+        }
+
+        
+        
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+         
         }
     }
 }
